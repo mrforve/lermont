@@ -10,14 +10,12 @@
         <p>Мы находимся в самом центре Геленджика, в нескольких минутах от набережной.</p>
     </div>
 </section>
-
 <section class="contacts-main page-section">
     <div class="container">
         <div class="contacts-grid">
             <div class="contacts-card contacts-card--primary">
                 <div class="page-eyebrow page-eyebrow--dark"><span></span> КОНТАКТЫ</div>
                 <h2>Свяжитесь с нами</h2>
-
                 <div class="contacts-list">
                     <div class="contacts-list__item">
                         <span class="contacts-list__icon">⌖</span>
@@ -32,13 +30,11 @@
                         <div><small>Электронная почта</small><strong>info@hotel-lermont.ru</strong></div>
                     </a>
                 </div>
-
                 <div class="contacts-actions">
                     <a class="btn btn-gold" href="tel:+79282414322">Позвонить</a>
                     <a class="about-outline-btn" href="https://wa.me/79282414322" target="_blank" rel="noopener">Написать в WhatsApp</a>
                 </div>
             </div>
-
             <div class="contacts-map">
                 <iframe
                     src="https://yandex.ru/map-widget/v1/?ll=38.07958%2C44.55988&z=17&pt=38.07958,44.55988,pm2rdm"
@@ -48,7 +44,6 @@
                 ></iframe>
             </div>
         </div>
-
         <div class="contacts-route">
             <div>
                 <div class="page-eyebrow page-eyebrow--dark"><span></span> КАК ДОБРАТЬСЯ</div>
@@ -61,7 +56,6 @@
                 <a href="https://m.2gis.ru/gelendzhik/firm/70000001006398601?m=38.07958%2C44.55988%2F18" target="_blank" rel="noopener">2ГИС</a>
             </div>
         </div>
-
         <div class="contacts-bottom-grid">
             <div class="contacts-legal">
                 <div class="page-eyebrow page-eyebrow--dark"><span></span> РЕКВИЗИТЫ</div>
@@ -72,7 +66,6 @@
                     <div><dt>ИНН</dt><dd>230404441527</dd></div>
                 </dl>
             </div>
-
             <div class="contacts-socials">
                 <div class="page-eyebrow page-eyebrow--dark"><span></span> МЫ НА СВЯЗИ</div>
                 <h2>Социальные сети</h2>
@@ -87,7 +80,6 @@
         </div>
     </div>
 </section>
-
 @include('partials.contact-form', [
     'type' => \App\Models\ContactRequest::TYPE_MESSAGE,
     'title' => 'Напишите нам',

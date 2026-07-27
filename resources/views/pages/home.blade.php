@@ -779,18 +779,18 @@
                 <div class="col-lg-3 col-md-12 mb-5 mb-lg-0">
                     <div class="pe-lg-4">
                         <span class="text-gold">
-                            Спецпредложения —
+                            Новости —
                         </span>
 
                         <h2 class="display-5 mt-3">
-                            Отдыхайте с выгодой в любое время года
+                            События и предложения отеля
                         </h2>
 
                         <a
                             href="#offers"
                             class="text-gold d-inline-flex align-items-center gap-2 mt-4"
                         >
-                            Смотреть все предложения
+                            Смотреть все новости
 
                             <span class="fs-4">→</span>
                         </a>
@@ -802,64 +802,103 @@
                         <div class="rooms-slider-wrapper">
                             <div class="offers-slider swiper">
                                 <div class="swiper-wrapper">
-                                    @for ($i = 0; $i < 6; $i++)
+                                    @forelse ($newsItems as $newsItem)
+                                        @php
+                                            $newsUrl = filled($newsItem->button_url)
+                                                ? $newsItem->button_url
+                                                : '#offers';
+                                        @endphp
+
                                         <div class="swiper-slide">
-                                            <div class="room-card">
+                                            <a
+                                                href="{{ $newsUrl }}"
+                                                class="room-card offers-card text-decoration-none d-block"
+                                            >
                                                 <img
-                                                    src="{{ asset('img/KIR_9553-1920x1080.jpg') }}"
+                                                    src="{{ $newsItem->image
+                                                        ? Storage::disk('public')->url($newsItem->image)
+                                                        : asset('img/KIR_9553-1920x1080.jpg') }}"
                                                     class="img-fluid"
-                                                    alt="Специальное предложение"
+                                                    alt="{{ $newsItem->title }}"
                                                     loading="lazy"
                                                 >
 
                                                 <div class="p-3">
-                                                    <h5>Специальное предложение</h5>
+                                                    @if ($newsItem->published_at)
+                                                        <div class="offers-card__date">
+                                                            {{ $newsItem->published_at->format('d.m.Y') }}
+                                                        </div>
+                                                    @endif
 
-                                                    <p class="text-white-50 small">
-                                                        Информация появится позже
+                                                    <h5>{{ $newsItem->title }}</h5>
+
+                                                    @if ($newsItem->short_description)
+                                                        <p class="text-white-50 small mb-0">
+                                                            {{ Str::limit(strip_tags($newsItem->short_description), 105) }}
+                                                        </p>
+                                                    @endif
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @empty
+                                        <div class="swiper-slide">
+                                            <div class="room-card offers-card">
+                                                <img
+                                                    src="{{ asset('img/KIR_9553-1920x1080.jpg') }}"
+                                                    class="img-fluid"
+                                                    alt="Новости отеля"
+                                                    loading="lazy"
+                                                >
+
+                                                <div class="p-3">
+                                                    <h5>Новости отеля</h5>
+                                                    <p class="text-white-50 small mb-0">
+                                                        Скоро здесь появятся новые публикации.
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endfor
+                                    @endforelse
                                 </div>
                             </div>
 
-                            <div
-                                class="slider-btn next-btn"
-                                id="offers-next"
-                            >
-                                <svg
-                                    width="32"
-                                    height="32"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="#c9a66b"
-                                    stroke-width="3"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                            @if ($newsItems->count() > 1)
+                                <div
+                                    class="slider-btn next-btn"
+                                    id="offers-next"
                                 >
-                                    <path d="M9 6l6 6-6 6" />
-                                </svg>
-                            </div>
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="#c9a66b"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M9 6l6 6-6 6" />
+                                    </svg>
+                                </div>
 
-                            <div
-                                class="slider-btn prev-btn d-none"
-                                id="offers-prev"
-                            >
-                                <svg
-                                    width="32"
-                                    height="32"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="#c9a66b"
-                                    stroke-width="3"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                <div
+                                    class="slider-btn prev-btn d-none"
+                                    id="offers-prev"
                                 >
-                                    <path d="M15 18l-6-6 6-6" />
-                                </svg>
-                            </div>
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="#c9a66b"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M15 18l-6-6 6-6" />
+                                    </svg>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

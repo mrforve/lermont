@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContentItem;
 use App\Models\GalleryImage;
 use App\Models\Page;
 use App\Models\RoomType;
@@ -20,10 +21,14 @@ class PageController extends Controller
         $slides = Slide::query()
             ->where('is_active', true)
             ->where(function ($query): void {
-                $query->whereNull('starts_at')->orWhere('starts_at', '<=', now());
+                $query
+                    ->whereNull('starts_at')
+                    ->orWhere('starts_at', '<=', now());
             })
             ->where(function ($query): void {
-                $query->whereNull('ends_at')->orWhere('ends_at', '>=', now());
+                $query
+                    ->whereNull('ends_at')
+                    ->orWhere('ends_at', '>=', now());
             })
             ->orderBy('sort_order')
             ->get();
@@ -34,7 +39,23 @@ class PageController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('pages.home', compact('page', 'slides', 'roomTypes'));
+        $newsItems = ContentItem::query()
+            ->with('category')
+            ->published()
+            ->inCategory('news')
+            ->where('show_on_home', true)
+            ->orderBy('sort_order')
+            ->orderByDesc('published_at')
+            ->orderByDesc('id')
+            ->limit(6)
+            ->get();
+
+        return view('pages.home', [
+            'page' => $page,
+            'slides' => $slides,
+            'roomTypes' => $roomTypes,
+            'newsItems' => $newsItems,
+        ]);
     }
 
     public function show(string $slug): View
@@ -45,7 +66,10 @@ class PageController extends Controller
             ->firstOrFail();
 
         if ($page->slug === 'about') {
-            $slides = Slide::query()->where('is_active', true)->orderBy('sort_order')->get();
+            $slides = Slide::query()
+                ->where('is_active', true)
+                ->orderBy('sort_order')
+                ->get();
 
             $roomTypes = RoomType::query()
                 ->with(['images' => fn ($query) => $query->where('is_active', true)])

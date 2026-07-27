@@ -9,7 +9,6 @@
         $siteSettings = $settings ?? null;
 
         $pageTitle = trim($__env->yieldContent('title'));
-
         $title = $pageTitle !== ''
             ? $pageTitle
             : (
@@ -25,7 +24,6 @@
     @endphp
 
     <title>{{ $title }}</title>
-
     @if ($description)
         <meta name="description" content="{{ $description }}">
     @endif
@@ -41,7 +39,6 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
@@ -56,7 +53,8 @@
         'resources/css/app.css',
         'resources/js/app.js',
     ])
-    
+
+    <link href="{{ asset('css/contact-services.css') }}?v=20260727-1" rel="stylesheet">
 </head>
 <body>
     @include('partials.header')
@@ -64,7 +62,6 @@
     <main>
         @yield('content')
     </main>
-
     @include('partials.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

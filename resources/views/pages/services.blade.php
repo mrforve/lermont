@@ -9,7 +9,6 @@
         return $image?->image ? asset('storage/' . $image->image) : $fallback;
     };
 @endphp
-
 <section class="services-hero">
     <div class="container services-hero__content">
         <div class="page-eyebrow"><span></span> ЛЕРМОНТ</div>
@@ -17,7 +16,6 @@
         <p>Всё необходимое для комфортного отдыха, семейной поездки и делового визита в Геленджик.</p>
     </div>
 </section>
-
 <section class="services-intro page-section">
     <div class="container">
         <div class="services-heading">
@@ -25,16 +23,64 @@
             <h2>Продумано до мелочей</h2>
             <p>Часть услуг уже включена в проживание. Дополнительные возможности можно заказать у администратора.</p>
         </div>
-
         <div class="services-benefits">
-            <article><span>01</span><h3>Завтраки</h3><p>Комплиментарный завтрак в формате «шведский стол».</p></article>
-            <article><span>02</span><h3>Парковка</h3><p>Парковка напротив отеля при прямом бронировании.</p></article>
-            <article><span>03</span><h3>Wi‑Fi</h3><p>Скоростной интернет на всей территории отеля.</p></article>
-            <article><span>04</span><h3>Для семьи</h3><p>Детские принадлежности, книги и настольные игры.</p></article>
+            <article>
+                <div class="services-benefits__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M4 10h13a3 3 0 0 1 0 6H5a3 3 0 0 1-1-5.83V10Z"/>
+                        <path d="M17 10V8a3 3 0 0 0-3-3H8"/>
+                        <path d="M19 10h1a2 2 0 0 1 0 4h-1"/>
+                        <path d="M6 19h10"/>
+                    </svg>
+                </div>
+                <h3>Завтраки</h3>
+                <p>Комплиментарный завтрак в формате «шведский стол».</p>
+            </article>
+
+            <article>
+                <div class="services-benefits__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M3 14l2-5a3 3 0 0 1 2.84-2h8.32A3 3 0 0 1 19 9l2 5"/>
+                        <path d="M5 14h14v4a1 1 0 0 1-1 1h-1"/>
+                        <path d="M5 19H4a1 1 0 0 1-1-1v-4"/>
+                        <circle cx="7.5" cy="14.5" r="1"/>
+                        <circle cx="16.5" cy="14.5" r="1"/>
+                        <path d="M7 19v2"/>
+                        <path d="M17 19v2"/>
+                    </svg>
+                </div>
+                <h3>Парковка</h3>
+                <p>Парковка напротив отеля при прямом бронировании.</p>
+            </article>
+
+            <article>
+                <div class="services-benefits__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M2 8.82A15.91 15.91 0 0 1 12 5c3.85 0 7.38 1.36 10 3.64"/>
+                        <path d="M5 12.55A11.94 11.94 0 0 1 12 10c2.66 0 5.12.87 7.11 2.35"/>
+                        <path d="M8.5 16.2A6.94 6.94 0 0 1 12 15c1.32 0 2.55.37 3.59 1.01"/>
+                        <circle cx="12" cy="19" r="1.2" fill="currentColor" stroke="none"/>
+                    </svg>
+                </div>
+                <h3>Wi‑Fi</h3>
+                <p>Скоростной интернет на всей территории отеля.</p>
+            </article>
+
+            <article>
+                <div class="services-benefits__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="8" cy="8" r="2.5"/>
+                        <circle cx="16.5" cy="9" r="2"/>
+                        <path d="M4.5 18a3.5 3.5 0 0 1 3.5-3.5h0A3.5 3.5 0 0 1 11.5 18"/>
+                        <path d="M13.5 18a3 3 0 0 1 6 0"/>
+                    </svg>
+                </div>
+                <h3>Для семьи</h3>
+                <p>Детские принадлежности, книги и настольные игры.</p>
+            </article>
         </div>
     </div>
 </section>
-
 <section class="services-feature services-feature--light">
     <div class="container services-feature__grid">
         <div class="services-feature__copy">
@@ -52,7 +98,6 @@
         <div class="services-feature__media"><img src="{{ $imageUrl(0, 'https://hotel-lermont.ru/wp-content/uploads/2022/05/mice_001.jpg') }}" alt="Корпоративное размещение в отеле Лермонт"></div>
     </div>
 </section>
-
 <section class="services-feature services-feature--reverse">
     <div class="container services-feature__grid">
         <div class="services-feature__media"><img src="{{ $imageUrl(1, 'https://hotel-lermont.ru/wp-content/uploads/2022/09/20220928_145356-855x1024.jpg') }}" alt="Комплиментарные услуги отеля"></div>
@@ -72,7 +117,6 @@
         </div>
     </div>
 </section>
-
 <section class="services-family page-section">
     <div class="container">
         <div class="services-heading services-heading--center">
@@ -89,7 +133,6 @@
         </div>
     </div>
 </section>
-
 <section class="services-extra">
     <div class="container services-extra__grid">
         <article>
@@ -109,7 +152,6 @@
         </article>
     </div>
 </section>
-
 <section class="services-cta">
     <div class="container services-cta__inner">
         <div><div class="page-eyebrow"><span></span> ЛЕРМОНТ</div><h2>Нужна дополнительная услуга?</h2><p>Свяжитесь с нами — администратор уточнит доступность и стоимость.</p></div>
