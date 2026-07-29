@@ -75,7 +75,7 @@
                         aria-label="Открыть изображение: {{ $roomType->name }}"
                     >
                         <img
-                            src="{{ asset('storage/' . $roomType->main_image) }}"
+                            src="{{ \App\Support\ImageVariants::url($roomType->main_image, 'room-main') }}"
                             alt="{{ $roomType->name }}"
                         >
                     </button>
@@ -90,7 +90,7 @@
                         aria-label="Открыть изображение: {{ $image->alt ?: $roomType->name }}"
                     >
                         <img
-                            src="{{ asset('storage/' . $image->image) }}"
+                            src="{{ \App\Support\ImageVariants::url($image->image, 'room-thumb') }}"
                             alt="{{ $image->alt ?: $roomType->name }}"
                             loading="lazy"
                         >

@@ -20,7 +20,7 @@
                 @if (!empty($data['image']))
                     <figure>
                         <img
-                            src="{{ asset('storage/' . $data['image']) }}"
+                            src="{{ \App\Support\ImageVariants::url($data['image'], 'content') }}"
                             alt="{{ $data['alt'] ?? '' }}"
                         >
 
@@ -41,7 +41,7 @@
                 <div class="gallery">
                     @foreach ($data['images'] ?? [] as $image)
                         <img
-                            src="{{ asset('storage/' . $image) }}"
+                            src="{{ \App\Support\ImageVariants::url($image, 'gallery-card') }}"
                             alt=""
                         >
                     @endforeach

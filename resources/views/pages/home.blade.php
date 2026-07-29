@@ -15,7 +15,7 @@
                         rgba(15, 31, 26, 0.28) 55%,
                         rgba(15, 31, 26, 0.08) 100%
                     ),
-                    url('{{ asset('storage/' . $mainSlide->image) }}');
+                    url('{{ \App\Support\ImageVariants::url($mainSlide->image, 'hero') }}');
             "
         @endif
     >
@@ -447,7 +447,7 @@
                                                     <div class="room-card">
                                                         @if ($roomType->main_image)
                                                             <img
-                                                                src="{{ asset('storage/' . $roomType->main_image) }}"
+                                                                src="{{ \App\Support\ImageVariants::url($roomType->main_image, 'room-card') }}"
                                                                 class="img-fluid"
                                                                 alt="{{ $roomType->name }}"
                                                                 loading="lazy"
@@ -816,7 +816,7 @@
                                             >
                                                 <img
                                                     src="{{ $newsItem->image
-                                                        ? Storage::disk('public')->url($newsItem->image)
+                                                        ? \App\Support\ImageVariants::url($newsItem->image, 'news-card')
                                                         : asset('img/KIR_9553-1920x1080.jpg') }}"
                                                     class="img-fluid"
                                                     alt="{{ $newsItem->title }}"

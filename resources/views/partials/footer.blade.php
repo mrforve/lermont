@@ -3,8 +3,18 @@
         <div class="row gy-4 align-items-start">
             <div class="col-lg-4 col-md-6">
                 <a class="site-logo footer-logo" href="{{ route('home') }}" aria-label="{{ $settings?->site_name ?? 'Лермонт отель' }}">
-                    @if ($settings?->logo)
-                        <img src="{{ asset('storage/' . $settings->logo) }}" alt="{{ $settings?->site_name ?? 'Лермонт отель' }}" class="site-logo__image">
+                    @if ($settings?->logo_dark)
+                        <img
+                            src="{{ asset('storage/' . $settings->logo_dark) }}"
+                            alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
+                            class="site-logo__image"
+                        >
+                    @elseif ($settings?->logo)
+                        <img
+                            src="{{ asset('storage/' . $settings->logo) }}"
+                            alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
+                            class="site-logo__image"
+                        >
                     @else
                         <span class="site-logo__mark">Л</span><span class="site-logo__text">ЛЕРМОНТ</span><span class="site-logo__sub">отель</span>
                     @endif

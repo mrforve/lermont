@@ -35,7 +35,7 @@
 
         if ($image) {
             return [
-                'url' => asset('storage/' . $image['path']),
+                'url' => \App\Support\ImageVariants::url($image['path'], 'gallery-card'),
                 'alt' => $image['alt'],
             ];
         }
@@ -44,7 +44,7 @@
 
         if ($firstImage) {
             return [
-                'url' => asset('storage/' . $firstImage['path']),
+                'url' => \App\Support\ImageVariants::url($firstImage['path'], 'gallery-card'),
                 'alt' => $firstImage['alt'],
             ];
         }
@@ -68,7 +68,7 @@
 <section
     class="about-hero"
     @if ($heroImage)
-        style="--about-hero-image: url('{{ asset('storage/' . $heroImage) }}')"
+        style="--about-hero-image: url('{{ \App\Support\ImageVariants::url($heroImage, 'about-hero') }}')"
     @else
         style="--about-hero-image: url('{{ asset('images/about/hero.jpg') }}')"
     @endif
