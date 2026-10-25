@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ContentItem;
 use App\Models\GalleryImage;
 use App\Models\Page;
+use App\Models\Promotion;
 use App\Models\RoomType;
 use App\Models\Slide;
 use Illuminate\View\View;
@@ -39,6 +40,13 @@ class PageController extends Controller
             ->orderBy('name')
             ->get();
 
+        $promotions = Promotion::query()
+            ->active()
+            ->orderBy('sort_order')
+            ->orderByDesc('id')
+            ->limit(6)
+            ->get();
+
         $newsItems = ContentItem::query()
             ->with('category')
             ->published()
@@ -54,6 +62,7 @@ class PageController extends Controller
             'page' => $page,
             'slides' => $slides,
             'roomTypes' => $roomTypes,
+            'promotions' => $promotions,
             'newsItems' => $newsItems,
         ]);
     }
@@ -65,6 +74,13 @@ class PageController extends Controller
             ->where('is_active', true)
             ->firstOrFail();
 
+        if ($page->slug === 'breakfast') {
+            return view(
+                'pages.breakfast',
+                compact('page')
+            );
+        }
+
         if ($page->slug === 'about') {
             $slides = Slide::query()
                 ->where('is_active', true)
@@ -72,13 +88,20 @@ class PageController extends Controller
                 ->get();
 
             $roomTypes = RoomType::query()
-                ->with(['images' => fn ($query) => $query->where('is_active', true)])
+                ->with([
+                    'images' => fn ($query) => $query
+                        ->where('is_active', true),
+                ])
                 ->where('is_active', true)
                 ->orderBy('sort_order')
                 ->orderBy('name')
                 ->get();
 
-            return view('pages.about', compact('page', 'slides', 'roomTypes'));
+            return view('pages.about', compact(
+                'page',
+                'slides',
+                'roomTypes'
+            ));
         }
 
         if ($page->slug === 'gallery') {
@@ -88,11 +111,17 @@ class PageController extends Controller
                 ->orderByDesc('id')
                 ->get();
 
-            return view('pages.gallery', compact('page', 'galleryImages'));
+            return view(
+                'pages.gallery',
+                compact('page', 'galleryImages')
+            );
         }
 
         if ($page->slug === 'contacts') {
-            return view('pages.contacts', compact('page'));
+            return view(
+                'pages.contacts',
+                compact('page')
+            );
         }
 
         if ($page->slug === 'services') {
@@ -103,9 +132,15 @@ class PageController extends Controller
                 ->limit(8)
                 ->get();
 
-            return view('pages.services', compact('page', 'galleryImages'));
+            return view(
+                'pages.services',
+                compact('page', 'galleryImages')
+            );
         }
 
-        return view('pages.show', compact('page'));
+        return view(
+            'pages.show',
+            compact('page')
+        );
     }
 }

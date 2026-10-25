@@ -32,7 +32,12 @@
                 </div>
                 <div class="contacts-actions">
                     <a class="btn btn-gold" href="tel:+79282414322">Позвонить</a>
-                    <a class="about-outline-btn" href="https://wa.me/79282414322" target="_blank" rel="noopener">Написать в WhatsApp</a>
+                    <a class="about-outline-btn"
+					   href="https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA"
+					   target="_blank"
+					   rel="noopener">
+						Написать в MAX
+					</a>
                 </div>
             </div>
             <div class="contacts-map">
@@ -70,8 +75,17 @@
                 <div class="page-eyebrow page-eyebrow--dark"><span></span> МЫ НА СВЯЗИ</div>
                 <h2>Социальные сети</h2>
                 <div class="contacts-socials__grid">
-                    <a href="https://t.me/hotel_lermont_gel" target="_blank" rel="noopener">Telegram</a>
-                    <a href="https://wa.me/79282414322" target="_blank" rel="noopener">WhatsApp</a>
+					<a href="https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA"
+					   target="_blank"
+					   rel="noopener">
+						MAX — написать
+					</a>
+
+					<a href="https://max.ru/id230404441527_biz"
+					   target="_blank"
+					   rel="noopener">
+						Канал MAX
+					</a>a>
                     <a href="https://vk.com/hotellermont" target="_blank" rel="noopener">ВКонтакте</a>
                     <a href="https://ok.ru/group/62027103731756" target="_blank" rel="noopener">Одноклассники</a>
                     <a href="https://www.tripadvisor.ru/Hotel_Review-g298514-d12824127-Reviews-Hotel_Lermont-Gelendzhik_Gelendzhiksky_District_Krasnodar_Krai_Southern_District.html" target="_blank" rel="noopener">Tripadvisor</a>

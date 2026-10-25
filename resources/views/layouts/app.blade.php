@@ -55,6 +55,7 @@
     ])
 
     <link href="{{ asset('css/contact-services.css') }}?v=20260727-1" rel="stylesheet">
+    <link href="{{ asset('css/travelline.css') }}?v=1" rel="stylesheet">
 </head>
 <body>
     @include('partials.header')
@@ -65,5 +66,6 @@
     @include('partials.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    @include('partials.travelline-loader')
 </body>
 </html>

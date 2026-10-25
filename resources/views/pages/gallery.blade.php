@@ -16,7 +16,7 @@
     $heroImage = $galleryImages->first()?->image;
 @endphp
 
-<section class="hotel-gallery-hero" @if($heroImage) style="--gallery-hero-image: url('{{ asset('storage/' . $heroImage) }}')" @endif>
+<section class="hotel-gallery-hero" @if($heroImage) style="--gallery-hero-image: url('{{ \App\Support\ImageVariants::url($heroImage, 'gallery-hero') }}')" @endif>
     <div class="container hotel-gallery-hero__content">
         <div class="hotel-gallery-eyebrow"><span></span> ЛЕРМОНТ</div>
         <h1>{{ $page->title ?: 'Галерея отеля' }}</h1>
@@ -45,7 +45,7 @@
                         data-gallery-alt="{{ $image->alt ?: $image->title ?: 'Фотография отеля Лермонт' }}"
                         data-gallery-title="{{ $image->title }}"
                     >
-                        <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->alt ?: $image->title ?: 'Фотография отеля Лермонт' }}" loading="lazy">
+                        <img src="{{ \App\Support\ImageVariants::url($image->image, 'gallery-card') }}" alt="{{ $image->alt ?: $image->title ?: 'Фотография отеля Лермонт' }}" loading="lazy">
                         @if($image->title)
                             <span class="hotel-gallery-item__caption">{{ $image->title }}</span>
                         @endif

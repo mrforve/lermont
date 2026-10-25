@@ -3,8 +3,18 @@
         <div class="row gy-4 align-items-start">
             <div class="col-lg-4 col-md-6">
                 <a class="site-logo footer-logo" href="{{ route('home') }}" aria-label="{{ $settings?->site_name ?? 'Лермонт отель' }}">
-                    @if ($settings?->logo)
-                        <img src="{{ asset('storage/' . $settings->logo) }}" alt="{{ $settings?->site_name ?? 'Лермонт отель' }}" class="site-logo__image">
+                    @if ($settings?->logo_dark)
+                        <img
+                            src="{{ asset('storage/' . $settings->logo_dark) }}"
+                            alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
+                            class="site-logo__image"
+                        >
+                    @elseif ($settings?->logo)
+                        <img
+                            src="{{ asset('storage/' . $settings->logo) }}"
+                            alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
+                            class="site-logo__image"
+                        >
                     @else
                         <span class="site-logo__mark">Л</span><span class="site-logo__text">ЛЕРМОНТ</span><span class="site-logo__sub">отель</span>
                     @endif
@@ -44,7 +54,12 @@
 
             <div class="col-lg-2 col-md-6 footer-actions">
                 <button class="btn btn-outline-light w-100 mb-3" type="button">Забронировать</button>
-                <a href="https://wa.me/79282414322" class="footer-whatsapp" target="_blank" rel="noopener noreferrer">Напишите нам в WhatsApp</a>
+				<a href="https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA"
+				   class="footer-whatsapp"
+				   target="_blank"
+				   rel="noopener noreferrer">
+					Напишите нам в MAX
+				</a>
             </div>
         </div>
 

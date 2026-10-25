@@ -15,7 +15,7 @@
                         rgba(15, 31, 26, 0.28) 55%,
                         rgba(15, 31, 26, 0.08) 100%
                     ),
-                    url('{{ asset('storage/' . $mainSlide->image) }}');
+                    url('{{ \App\Support\ImageVariants::url($mainSlide->image, 'hero') }}');
             "
         @endif
     >
@@ -46,16 +46,13 @@
                     @endif
 
                     <div class="d-flex flex-wrap gap-3">
-                        <button
-                            type="button"
-                            class="btn btn-gold btn-lg px-5 py-3"
-                        >
+                        <a href="{{ route('booking') }}" class="btn btn-gold btn-lg px-5 py-3">
                             ПРОВЕРИТЬ ДАТЫ
-                        </button>
+                        </a>
 
                         <a
                             class="watchVideo"
-                            href="#about"
+                            href="{{ asset('img/sdf.mp4') }}"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -87,67 +84,14 @@
         </div>
 
         <div class="container Booking-Widget-box position-absolute start-50 translate-middle-x">
-            <div class="booking-widget p-4">
-                <div class="row g-3 align-items-end">
-                    <div class="col-md-3">
-                        <label
-                            for="checkin"
-                            class="form-label text-muted mb-1"
-                        >
-                            Заезд
-                        </label>
-
-                        <input
-                            type="date"
-                            id="checkin"
-                            class="form-control border-0 bg-transparent fs-5"
-                            disabled
-                        >
-                    </div>
-
-                    <div class="col-md-3">
-                        <label
-                            for="checkout"
-                            class="form-label text-muted mb-1"
-                        >
-                            Выезд
-                        </label>
-
-                        <input
-                            type="date"
-                            id="checkout"
-                            class="form-control border-0 bg-transparent fs-5"
-                            disabled
-                        >
-                    </div>
-
-                    <div class="col-md-3">
-                        <label
-                            for="guests"
-                            class="form-label text-muted mb-1"
-                        >
-                            Гости
-                        </label>
-
-                        <select
-                            id="guests"
-                            class="form-select border-0 bg-transparent fs-5"
-                            disabled
-                        >
-                            <option>2 взрослых</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-3">
-                        <button
-                            type="button"
-                            class="btn btn-dark w-100 py-3 fw-semibold"
-                            disabled
-                        >
-                            НАЙТИ НОМЕР
-                        </button>
-                    </div>
+            <div class="booking-widget travelline-home-widget">
+                <div id="tl-search-form" class="tl-container">
+                    <noscript>
+                        Для поиска номеров включите JavaScript в браузере.
+                    </noscript>
                 </div>
+            </div>
+        </div>
             </div>
         </div>
     </section>
@@ -326,7 +270,7 @@
                         <div>
                             <h5>ПАРКОВКА</h5>
                             <div>
-                                Бесплатная на территории.
+                                Бесплатная напротив отеля.
                             </div>
                         </div>
                     </div>
@@ -407,124 +351,150 @@
             </div>
         </div>
     </section>
+	
+<section class="home-breakfast">
+    <div class="container">
+
+        <div class="home-breakfast__grid">
+
+            <div class="home-breakfast__content">
+
+                <span class="home-breakfast__eyebrow">
+                    ДОБРОЕ УТРО В «ЛЕРМОНТЕ»
+                </span>
+
+                <h2 class="home-breakfast__title">
+                    Утро начинается<br>
+                    в «Лермонте»
+                </h2>
+
+                <p class="home-breakfast__text">
+                    Шведский стол, любимые блюда
+                    и время для себя.
+                </p>
+
+                <a href="/breakfast" class="home-breakfast__badge">
+
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M8 10h13v7c0 4-3 7-7 7s-6-3-6-7v-7Z"/>
+                        <path d="M21 12h2c3 0 5 2 5 5s-2 5-5 5h-3"/>
+                        <path d="M6 27h19"/>
+                        <path d="M11 7c0-2 2-2 2-5"/>
+                        <path d="M16 7c0-2 2-2 2-5"/>
+                    </svg>
+
+                    <span>
+                        О наших завтраках
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <div class="home-breakfast__media">
+
+                <div class="home-breakfast__video">
+
+                    <video
+                        src="{{ asset('img/breakfast.mp4') }}"
+                        poster="{{ asset('img/KIR_4324.jpg') }}"
+                        preload="metadata"
+                        playsinline
+                        data-breakfast-video
+                    ></video>
+
+                    <button
+                        type="button"
+                        class="home-breakfast__play"
+                        data-breakfast-play
+                        aria-label="Смотреть видео"
+                    >
+                        <span class="home-breakfast__play-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 7l8 5-8 5V7Z"/>
+                            </svg>
+                        </span>
+
+                        <span>
+                            Смотреть видео
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <div class="home-breakfast__photos">
+
+                    <div class="home-breakfast__photo">
+                        <img
+                            src="{{ asset('img/KIR_4350.jpg') }}"
+                            alt="Завтрак в отеле Лермонт"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="home-breakfast__photo">
+                        <img
+                            src="{{ asset('img/KIR_4324.jpg') }}"
+                            alt="Зона завтрака в отеле Лермонт"
+                            loading="lazy"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
     @if ($roomTypes->isNotEmpty())
-        <section class="rooms-section bg-green py-5" id="rooms">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-12 mb-5 mb-lg-0">
-                        <div class="pe-lg-4">
-                            <span class="text-gold">
-                                НОМЕРА —
-                            </span>
+        <section class="rooms-home">
+    <div class="container">
 
-                            <h2 class="display-5 text-white mt-3">
-                                Пространство для вашего отдыха
-                            </h2>
+        <div class="rooms-home__head">
+            <h2>Выберите свой номер</h2>
 
-                            <a
-                                href="{{ route('rooms.index') }}"
-                                class="text-gold d-inline-flex align-items-center gap-2 mt-4"
+            <a href="{{ route('rooms.index') }}" class="rooms-home__all">
+                Все номера
+                <span>→</span>
+            </a>
+        </div>
+
+        <div class="rooms-home__grid">
+            @foreach ($roomTypes->take(6) as $roomType)
+                <a
+                    href="{{ route('rooms.show', $roomType) }}"
+                    class="rooms-home__card"
+                >
+                    <div class="rooms-home__image">
+                        @if ($roomType->main_image)
+                            <img
+                                src="{{ asset('storage/' . $roomType->main_image) }}"
+                                alt="{{ $roomType->name }}"
+                                loading="lazy"
                             >
-                                Смотреть все номера
-
-                                <span class="fs-4">→</span>
-                            </a>
-                        </div>
+                        @endif
                     </div>
 
-                    <div class="col-lg-9 col-md-12">
-                        <div class="rooms-section-outer">
-                            <div class="rooms-slider-wrapper">
-                                <div class="rooms-slider swiper">
-                                    <div class="swiper-wrapper">
-                                        @foreach ($roomTypes as $roomType)
-                                            <div class="swiper-slide">
-                                                <a
-                                                    href="{{ route('rooms.show', $roomType) }}"
-                                                    class="room-card-link"
-                                                >
-                                                    <div class="room-card">
-                                                        @if ($roomType->main_image)
-                                                            <img
-                                                                src="{{ asset('storage/' . $roomType->main_image) }}"
-                                                                class="img-fluid"
-                                                                alt="{{ $roomType->name }}"
-                                                                loading="lazy"
-                                                            >
-                                                        @else
-                                                            <div class="room-card__placeholder">
-                                                                Нет изображения
-                                                            </div>
-                                                        @endif
+                    <div class="rooms-home__body">
+                        <h3>{{ $roomType->name }}</h3>
 
-                                                        <div class="p-3">
-                                                            <h5>{{ $roomType->name }}</h5>
-
-                                                            @if ($roomType->base_price)
-                                                                <p class="text-white-50 small">
-                                                                    от
-                                                                    {{ number_format($roomType->base_price, 0, ',', ' ') }}
-                                                                    ₽ / ночь
-                                                                </p>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="slider-btn next-btn"
-                                    id="rooms-next"
-                                    role="button"
-                                    tabindex="0"
-                                    aria-label="Следующий номер"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="#c9a66b"
-                                        stroke-width="3"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-                                        <path d="M9 6l6 6-6 6"/>
-                                    </svg>
-                                </div>
-
-                                <div
-                                    class="slider-btn prev-btn d-none"
-                                    id="rooms-prev"
-                                    role="button"
-                                    tabindex="0"
-                                    aria-label="Предыдущий номер"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="#c9a66b"
-                                        stroke-width="3"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-                                        <path d="M15 18l-6-6 6-6"/>
-                                    </svg>
-                                </div>
+                        @if ($roomType->area)
+                            <div class="rooms-home__meta">
+                                {{ number_format($roomType->area, 0, ',', ' ') }} м²
                             </div>
-                        </div>
+                        @endif
                     </div>
-                </div>
-            </div>
-        </section>
+                </a>
+            @endforeach
+        </div>
+
+    </div>
+</section>
         @endif
 
     <section class="location-section" id="location">
@@ -773,138 +743,189 @@
         </div>
     </section>
 
-    <section class="offers-section bg-light py-5" id="offers">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3 col-md-12 mb-5 mb-lg-0">
-                    <div class="pe-lg-4">
-                        <span class="text-gold">
-                            Новости —
-                        </span>
+    <section class="offers-home">
+    <div class="container">
 
-                        <h2 class="display-5 mt-3">
-                            События и предложения отеля
-                        </h2>
+        <div class="offers-home__head">
+            <div>
+                <span class="offers-home__eyebrow">
+                    Для наших гостей
+                </span>
 
-                        <a
-                            href="#offers"
-                            class="text-gold d-inline-flex align-items-center gap-2 mt-4"
-                        >
-                            Смотреть все новости
-
-                            <span class="fs-4">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-9 col-md-12">
-                    <div class="rooms-section-outer">
-                        <div class="rooms-slider-wrapper">
-                            <div class="offers-slider swiper">
-                                <div class="swiper-wrapper">
-                                    @forelse ($newsItems as $newsItem)
-                                        @php
-                                            $newsUrl = filled($newsItem->button_url)
-                                                ? $newsItem->button_url
-                                                : '#offers';
-                                        @endphp
-
-                                        <div class="swiper-slide">
-                                            <a
-                                                href="{{ $newsUrl }}"
-                                                class="room-card offers-card text-decoration-none d-block"
-                                            >
-                                                <img
-                                                    src="{{ $newsItem->image
-                                                        ? Storage::disk('public')->url($newsItem->image)
-                                                        : asset('img/KIR_9553-1920x1080.jpg') }}"
-                                                    class="img-fluid"
-                                                    alt="{{ $newsItem->title }}"
-                                                    loading="lazy"
-                                                >
-
-                                                <div class="p-3">
-                                                    @if ($newsItem->published_at)
-                                                        <div class="offers-card__date">
-                                                            {{ $newsItem->published_at->format('d.m.Y') }}
-                                                        </div>
-                                                    @endif
-
-                                                    <h5>{{ $newsItem->title }}</h5>
-
-                                                    @if ($newsItem->short_description)
-                                                        <p class="text-white-50 small mb-0">
-                                                            {{ Str::limit(strip_tags($newsItem->short_description), 105) }}
-                                                        </p>
-                                                    @endif
-                                                </div>
-                                            </a>
-                                        </div>
-                                    @empty
-                                        <div class="swiper-slide">
-                                            <div class="room-card offers-card">
-                                                <img
-                                                    src="{{ asset('img/KIR_9553-1920x1080.jpg') }}"
-                                                    class="img-fluid"
-                                                    alt="Новости отеля"
-                                                    loading="lazy"
-                                                >
-
-                                                <div class="p-3">
-                                                    <h5>Новости отеля</h5>
-                                                    <p class="text-white-50 small mb-0">
-                                                        Скоро здесь появятся новые публикации.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforelse
-                                </div>
-                            </div>
-
-                            @if ($newsItems->count() > 1)
-                                <div
-                                    class="slider-btn next-btn"
-                                    id="offers-next"
-                                >
-                                    <svg
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="#c9a66b"
-                                        stroke-width="3"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-                                        <path d="M9 6l6 6-6 6" />
-                                    </svg>
-                                </div>
-
-                                <div
-                                    class="slider-btn prev-btn d-none"
-                                    id="offers-prev"
-                                >
-                                    <svg
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="#c9a66b"
-                                        stroke-width="3"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-                                        <path d="M15 18l-6-6 6-6" />
-                                    </svg>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
+                <h2>Спецпредложения и акции</h2>
             </div>
+
+            <a href="{{ route('offers.index') }}" class="offers-home__all">
+                Все предложения
+                <span>→</span>
+            </a>
         </div>
-    </section>
+
+        @if ($promotions->isNotEmpty())
+
+            <div class="offers-home__slider-wrap">
+
+                <div class="offers-home__slider" data-offers-slider>
+
+                    @foreach ($promotions as $promotion)
+
+                        @php
+                            $imageUrl = $promotion->image
+                                ? asset('storage/' . $promotion->image)
+                                : $promotion->legacy_image_url;
+
+                            $excerpt = \Illuminate\Support\Str::of(
+                                strip_tags($promotion->content ?? '')
+                            )
+                                ->replace('&nbsp;', ' ')
+                                ->squish()
+                                ->limit(105);
+                        @endphp
+
+                        <article class="offers-home__card">
+
+                            <a
+                                href="{{ route('offers.show', ['slug' => $promotion->slug]) }}"
+                                class="offers-home__card-link"
+                            >
+
+                                <div class="offers-home__visual">
+
+                                    <div class="offers-home__label">
+
+                                        @if ($promotion->starts_at || $promotion->ends_at)
+
+                                            <div class="offers-home__date">
+
+                                                @if ($promotion->starts_at && $promotion->ends_at)
+
+                                                    <strong>
+                                                        {{ $promotion->starts_at->format('d') }}
+                                                        —
+                                                        {{ $promotion->ends_at->format('d') }}
+                                                    </strong>
+
+                                                    <span>
+                                                        @if ($promotion->starts_at->format('m') === $promotion->ends_at->format('m'))
+                                                            {{ mb_strtoupper($promotion->starts_at->translatedFormat('F')) }}
+                                                        @else
+                                                            {{ mb_strtoupper($promotion->starts_at->translatedFormat('F')) }}
+                                                            —
+                                                            {{ mb_strtoupper($promotion->ends_at->translatedFormat('F')) }}
+                                                        @endif
+                                                    </span>
+
+                                                @elseif ($promotion->starts_at)
+
+                                                    <strong>
+                                                        с {{ $promotion->starts_at->format('d.m') }}
+                                                    </strong>
+
+                                                @elseif ($promotion->ends_at)
+
+                                                    <strong>
+                                                        до {{ $promotion->ends_at->format('d.m') }}
+                                                    </strong>
+
+                                                @endif
+
+                                            </div>
+
+                                        @else
+
+                                            <div class="offers-home__date">
+                                                <span>СПЕЦПРЕДЛОЖЕНИЕ</span>
+                                            </div>
+
+                                        @endif
+
+</div>
+
+                                    <div class="offers-home__image">
+
+                                        @if ($imageUrl)
+                                            <img
+                                                src="{{ $imageUrl }}"
+                                                alt="{{ $promotion->title }}"
+                                                loading="lazy"
+                                            >
+                                        @endif
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="offers-home__body">
+
+                                    <div class="offers-home__title-row">
+
+                                        <h3>
+                                            {{ $promotion->title }}
+                                        </h3>
+
+                                        <span class="offers-home__arrow">
+                                            ↗
+                                        </span>
+
+                                    </div>
+
+
+                                    @if ($excerpt->isNotEmpty())
+                                        <p>
+                                            {{ $excerpt }}
+                                        </p>
+                                    @endif
+
+
+                                    <span class="offers-home__more">
+                                        Подробнее
+                                        <span>→</span>
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+                        </article>
+
+                    @endforeach
+
+                </div>
+
+
+                @if ($promotions->count() > 3)
+
+                    <div class="offers-home__nav">
+
+                        <button
+                            type="button"
+                            class="offers-home__nav-btn"
+                            data-offers-prev
+                            aria-label="Предыдущие предложения"
+                        >
+                            ←
+                        </button>
+
+                        <button
+                            type="button"
+                            class="offers-home__nav-btn"
+                            data-offers-next
+                            aria-label="Следующие предложения"
+                        >
+                            →
+                        </button>
+
+                    </div>
+
+                @endif
+
+            </div>
+
+        @endif
+
+    </div>
+</section>
 
     <section
         class="guest-club-section bg-green"
@@ -988,4 +1009,210 @@
             'blocks' => $page->blocks ?? [],
         ])
     @endif
+
+
+    <div class="video-lightbox" data-video-lightbox>
+    <button
+        type="button"
+        class="video-lightbox__close"
+        data-video-close
+        aria-label="Закрыть видео"
+    >
+        ×
+    </button>
+
+    <div class="video-lightbox__content">
+        <video
+            controls
+            playsinline
+            preload="metadata"
+            data-video-player
+        >
+            <source
+                src="{{ asset('img/sdf.mp4') }}"
+                type="video/mp4"
+            >
+        </video>
+    </div>
+</div>
+
 @endsection
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('[data-offers-slider]');
+    const prev = document.querySelector('[data-offers-prev]');
+    const next = document.querySelector('[data-offers-next]');
+
+
+    const videoLightbox =
+    document.querySelector('[data-video-lightbox]');
+
+const videoPlayer =
+    document.querySelector('[data-video-player]');
+
+const videoClose =
+    document.querySelector('[data-video-close]');
+
+document
+    .querySelectorAll('.watchVideo')
+    .forEach((button) => {
+
+        button.addEventListener('click', (event) => {
+
+            event.preventDefault();
+
+            if (!videoLightbox || !videoPlayer) {
+                return;
+            }
+
+            videoLightbox.classList.add('is-open');
+
+            document.body.classList.add(
+                'video-lightbox-open'
+            );
+
+            videoPlayer.currentTime = 0;
+
+            videoPlayer.play();
+
+        });
+
+    });
+
+
+const closeVideoLightbox = () => {
+
+    if (!videoLightbox || !videoPlayer) {
+        return;
+    }
+
+    videoPlayer.pause();
+
+    videoLightbox.classList.remove('is-open');
+
+    document.body.classList.remove(
+        'video-lightbox-open'
+    );
+
+};
+
+
+videoClose?.addEventListener(
+    'click',
+    closeVideoLightbox
+);
+
+
+videoLightbox?.addEventListener(
+    'click',
+    (event) => {
+
+        if (event.target === videoLightbox) {
+            closeVideoLightbox();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    'keydown',
+    (event) => {
+
+        if (
+            event.key === 'Escape' &&
+            videoLightbox?.classList.contains('is-open')
+        ) {
+            closeVideoLightbox();
+        }
+
+    }
+);
+
+    if (!slider) {
+        return;
+    }
+
+    const getStep = () => {
+        const card = slider.querySelector('.offers-home__card');
+
+        if (!card) {
+            return 400;
+        }
+
+        const gap = parseFloat(
+            getComputedStyle(slider).columnGap
+        ) || 0;
+
+        return card.getBoundingClientRect().width + gap;
+    };
+
+    prev?.addEventListener('click', () => {
+        slider.scrollBy({
+            left: -getStep(),
+            behavior: 'smooth',
+        });
+    });
+
+    next?.addEventListener('click', () => {
+        slider.scrollBy({
+            left: getStep(),
+            behavior: 'smooth',
+        });
+    });
+
+    const breakfastVideo =
+    document.querySelector('[data-breakfast-video]');
+
+const breakfastPlay =
+    document.querySelector('[data-breakfast-play]');
+
+if (breakfastVideo && breakfastPlay) {
+
+    breakfastPlay.addEventListener('click', () => {
+
+        if (breakfastVideo.paused) {
+
+            breakfastVideo.play();
+
+            breakfastPlay.style.opacity = '0';
+            breakfastPlay.style.pointerEvents = 'none';
+
+        } else {
+
+            breakfastVideo.pause();
+
+        }
+
+    });
+
+
+    breakfastVideo.addEventListener('click', () => {
+
+        if (!breakfastVideo.paused) {
+
+            breakfastVideo.pause();
+
+            breakfastPlay.style.opacity = '1';
+            breakfastPlay.style.pointerEvents = '';
+
+        }
+
+    });
+
+
+    breakfastVideo.addEventListener('ended', () => {
+
+        breakfastPlay.style.opacity = '1';
+        breakfastPlay.style.pointerEvents = '';
+
+    });
+
+}
+
+});
+</script>

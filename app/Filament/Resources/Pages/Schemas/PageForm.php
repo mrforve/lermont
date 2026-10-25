@@ -119,6 +119,27 @@ class PageForm
                                             ])
                                             ->default('full')
                                             ->required(),
+
+                                        TextInput::make('width')
+                                            ->label('Ширина')
+                                            ->placeholder('Например: 900px или 80%')
+                                            ->maxLength(30),
+
+                                        TextInput::make('height')
+                                            ->label('Высота')
+                                            ->placeholder('Например: 500px или auto')
+                                            ->maxLength(30),
+
+                                        Select::make('fit')
+                                            ->label('Режим изображения')
+                                            ->options([
+                                                'contain' => 'Вписать целиком',
+                                                'cover' => 'Заполнить с обрезкой',
+                                                'fill' => 'Растянуть',
+                                                'none' => 'Без масштабирования',
+                                            ])
+                                            ->default('contain')
+                                            ->required(),
                                     ])
                                     ->columns(2),
 

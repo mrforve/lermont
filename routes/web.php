@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactRequestController;
 use App\Http\Controllers\RoomCatalogController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\NewsController;
 
 Route::get('/', [PageController::class, 'home'])
     ->name('home');
@@ -50,6 +52,26 @@ Route::get(
     '/rooms/{roomType}',
     [RoomCatalogController::class, 'show']
 )->name('rooms.show');
+
+
+Route::view('/booking', 'pages.booking')
+    ->name('booking');
+
+Route::view('/lk', 'pages.lk')
+    ->name('lk');
+	
+Route::get('/offers', [PromotionController::class, 'index'])
+    ->name('offers.index');
+
+Route::get('/offers/{slug}', [PromotionController::class, 'show'])
+    ->where('slug', '[a-zA-Z0-9\-]+')
+    ->name('offers.show');
+
+Route::get('/news', [NewsController::class, 'index'])
+    ->name('news.index');
+
+Route::get('/news/{news}', [NewsController::class, 'show'])
+    ->name('news.show');
 
 Route::get('/{slug}', [PageController::class, 'show'])
     ->where('slug', '[a-zA-Z0-9\-]+')

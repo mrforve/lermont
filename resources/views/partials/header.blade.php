@@ -17,12 +17,21 @@
             href="{{ route('home') }}"
             aria-label="{{ $settings?->site_name ?? 'Лермонт отель' }}"
         >
-            @if ($settings?->logo)
-                <img
-                    src="{{ asset('storage/' . $settings->logo) }}"
-                    alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
-                    class="site-logo__image"
-                >
+            @if ($settings?->logo || $settings?->logo_dark)
+                <picture>
+                    @if ($settings?->logo_dark)
+                        <source
+                            media="(max-width: 991px)"
+                            srcset="{{ asset('storage/' . $settings->logo_dark) }}"
+                        >
+                    @endif
+
+                    <img
+                        src="{{ asset('storage/' . ($settings->logo ?: $settings->logo_dark)) }}"
+                        alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
+                        class="site-logo__image"
+                    >
+                </picture>
             @else
                 <span class="site-logo__mark">Л</span>
                 <span class="site-logo__text">ЛЕРМОНТ</span>

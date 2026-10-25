@@ -108,6 +108,17 @@ class RoomTypeForm
                 Section::make('Галерея')
                     ->description('Дополнительные фотографии типа номера')
                     ->schema([
+						FileUpload::make('gallery_uploads')
+							->label('Загрузить несколько фотографий')
+							->helperText('Можно выбрать сразу несколько изображений. После сохранения они автоматически добавятся в галерею.')
+							->image()
+							->multiple()
+							->disk('public')
+							->directory('room-types/gallery')
+							->visibility('public')
+							->reorderable()
+							->maxFiles(30)
+							->columnSpanFull(),
                         Repeater::make('images')
                             ->label('')
                             ->relationship()
