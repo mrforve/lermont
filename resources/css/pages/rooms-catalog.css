@@ -534,3 +534,37 @@
         height: 265px;
     }
 }
+
+/* Layered photo transitions: outgoing image recedes behind the next one. */
+:where(.rooms-catalog) .room-slider__main,
+:where(.rooms-catalog) .room-slider__side {
+    perspective: 1200px;
+    isolation: isolate;
+}
+
+:where(.rooms-catalog) .room-slider .swiper-wrapper,
+:where(.rooms-catalog) .room-slider__slide,
+:where(.rooms-catalog) .room-slider__slide img {
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+}
+
+:where(.rooms-catalog) .room-slider__slide {
+    backface-visibility: hidden;
+    transform-origin: center;
+}
+
+:where(.rooms-catalog) .room-slider .swiper-slide-shadow {
+    background: linear-gradient(110deg, rgba(24, 40, 32, .38), rgba(24, 40, 32, .08));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :where(.rooms-catalog) .room-showcase.is-active {
+        animation: none;
+    }
+
+    :where(.rooms-catalog) .room-slider .swiper-wrapper,
+    :where(.rooms-catalog) .room-slider__slide,
+    :where(.rooms-catalog) .room-slider__slide img {
+        transition-duration: .01ms !important;
+    }
+}

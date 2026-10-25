@@ -1,3 +1,4 @@
+import './components/rooms-catalog.js';
 import './lermont.js';
 document.addEventListener('DOMContentLoaded', () => {
     const gallery = document.querySelector('[data-room-gallery]');
