@@ -57,6 +57,7 @@
 
     <link href="{{ asset('css/contact-services.css') }}?v=20260727-1" rel="stylesheet">
     <link href="{{ asset('css/travelline.css') }}?v=1" rel="stylesheet">
+    <link href="{{ asset('css/footer-links.css') }}?v=20261025-1" rel="stylesheet">
     @stack('styles')
 </head>
 <body>

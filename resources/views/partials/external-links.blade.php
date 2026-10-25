@@ -4,19 +4,30 @@
         ['key' => 'google', 'label' => 'Google Maps', 'url' => 'https://www.google.ru/maps?newwindow=1&q=%D0%BE%D1%82%D0%B5%D0%BB%D1%8C+%D0%BB%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D1%82+%D0%B3%D0%B5%D0%BB%D0%B5%D0%BD%D0%B4%D0%B6%D0%B8%D0%BA', 'map' => true],
         ['key' => 'yandex', 'label' => 'Яндекс Карты', 'url' => 'https://yandex.ru/maps/-/CCVPFBOU', 'map' => true],
         ['key' => '2gis', 'label' => '2ГИС', 'url' => 'https://m.2gis.ru/gelendzhik/firm/70000001006398601?m=38.07958%2C44.55988%2F18', 'map' => true],
-		['key' => 'max', 'label' => 'MAX', 'url' => 'https://max.ru/id230404441527_biz', 'map' => false],
+		['key' => 'max', 'label' => 'Канал в MAX', 'url' => 'https://max.ru/id230404441527_biz', 'map' => false],
 		['key' => 'ok', 'label' => 'Одноклассники', 'url' => 'https://ok.ru/group/62027103731756', 'map' => false],
         ['key' => 'tripadvisor', 'label' => 'Tripadvisor', 'url' => 'https://www.tripadvisor.ru/Hotel_Review-g298514-d12824127-Reviews-Hotel_Lermont-Gelendzhik_Gelendzhiksky_District_Krasnodar_Krai_Southern_District.html', 'map' => false],
         ['key' => 'vk', 'label' => 'ВКонтакте', 'url' => 'https://vk.com/hotellermont', 'map' => false],
         ['key' => 'rutube', 'label' => 'Rutube', 'url' => 'https://rutube.ru/channel/44802930/', 'map' => false],
-		['key' => 'max_chat', 'label' => 'MAX — написать', 'url' => 'https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA', 'map' => false],
         ['key' => 'dzen', 'label' => 'Дзен', 'url' => 'https://dzen.ru/hotellermont', 'map' => false],
+    ];
+    $linkGroups = [
+        ['key' => 'social', 'label' => 'Социальные сети', 'keys' => ['vk', 'ok', 'rutube', 'dzen']],
+        ['key' => 'maps', 'label' => 'Карты и отзывы', 'keys' => ['google', 'yandex', '2gis', 'tripadvisor']],
+        ['key' => 'channel', 'label' => 'Канал в MAX', 'keys' => ['max']],
     ];
 @endphp
 
-<div class="external-links" aria-label="Карты, отзывы, мессенджеры и социальные сети">
-    @foreach ($externalLinks as $link)
-        @continue(!$includeMaps && $link['map'])
+<div class="external-links-groups">
+    @foreach ($linkGroups as $group)
+        @continue(!$includeMaps && $group['key'] === 'maps')
+        <div class="external-links__group external-links__group--{{ $group['key'] }}" role="group" aria-label="{{ $group['label'] }}">
+            @if ($group['key'] !== 'channel')
+                <p class="external-links__heading">{{ $group['label'] }}</p>
+            @endif
+            <div class="external-links">
+    @foreach ($group['keys'] as $key)
+        @php($link = collect($externalLinks)->firstWhere('key', $key))
 
         <a
             class="external-links__item external-links__item--{{ $link['key'] }}"
@@ -26,6 +37,7 @@
             aria-label="{{ $link['label'] }}"
             title="{{ $link['label'] }}"
         >
+            <span class="external-links__icon">
             @switch($link['key'])
 
                 @case('google')
@@ -94,7 +106,11 @@
 
             @endswitch
 
-            <span class="visually-hidden">{{ $link['label'] }}</span>
+            </span>
+            <span class="external-links__label">{{ $link['label'] }}</span>
         </a>
+    @endforeach
+            </div>
+        </div>
     @endforeach
 </div>
