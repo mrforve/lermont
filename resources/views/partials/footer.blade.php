@@ -40,6 +40,7 @@
                     <li><a href="{{ url('/about') }}">Об отеле</a></li>
                     <li><a href="{{ url('/contacts') }}">Как добраться</a></li>
                     <li><a href="{{ url('/personal-data-consent') }}">Правила проживания</a></li>
+                    <li><a href="{{ url('/ugolok-potrebitelya') }}">Уголок потребителя</a></li>
                 </ul>
             </div>
 
