@@ -45,11 +45,6 @@
         rel="stylesheet"
     >
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-        rel="stylesheet"
-    >
-
     @vite([
         'resources/css/app.css',
         'resources/js/app.js',
@@ -66,7 +61,6 @@
     @include('partials.footer')
     @include('partials.cookie-notice')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @include('partials.travelline-loader')
     <script src="{{ asset('js/cookie-notice.js') }}?v=20261025-1" defer></script>
     @stack('scripts')

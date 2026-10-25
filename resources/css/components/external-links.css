@@ -1,0 +1,60 @@
+.external-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.external-links__item {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    color: var(--gold, #b88a4a);
+    opacity: .9;
+    transition: color .2s ease, background-color .2s ease, transform .2s ease, opacity .2s ease;
+}
+
+.external-links__item:hover {
+    color: #fff;
+    background: var(--gold, #b88a4a);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.external-links__item svg {
+    width: 21px;
+    height: 21px;
+    fill: currentColor;
+}
+
+.external-links__item--2gis svg {
+    width: 28px;
+}
+
+.services-benefits__icon {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    color: #b18b4f;
+}
+
+.services-benefits__icon svg {
+    width: 42px;
+    height: 42px;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.external-links__item--max svg,
+.external-links__item--max_chat svg {
+    width: 28px;
+    height: 28px;
+}

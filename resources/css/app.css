@@ -1,5 +1,15 @@
 @import 'tailwindcss';
 @import './lermont.css';
+@import './components/header.css';
+@import './pages/home-layout.css';
+@import './components/footer-layout.css';
+@import './components/layout-responsive.css';
+@import './pages/about-gallery.css';
+@import './pages/home-news.css';
+@import './components/external-links.css';
+@import './pages/home-sections.css';
+@import './components/header-menu.css';
+@import './components/content-gallery.css';
 @import './components/auth.css';
 @import './components/account.css';
 @import './components/forms.css';
