@@ -107,7 +107,7 @@
             @endswitch
 
             </span>
-            <span class="external-links__label">{{ $link['label'] }}</span>
+            <span class="external-links__label{{ $group['key'] !== 'channel' ? ' visually-hidden' : '' }}">{{ $link['label'] }}</span>
         </a>
     @endforeach
             </div>
