@@ -96,6 +96,6 @@
 </section>
 @include('partials.contact-form', [
     'type' => \App\Models\ContactRequest::TYPE_MESSAGE,
-    'title' => 'Напишите нам',
+    'title' => 'Оставить сообщение',
 ])
 @endsection

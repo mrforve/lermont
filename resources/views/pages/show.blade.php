@@ -16,11 +16,6 @@
             ])
         </div>
         @include('partials.contact-form', [
-            'type' => \App\Models\ContactRequest::TYPE_MESSAGE,
-            'title' => 'Оставить сообщение',
-        ])
-
-        @include('partials.contact-form', [
             'type' => \App\Models\ContactRequest::TYPE_CALLBACK,
             'title' => 'Заказать обратный звонок',
         ])

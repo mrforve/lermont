@@ -215,8 +215,8 @@
 
             <section class="room-page__request">
                 @include('partials.contact-form', [
-                    'type' => \App\Models\ContactRequest::TYPE_QUESTION,
-                    'title' => 'Уточнить условия проживания',
+                    'type' => \App\Models\ContactRequest::TYPE_CALLBACK,
+                    'title' => 'Заказать обратный звонок',
                 ])
             </section>
         </div>

@@ -1,6 +1,8 @@
 @php
-    $formType = $type ?? \App\Models\ContactRequest::TYPE_MESSAGE;
-    $formTitle = $title ?? 'Связаться с нами';
+    $formType = $type ?? \App\Models\ContactRequest::TYPE_CALLBACK;
+    $formTitle = $title ?? ($formType === \App\Models\ContactRequest::TYPE_MESSAGE
+        ? 'Оставить сообщение'
+        : 'Заказать обратный звонок');
 @endphp
 
 <section class="contact-form-section">
