@@ -1,3 +1,19 @@
+@extends('layouts.app')
+
+@section('title', ($page->seo_title ?: $page->title) . ' — отель «Лермонт»')
+@section('description', $page->seo_description ?: 'Встречайте Новый год 2027 в отеле «Лермонт» у моря в Геленджике. Праздничные завтраки, особое меню и новогодняя атмосфера.')
+
+@push('styles')
+    <meta name="theme-color" content="#650b1b">
+    <link rel="canonical" href="{{ url('/novyi-god-2027-v-gelendzike') }}">
+    <link rel="stylesheet" href="{{ asset('css/new-year.css') }}?v=20261025-2">
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/new-year.js') }}?v=20261025-1" defer></script>
+@endpush
+
+@section('content')
 @php
     $gallery = collect($page->blocks ?? [])->where('type', 'gallery')->flatMap(fn ($block) => $block['data']['images'] ?? [])->values();
     $photos = $gallery->isNotEmpty() ? $gallery : collect(['pages/galleries/01M5DEF88FR3RE30EFQY4DBJBP.jpg', 'pages/galleries/01M5DEF88EFZP1829GJW7JR4RX.jpg']);
@@ -15,22 +31,7 @@
         ['spark', 'Праздничный Геленджик', 'Концерты, фейерверки и яркая атмосфера города', 'fireworks'],
     ];
 @endphp
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#650b1b">
-    <title>{{ $page->seo_title ?: $page->title }} — отель «Лермонт»</title>
-    <meta name="description" content="{{ $page->seo_description ?: 'Встречайте Новый год 2027 в отеле «Лермонт» у моря в Геленджике. Праздничные завтраки, особое меню и новогодняя атмосфера.' }}">
-    <link rel="canonical" href="{{ url('/novyi-god-2027-v-gelendzike') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/new-year.css') }}?v=20261025-1">
-    <script src="{{ asset('js/new-year.js') }}?v=20261025-1" defer></script>
-</head>
-<body class="ny">
+<div class="ny">
 <svg xmlns="http://www.w3.org/2000/svg" class="ny-symbols" aria-hidden="true"><defs>
     <symbol id="ny-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
     <symbol id="ny-calendar" viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="22" rx="2"/><path d="M10 3v8m12-8v8M5 14h22m-17 5h2m4 0h2m4 0h1m-13 5h2m4 0h2m4 0h1"/></symbol>
@@ -45,7 +46,6 @@
     <symbol id="ny-tree" viewBox="0 0 32 32"><path d="m16 2-8 10h4L5 21h5l-7 7h26l-7-7h5l-7-9h4ZM16 28v4"/></symbol>
     <symbol id="ny-spark" viewBox="0 0 32 32"><path d="M16 1v8m0 14v8M1 16h8m14 0h8M5 5l6 6m10 10 6 6M5 27l6-6M21 11l6-6M16 12v8m-4-4h8"/></symbol>
 </defs></svg>
-<main>
     <section class="ny-hero" aria-labelledby="ny-title">
         <div class="ny-hero__inner ny-wrap">
             <div class="ny-hero__copy">
@@ -92,8 +92,7 @@
         </section>
     </div>
     <section class="ny-cta"><div class="ny-wrap ny-cta__inner"><div class="ny-cta__decoration" aria-hidden="true"><img src="{{ asset('img/new-year/gifts.webp') }}" alt="" width="240" height="360" loading="lazy"></div><div><h2>Забронируйте<br>новогодний отдых в Лермонте</h2><p>Подарите себе и близким особенные каникулы у моря</p></div><div class="ny-cta__action"><a class="ny-button ny-button--gold" href="#ny-booking">Выбрать номер <svg><use href="#ny-arrow"/></svg></a><p>Количество номеров ограничено</p></div></div></section>
-</main>
-<footer class="ny-footer ny-wrap"><a href="{{ route('home') }}">Отель «Лермонт»</a><span>Геленджик · ул. Первомайская, 7</span><a href="tel:+79282414322">+7 (928) 241-43-22</a></footer>
+
 <dialog class="ny-lightbox" data-lightbox aria-label="Просмотр фотографии"><button type="button" data-lightbox-close aria-label="Закрыть фотографию">×</button><img src="" alt=""></dialog>
-</body>
-</html>
+</div>
+@endsection
