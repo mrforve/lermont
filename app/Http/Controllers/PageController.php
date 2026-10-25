@@ -74,6 +74,10 @@ class PageController extends Controller
             ->where('is_active', true)
             ->firstOrFail();
 
+        if ($page->slug === 'novyi-god-2027-v-gelendzike') {
+            return view('pages.new-year', compact('page'));
+        }
+
         if ($page->slug === 'breakfast') {
             return view(
                 'pages.breakfast',
