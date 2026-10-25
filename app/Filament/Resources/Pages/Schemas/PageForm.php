@@ -59,6 +59,7 @@ class PageForm
                     ->columns(2),
 
                 Section::make('Содержимое страницы')
+                    ->columnSpanFull()
                     ->schema([
                         RichEditor::make('content')
                             ->label('Вводный текст')
@@ -154,6 +155,8 @@ class PageForm
                                         FileUpload::make('images')
                                             ->label('Изображения')
                                             ->image()
+                                            ->imagePreviewHeight('120')
+                                            ->panelLayout('grid')
                                             ->multiple()
                                             ->reorderable()
                                             ->disk('public')

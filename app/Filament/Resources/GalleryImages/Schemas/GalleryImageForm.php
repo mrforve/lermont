@@ -14,10 +14,11 @@ class GalleryImageForm
     public static function configure(Schema $schema): Schema
     {
         return $schema->components([
-            Section::make('Фотография')->schema([
+            Section::make('Фотография')->columnSpanFull()->schema([
                 FileUpload::make('image')
                     ->label('Изображение')
                     ->image()
+                    ->imagePreviewHeight('120')
                     ->disk('public')
                     ->directory('gallery')
                     ->visibility('public')

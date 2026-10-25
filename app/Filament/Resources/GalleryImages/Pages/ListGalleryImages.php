@@ -36,7 +36,7 @@ class ListGalleryImages extends ListRecords
                         ->disk('public')
                         ->directory('gallery')
                         ->visibility('public')
-                        ->imagePreviewHeight('180')
+                        ->imagePreviewHeight('90')
                         ->panelLayout('grid')
                         ->required()
                         ->columnSpanFull(),
