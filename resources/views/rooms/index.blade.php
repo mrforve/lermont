@@ -79,71 +79,40 @@
                         <div
                             class="room-slider"
                             data-room-slider
+                            data-room-images="{{ $sliderImages->toJson() }}"
                         >
 
                             @if ($sliderImages->isNotEmpty())
 
-                                <div class="room-slider__stage">
-
-
-                                    {{-- Основное изображение --}}
+                                <div class="room-slider__stage" data-room-stage>
                                     <div
-                                        class="room-slider__main swiper"
-                                        data-room-main-swiper
+                                        class="room-slider__main"
+                                        data-room-main
+                                        role="region"
+                                        aria-roledescription="карусель"
+                                        aria-label="Фотографии номера {{ $roomType->name }}"
                                     >
-
-                                        <div class="swiper-wrapper">
-
-                                            @foreach ($sliderImages as $image)
-
-                                                <div class="swiper-slide room-slider__slide">
-
-                                                    <img
-                                                        src="{{ $image['src'] }}"
-                                                        alt="{{ $image['alt'] }}"
-                                                        data-swiper-parallax-x="8%"
-                                                        data-swiper-parallax-scale="1.18"
-                                                        loading="{{ $loop->first ? 'eager' : 'lazy' }}"
-                                                    >
-
-                                                </div>
-
-                                            @endforeach
-
-                                        </div>
-
+                                        <img
+                                            src="{{ $sliderImages->first()['src'] }}"
+                                            alt="{{ $sliderImages->first()['alt'] }}"
+                                            loading="{{ $loop->first ? 'eager' : 'lazy' }}"
+                                            draggable="false"
+                                        >
                                     </div>
-
-
-                                    {{-- Следующее изображение --}}
-                                    <div
-                                        class="room-slider__side swiper"
-                                        data-room-side-swiper
+                                    <button
+                                        type="button"
+                                        class="room-slider__side"
+                                        data-room-side
                                         aria-label="Следующее изображение"
+                                        @disabled($sliderImages->count() < 2)
                                     >
-
-                                        <div class="swiper-wrapper">
-
-                                            @foreach ($sliderImages as $image)
-
-                                                <div class="swiper-slide room-slider__slide">
-
-                                                    <img
-                                                        src="{{ $image['src'] }}"
-                                                        alt="{{ $image['alt'] }}"
-                                                        data-swiper-parallax-x="8%"
-                                                        data-swiper-parallax-scale="1.18"
-                                                        loading="lazy"
-                                                    >
-
-                                                </div>
-
-                                            @endforeach
-
-                                        </div>
-
-                                    </div>
-
+                                        <img
+                                            src="{{ $sliderImages->get(1, $sliderImages->first())['src'] }}"
+                                            alt="{{ $sliderImages->get(1, $sliderImages->first())['alt'] }}"
+                                            loading="lazy"
+                                            draggable="false"
+                                        >
+                                    </button>
                                 </div>
 
                             @else
@@ -194,6 +163,8 @@
                                     <div
                                         class="room-slider__counter"
                                         data-slider-counter
+                                        aria-live="polite"
+                                        aria-atomic="true"
                                     >
                                         1 / {{ $sliderImages->count() }}
                                     </div>

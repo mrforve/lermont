@@ -127,13 +127,9 @@
                     {{ $hotelPhone }}
                 </a>
 
-                <button
-                    class="btn btn-gold header-book-btn"
-                    type="button"
-                    aria-disabled="true"
-                >
+                <a class="btn btn-gold header-book-btn" href="{{ route('booking') }}">
                     Забронировать
-                </button>
+                </a>
             </div>
         </div>
     </div>
