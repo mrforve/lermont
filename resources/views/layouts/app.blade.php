@@ -58,6 +58,7 @@
     <link href="{{ asset('css/contact-services.css') }}?v=20260727-1" rel="stylesheet">
     <link href="{{ asset('css/travelline.css') }}?v=1" rel="stylesheet">
     <link href="{{ asset('css/footer-links.css') }}?v=20261025-3" rel="stylesheet">
+    <link href="{{ asset('css/cookie-notice.css') }}?v=20261025-1" rel="stylesheet">
     @stack('styles')
 </head>
 <body>
@@ -67,9 +68,11 @@
         @yield('content')
     </main>
     @include('partials.footer')
+    @include('partials.cookie-notice')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @include('partials.travelline-loader')
+    <script src="{{ asset('js/cookie-notice.js') }}?v=20261025-1" defer></script>
     @stack('scripts')
 </body>
 </html>

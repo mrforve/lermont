@@ -30,7 +30,7 @@
                     <li><a href="{{ url('/gallery') }}">Галерея</a></li>
                     <li><a href="{{ url('/about') }}">Об отеле</a></li>
                     <li><a href="{{ url('/contacts') }}">Как добраться</a></li>
-                    <li><a href="{{ url('/personal-data-consent') }}">Правила проживания</a></li>
+                    <li><a href="{{ asset('documents/consumer/pravila-prozhivaniya-i-predostavleniya-uslug-1.pdf') }}" target="_blank" rel="noopener noreferrer">Правила проживания</a></li>
                     <li><a href="{{ url('/ugolok-potrebitelya') }}">Уголок потребителя</a></li>
                 </ul>
             </div>
@@ -59,8 +59,8 @@
         <div class="footer-bottom d-flex flex-wrap justify-content-between gap-3 small">
             <span>© {{ now()->year }} {{ $settings?->site_name ?? 'Отель Лермонт' }}. Все права защищены.</span>
             <span class="d-flex flex-wrap gap-4">
-                <a href="{{ url('/privacy-policy') }}">Политика конфиденциальности</a>
-                <a href="{{ url('/personal-data-consent') }}">Согласие на обработку персональных данных</a>
+                <a href="{{ asset('documents/consumer/politika-po-obrabotke-personalnyh-dannyh.pdf') }}" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+                <a href="{{ asset('documents/consumer/soglasie-na-obrabotku-1.pdf') }}" target="_blank" rel="noopener noreferrer">Согласие на обработку персональных данных</a>
             </span>
         </div>
     </div>
