@@ -7,12 +7,13 @@
 		['key' => 'max', 'label' => 'Канал в MAX', 'url' => 'https://max.ru/id230404441527_biz', 'map' => false],
 		['key' => 'ok', 'label' => 'Одноклассники', 'url' => 'https://ok.ru/group/62027103731756', 'map' => false],
         ['key' => 'tripadvisor', 'label' => 'Tripadvisor', 'url' => 'https://www.tripadvisor.ru/Hotel_Review-g298514-d12824127-Reviews-Hotel_Lermont-Gelendzhik_Gelendzhiksky_District_Krasnodar_Krai_Southern_District.html', 'map' => false],
+        ['key' => 'max_chat', 'label' => 'Написать в MAX', 'url' => 'https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA', 'map' => false],
         ['key' => 'vk', 'label' => 'ВКонтакте', 'url' => 'https://vk.com/hotellermont', 'map' => false],
         ['key' => 'rutube', 'label' => 'Rutube', 'url' => 'https://rutube.ru/channel/44802930/', 'map' => false],
         ['key' => 'dzen', 'label' => 'Дзен', 'url' => 'https://dzen.ru/hotellermont', 'map' => false],
     ];
     $linkGroups = [
-        ['key' => 'social', 'label' => 'Социальные сети', 'keys' => ['vk', 'ok', 'rutube', 'dzen']],
+        ['key' => 'social', 'label' => 'Социальные сети', 'keys' => ['vk', 'ok', 'rutube', 'dzen', 'max_chat']],
         ['key' => 'maps', 'label' => 'Карты и отзывы', 'keys' => ['google', 'yandex', '2gis', 'tripadvisor']],
         ['key' => 'channel', 'label' => 'Канал в MAX', 'keys' => ['max']],
     ];

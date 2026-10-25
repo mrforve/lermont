@@ -14,7 +14,7 @@
 .footer .external-links__item--yandex{--external-brand:#df2727}
 .footer .external-links__item--2gis{--external-brand:#237d30}
 .footer .external-links__item--tripadvisor{--external-brand:#106a4b}
-.footer .external-links__item--max{--external-brand:#5c38d5}
+.footer .external-links__item--max,.footer .external-links__item--max_chat{--external-brand:#5c38d5}
 .footer .external-links__item:hover{background:transparent;color:#172d21!important;opacity:1;transform:none}
 .footer .external-links__item:hover .external-links__icon{transform:translateY(-2px);box-shadow:0 5px 12px #24382d2a}
 .footer .external-links__item:focus-visible{outline:3px solid #b38b4f;outline-offset:5px;border-radius:6px}
