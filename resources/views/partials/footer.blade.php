@@ -23,16 +23,7 @@
                 @include('partials.external-links', ['includeMaps' => true])
             </div>
 
-            <div class="col-lg-2 col-md-6">
-                <h6>Навигация</h6>
-                <ul class="list-unstyled mb-0">
-                    @foreach ($footerMenu as $item)
-                        <li><a href="{{ $item->resolved_url }}" target="{{ $item->target }}">{{ $item->title }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <h6>Информация</h6>
                 <ul class="list-unstyled mb-0">
                     <li><a href="{{ url('/services') }}">Услуги</a></li>
@@ -44,7 +35,7 @@
                 </ul>
             </div>
 
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <h6>Контакты</h6>
                 <ul class="list-unstyled mb-0 footer-contacts">
                     <li>353460, г. Геленджик,<br>ул. Первомайская, 7</li>
