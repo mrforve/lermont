@@ -25,15 +25,15 @@
                 $style = [];
 
                 if ($width) {
-                    $style[] = 'width:' . $width;
+                    $style[] = '--content-image-width:' . $width;
                 }
 
                 if ($height) {
-                    $style[] = 'height:' . $height;
+                    $style[] = '--content-image-height:' . $height;
                 }
 
                 if ($fit) {
-                    $style[] = 'object-fit:' . $fit;
+                    $style[] = '--content-image-fit:' . $fit;
                 }
             @endphp
 

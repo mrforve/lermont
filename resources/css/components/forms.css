@@ -1,0 +1,98 @@
+.contact-form-section {
+    padding: 48px 0;
+}
+
+.contact-form-card {
+    max-width: 760px;
+    padding: 32px;
+    border: 1px solid #dedede;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.contact-form-card h2 {
+    margin: 0 0 24px;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.contact-form label {
+    display: grid;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form__full {
+    grid-column: 1 / -1;
+}
+
+.contact-form__privacy {
+    display: flex !important;
+    align-items: flex-start;
+    grid-template-columns: none !important;
+    gap: 10px !important;
+    font-weight: 400 !important;
+}
+
+.contact-form__privacy input {
+    width: auto;
+    margin-top: 4px;
+}
+
+.contact-form__honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.form-message {
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    border-radius: 8px;
+}
+
+.form-message p {
+    margin: 0 0 6px;
+}
+
+.form-message p:last-child {
+    margin-bottom: 0;
+}
+
+.form-message--success {
+    border: 1px solid #2e7d32;
+}
+
+.form-message--error {
+    border: 1px solid #b42318;
+}
+
+@media (max-width: 767px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+    .contact-form-card {
+        padding: 20px;
+    }
+}

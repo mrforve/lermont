@@ -7,16 +7,7 @@
 @endphp
     <section class="hero d-block d-lg-flex align-items-center" id="hero" 
         @if ($mainSlide?->image)
-            style="
-                background-image:
-                    linear-gradient(
-                        90deg,
-                        rgba(15, 31, 26, 0.72) 0%,
-                        rgba(15, 31, 26, 0.28) 55%,
-                        rgba(15, 31, 26, 0.08) 100%
-                    ),
-                    url('{{ \App\Support\ImageVariants::url($mainSlide->image, 'hero') }}');
-            "
+            style="--hero-image: url('{{ \App\Support\ImageVariants::url($mainSlide->image, 'hero') }}')"
         @endif
     >
         <div class="container hero-content">
@@ -503,16 +494,14 @@
                 <div class="col-lg-6">
                     <img
                         src="{{ asset('img/07c7bba161a1.jpg') }}"
-                        class="img-fluid w-100"
+                        class="img-fluid w-100 location-section__image"
                         alt="Набережная Геленджика"
-                        style="height: 560px; object-fit: cover;"
                     >
                 </div>
 
                 <div class="col-lg-6 py-5 px-5 location-content">
                     <span
-                        class="text-uppercase text-gold"
-                        style="letter-spacing: 2px;"
+                        class="text-uppercase text-gold location-section__eyebrow"
                     >
                         ЛОКАЦИЯ —
                     </span>

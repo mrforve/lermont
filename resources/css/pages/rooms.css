@@ -1,0 +1,136 @@
+.room-page {
+    padding: 48px 0 80px;
+}
+
+.room-page__back {
+    display: inline-block;
+    margin-bottom: 24px;
+}
+
+.room-page__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.room-page__header h1 {
+    margin-top: 0;
+}
+
+.room-page__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    color: #666;
+}
+
+.room-page__price {
+    display: grid;
+    justify-items: end;
+    flex: 0 0 auto;
+}
+
+.room-page__price strong {
+    font-size: 28px;
+}
+
+.room-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.room-gallery a {
+    display: block;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+}
+
+.room-gallery__main {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.room-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.room-page__description {
+    max-width: 900px;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+.room-page__section {
+    margin-top: 40px;
+}
+
+.room-amenities,
+.room-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.room-amenity,
+.room-number {
+    padding: 16px;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+}
+
+.room-amenity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.room-number {
+    display: grid;
+    gap: 6px;
+}
+
+.room-number span {
+    color: #666;
+    font-size: 14px;
+}
+
+.room-page__request {
+    margin-top: 48px;
+}
+
+@media (max-width: 991px) {
+    .room-amenities,
+.room-numbers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .room-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .room-page {
+        padding: 32px 0 56px;
+    }
+    .room-amenities,
+.room-numbers {
+        grid-template-columns: 1fr;
+    }
+    .room-page__header {
+        flex-direction: column;
+    }
+    .room-page__price {
+        justify-items: start;
+    }
+    .room-gallery__main {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+}

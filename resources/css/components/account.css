@@ -1,0 +1,114 @@
+.account-page {
+    min-height: 70vh;
+    padding: 70px 20px;
+}
+
+.account-page .container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.account-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.account-header h1 {
+    margin: 0 0 8px;
+}
+
+.account-header p {
+    margin: 0;
+}
+
+.account-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.account-card {
+    padding: 28px;
+    border: 1px solid #dedede;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.account-card h2 {
+    margin: 0 0 24px;
+}
+
+.account-form {
+    display: grid;
+    gap: 18px;
+}
+
+.account-form label {
+    display: grid;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.account-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+}
+
+.account-message {
+    margin-bottom: 24px;
+    padding: 14px 16px;
+    border-radius: 8px;
+}
+
+.account-message--success {
+    border: 1px solid #2e7d32;
+}
+
+.form-error {
+    color: #b42318;
+    font-size: 14px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button--primary {
+    border: 1px solid #111;
+    background: #111;
+    color: #fff;
+}
+
+.button--outline {
+    border: 1px solid #111;
+    background: transparent;
+    color: #111;
+}
+
+@media (max-width: 767px) {
+    .account-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .account-grid {
+        grid-template-columns: 1fr;
+    }
+    .account-card {
+        padding: 20px;
+    }
+}

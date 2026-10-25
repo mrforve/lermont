@@ -1,0 +1,1198 @@
+.ny {
+    --ny-wine: #650b1b;
+    --ny-gold: #b68a43;
+    --ny-cream: #fcf6ec;
+    --ny-ink: #29231f;
+}
+
+.ny,
+.ny * {
+    box-sizing: border-box;
+}
+
+html:has(.ny) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+.ny {
+    margin: 0;
+    background: var(--ny-cream);
+    color: var(--ny-ink);
+    font-family: Manrope,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ny a {
+    color: inherit;
+}
+
+.ny h1,
+.ny h2,
+.ny h3,
+.ny p {
+    margin: 0;
+}
+
+.ny h1,
+.ny h2,
+.ny h3 {
+    font-family: 'Cormorant Garamond',Georgia,serif;
+    font-weight: 600;
+}
+
+.ny h2,
+.ny h3 {
+    text-transform: uppercase;
+}
+
+.ny a {
+    text-decoration: none;
+}
+
+.ny svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.ny .ny-symbols {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.ny button,
+.ny input {
+    font: inherit;
+}
+
+.ny button,
+.ny a,
+.ny input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.ny :focus-visible {
+    outline: 3px solid var(--ny-gold);
+    outline-offset: 5px;
+}
+
+.ny-wrap {
+    width: min(1260px,calc(100% - 64px));
+    margin-inline: auto;
+}
+
+.ny-hero {
+    min-height: 610px;
+    background: var(--ny-cream) url('/img/new-year/hero.webp') center 46%/cover no-repeat;
+    position: relative;
+}
+
+.ny-hero:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent,var(--ny-cream));
+}
+
+.ny-hero__inner {
+    position: relative;
+    z-index: 1;
+    padding-block: 34px 118px;
+}
+
+.ny-hero__copy {
+    width: 45%;
+    max-width: 555px;
+    text-align: center;
+}
+
+.ny-logo {
+    display: inline-flex;
+    margin-bottom: 12px;
+}
+
+.ny-logo img {
+    width: 135px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.ny h1 {
+    font-size: clamp(44px,5.8vw,78px);
+    text-transform: uppercase;
+    color: var(--ny-wine);
+    line-height: .9;
+    letter-spacing: -2px;
+}
+
+.ny h1 strong {
+    display: block;
+    font-family: Georgia,serif;
+    font-size: clamp(88px,12vw,160px);
+    font-weight: 400;
+    line-height: .95;
+    color: var(--ny-gold);
+    letter-spacing: -7px;
+}
+
+.ny h1 span {
+    display: block;
+    font-size: .62em;
+    letter-spacing: 4px;
+    margin-top: 12px;
+}
+
+.ny-hero__copy>p {
+    font-family: 'Cormorant Garamond',Georgia,serif;
+    font-size: clamp(22px,2.5vw,32px);
+    line-height: 1.15;
+    margin: 16px 0 24px;
+}
+
+.ny-button {
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    min-height: 52px;
+    padding: 15px 30px;
+    background: var(--ny-wine);
+    color: #fff!important;
+    border-radius: 40px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .4px;
+    cursor: pointer;
+    transition: background .2s,transform .2s;
+}
+
+.ny-button:hover {
+    background: #870c24;
+    transform: translateY(-2px);
+}
+
+.ny-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.ny-content {
+    position: relative;
+    z-index: 2;
+    margin-top: -74px;
+}
+
+.ny-booking {
+    display: grid;
+    grid-template-columns: 1.15fr 1.2fr .6fr;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 32px;
+    background: rgba(255,248,238,.97);
+    border: 1px solid #f4e8d6;
+    box-shadow: 0 6px 22px #b68a4318;
+    border-radius: 20px;
+    scroll-margin-top: 25px;
+}
+
+.ny-booking__intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.ny .ny-gold-icon {
+    color: var(--ny-gold);
+    width: 48px;
+    height: 48px;
+    stroke-width: 1.4;
+}
+
+.ny-booking h2 {
+    font-size: 25px;
+    line-height: 1.05;
+    color: var(--ny-wine);
+}
+
+.ny-booking__intro p {
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.ny-form__dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.ny-form label {
+    display: block;
+    min-width: 0;
+    background: #fffaf3;
+    border: 1px solid #eee1ce;
+    padding: 8px 12px;
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+.ny-form input[type=date] {
+    border: 0;
+    width: 100%;
+    min-width: 0;
+    display: block;
+    background: transparent;
+    color: #231d18;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.ny-form .ny-button {
+    width: 100%;
+    border-radius: 8px;
+    min-height: 41px;
+    padding: 10px 16px;
+    margin-top: 9px;
+}
+
+.ny-form__note {
+    font-size: 10px;
+    color: #75695e;
+    margin-top: 7px!important;
+}
+
+.ny-booking__wish {
+    font-family: 'Cormorant Garamond',Georgia,serif;
+    font-style: italic;
+    font-size: 27px;
+    line-height: 1.05;
+    color: #a0814f;
+    text-align: center;
+    transform: rotate(-9deg);
+}
+
+.ny-booking__wish span {
+    font-size: 40px;
+    display: inline-block;
+}
+
+.ny-offer {
+    padding-top: 32px;
+}
+
+.ny-offer__heading {
+    display: grid;
+    grid-template-columns: 39% 1fr;
+    gap: 30px;
+    align-items: center;
+    margin: 0 32px 24px;
+}
+
+.ny-offer h2 {
+    font-size: 40px;
+    line-height: .95;
+    color: var(--ny-wine);
+    position: relative;
+}
+
+.ny-offer h2 span {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: var(--ny-gold);
+    font-size: 46px;
+    font-weight: 400;
+}
+
+.ny-offer__heading p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ny-offer__grid {
+    display: grid;
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    gap: 8px;
+}
+
+.ny-offer-card {
+    position: relative;
+    border-radius: 10px;
+    background: linear-gradient(#fffaf3,#f7eddf);
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.ny-offer-card__photo {
+    height: 145px;
+    background-image: url('/img/new-year/dining.webp');
+    background-size: auto 210%;
+    border-radius: 9px;
+    background-repeat: no-repeat;
+}
+
+.ny-food--breakfast {
+    background-position: 0% 82%;
+}
+
+.ny-food--menu {
+    background-position: 40% 80%;
+}
+
+.ny-food--drinks {
+    background-position: 50% 10%;
+}
+
+.ny-food--gift {
+    background-position: 100% 60%;
+}
+
+.ny-food--buffet {
+    background-position: 100% 90%;
+}
+
+.ny-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ny-wine);
+    color: #fff6dc;
+    width: 49px;
+    height: 49px;
+    border: 3px solid var(--ny-cream);
+    border-radius: 50%;
+    position: absolute;
+    top: 119px;
+    left: 16px;
+}
+
+.ny-badge svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 1.2;
+}
+
+.ny-offer-card__copy {
+    padding: 20px 12px 0 28%;
+}
+
+.ny h3 {
+    font-size: 17px;
+    line-height: 1.05;
+}
+
+.ny-offer-card p {
+    font-size: 12px;
+    line-height: 1.3;
+    margin-top: 8px;
+}
+
+.ny-location {
+    display: grid;
+    grid-template-columns: 1.35fr repeat(4,1fr);
+    gap: 22px;
+    align-items: start;
+    margin-top: 18px;
+    background: #f5e9d9;
+    border-radius: 14px;
+    padding: 18px 25px 20px;
+}
+
+.ny-location__intro {
+    display: flex;
+    gap: 12px;
+    align-self: center;
+}
+
+.ny-location h2 {
+    font-size: 26px;
+    line-height: 1.02;
+}
+
+.ny-location__intro p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+.ny-place {
+    text-align: center;
+}
+
+.ny-place__photo {
+    width: 136px;
+    height: 136px;
+    max-width: 100%;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.ny-place--sea {
+    background-image: url('/img/07c7bba161a1.jpg');
+}
+
+.ny-place--city {
+    background-image: url('/img/new-year/promenda.webp');
+    background-position: 30% center;
+}
+
+.ny-place--tree {
+    background-image: url('/img/new-year/promenda.webp');
+    background-position: 70% center;
+}
+
+.ny-place--fireworks {
+    background-image: url('/img/new-year/promenda.webp');
+    background-position: right top;
+}
+
+.ny-place .ny-badge {
+    width: 40px;
+    height: 40px;
+    top: auto;
+    bottom: -8px;
+    left: 0;
+}
+
+.ny-place .ny-badge svg {
+    width: 22px;
+    height: 22px;
+}
+
+.ny-place h3 {
+    font-size: 17px;
+    line-height: 1.1;
+}
+
+.ny-place p {
+    font-size: 12px;
+    line-height: 1.35;
+    margin-top: 7px;
+}
+
+.ny-gallery {
+    display: grid;
+    grid-template-columns: 235px 1fr;
+    gap: 25px;
+    padding: 22px 0;
+}
+
+.ny-gallery__intro {
+    padding: 5px 0 0 28px;
+}
+
+.ny-gallery h2 {
+    font-size: 29px;
+    line-height: .98;
+    color: var(--ny-wine);
+}
+
+.ny-gallery p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 14px;
+}
+
+.ny-gallery__controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.ny-gallery__controls button {
+    width: 33px;
+    height: 33px;
+    background: #fff;
+    border: 1px solid #e3d4bf;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--ny-wine);
+}
+
+.ny-gallery__controls button:disabled {
+    opacity: .35;
+    cursor: default;
+}
+
+.ny-gallery__track {
+    display: flex;
+    gap: 9px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #c5aa80 transparent;
+    align-self: start;
+}
+
+.ny-gallery__item {
+    flex: 0 0 calc((100% - 27px)/4);
+    height: 175px;
+    scroll-snap-align: start;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.ny-gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s;
+}
+
+.ny-gallery__item:hover img {
+    transform: scale(1.04);
+}
+
+.ny-cta {
+    background: radial-gradient(ellipse at 0 100%,#a45e29 0,transparent 32%),linear-gradient(110deg,#740c1f,#4d0714);
+    color: #f9e7bd;
+    padding: 28px 0;
+}
+
+.ny-cta__inner {
+    display: grid;
+    grid-template-columns: 160px 1fr 300px;
+    gap: 20px;
+    align-items: center;
+}
+
+.ny-cta__decoration {
+    font-size: 130px;
+    line-height: 1;
+    text-align: center;
+    color: #d0a15b;
+    text-shadow: 0 0 25px #e0b25465;
+}
+
+.ny-cta h2 {
+    font-size: 31px;
+    line-height: 1.03;
+    font-weight: 500;
+}
+
+.ny-cta p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #f1dac4;
+}
+
+.ny-cta__action {
+    text-align: center;
+}
+
+.ny-button--gold {
+    color: #4b2116!important;
+    background: linear-gradient(110deg,#cfa05b,#f7d89b);
+    width: 100%;
+}
+
+.ny-button--gold:hover {
+    background: #f1d398;
+}
+
+.ny-cta__action p {
+    font-size: 12px;
+}
+
+.ny-lightbox {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    max-width: 92vw;
+    max-height: 90vh;
+    overflow: visible;
+}
+
+.ny-lightbox::backdrop {
+    background: #190909e8;
+}
+
+.ny-lightbox img {
+    display: block;
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.ny-lightbox button {
+    position: absolute;
+    right: 0;
+    top: -43px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 34px;
+    cursor: pointer;
+}
+
+.ny-lightbox[open] {
+    display: grid;
+    place-items: center;
+}
+
+body:has(.ny-lightbox[open]) {
+    overflow: hidden;
+}
+
+@media(min-width:1450px) {
+    .ny-hero {
+        background-size: cover;
+        min-height: 680px;
+    }
+    .ny-hero__inner {
+        padding-top: 55px;
+    }
+    .ny-hero__copy {
+        padding-top: 8px;
+    }
+}
+
+@media(max-width:1100px) {
+    .ny-wrap {
+        width: calc(100% - 48px);
+    }
+    .ny-hero {
+        min-height: 540px;
+    }
+    .ny-hero__inner {
+        padding-top: 24px;
+    }
+    .ny-logo img {
+        width: 112px;
+        height: 80px;
+    }
+    .ny-booking {
+        gap: 20px;
+        padding: 25px;
+    }
+    .ny-booking h2 {
+        font-size: 22px;
+    }
+    .ny-booking__intro {
+        gap: 12px;
+    }
+    .ny-booking__wish {
+        font-size: 24px;
+    }
+    .ny-offer__heading {
+        margin-inline: 25px;
+    }
+    .ny-offer h2 {
+        font-size: 36px;
+    }
+    .ny-offer h2 span {
+        right: -6px;
+    }
+    .ny-offer-card__photo {
+        height: 125px;
+    }
+    .ny-offer-card .ny-badge {
+        top: 100px;
+        left: 12px;
+    }
+    .ny-offer-card__copy {
+        padding-left: 30%;
+        padding-right: 8px;
+    }
+    .ny h3 {
+        font-size: 15px;
+    }
+    .ny-location {
+        gap: 13px;
+        padding-inline: 20px;
+    }
+    .ny-location h2 {
+        font-size: 23px;
+    }
+    .ny-location .ny-gold-icon {
+        width: 40px;
+    }
+    .ny-place__photo {
+        width: 120px;
+        height: 120px;
+    }
+    .ny-gallery {
+        grid-template-columns: 210px 1fr;
+        gap: 15px;
+    }
+    .ny-gallery__item {
+        height: 155px;
+    }
+    .ny-cta__inner {
+        grid-template-columns: 130px 1fr 260px;
+    }
+    .ny-cta h2 {
+        font-size: 28px;
+    }
+}
+
+@media(max-width:800px) {
+    .ny-wrap {
+        width: calc(100% - 32px);
+    }
+    .ny-hero {
+        min-height: 610px;
+        background-position: 60% center;
+    }
+    .ny-hero__copy {
+        width: 52%;
+    }
+    .ny-hero__inner {
+        padding-top: 28px;
+    }
+    .ny h1 {
+        font-size: 46px;
+    }
+    .ny h1 strong {
+        font-size: 104px;
+    }
+    .ny h1 span {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+    .ny-hero__copy>p {
+        font-size: 23px;
+    }
+    .ny-hero .ny-button {
+        font-size: 10px;
+        gap: 10px;
+        padding-inline: 17px;
+    }
+    .ny-content {
+        margin-top: -115px;
+    }
+    .ny-booking {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 20px;
+        padding: 22px;
+    }
+    .ny-booking__wish {
+        display: none;
+    }
+    .ny-offer__heading {
+        grid-template-columns: 1fr 1.4fr;
+        gap: 25px;
+        margin-inline: 5px;
+    }
+    .ny-offer h2 {
+        font-size: 31px;
+    }
+    .ny-offer h2 span {
+        font-size: 30px;
+        right: 0;
+        top: -4px;
+    }
+    .ny-offer__heading p {
+        font-size: 12px;
+    }
+    .ny-desktop {
+        display: none;
+    }
+    .ny-offer__grid {
+        grid-template-columns: repeat(6,1fr);
+        gap: 10px;
+    }
+    .ny-offer-card {
+        grid-column: span 2;
+    }
+    .ny-offer-card:nth-last-child(-n+2) {
+        grid-column: span 3;
+    }
+    .ny-offer-card__copy {
+        padding-left: 24%;
+        padding-top: 20px;
+    }
+    .ny-offer-card p {
+        font-size: 13px;
+    }
+    .ny-offer-card h3 {
+        font-size: 19px;
+    }
+    .ny-offer-card__photo {
+        height: 150px;
+    }
+    .ny-offer-card .ny-badge {
+        top: 126px;
+    }
+    .ny-location {
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px 12px;
+    }
+    .ny-location__intro {
+        grid-column: 1/-1;
+        align-items: center;
+        justify-content: center;
+    }
+    .ny-location__intro>div {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+    }
+    .ny-location__intro p {
+        margin: 0;
+    }
+    .ny-location h2 {
+        font-size: 25px;
+    }
+    .ny-place__photo {
+        width: 110px;
+        height: 110px;
+    }
+    .ny-place h3 {
+        font-size: 16px;
+    }
+    .ny-gallery {
+        grid-template-columns: 170px 1fr;
+    }
+    .ny-gallery__intro {
+        padding-left: 5px;
+    }
+    .ny-gallery h2 {
+        font-size: 27px;
+    }
+    .ny-gallery__item {
+        flex-basis: calc((100% - 9px)/2);
+        height: 175px;
+    }
+    .ny-cta__inner {
+        grid-template-columns: 1fr 235px;
+        gap: 20px;
+    }
+    .ny-cta__decoration {
+        display: none;
+    }
+    .ny-cta h2 {
+        font-size: 27px;
+    }
+    .ny-cta p {
+        font-size: 12px;
+    }
+}
+
+@media(max-width:540px) {
+    .ny-wrap {
+        width: calc(100% - 28px);
+    }
+    .ny-hero {
+        min-height: 660px;
+        background-position: 67% bottom;
+        background-size: auto 460px;
+        background-repeat: no-repeat;
+        background-color: #fff4df;
+    }
+    .ny-hero:before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(#fff4df 4%,#fff4dfed 35%,transparent 75%);
+    }
+    .ny-hero__inner {
+        padding: 16px 0 210px;
+    }
+    .ny-hero__copy {
+        width: 100%;
+        max-width: none;
+    }
+    .ny-logo {
+        margin-bottom: 7px;
+    }
+    .ny-logo img {
+        width: 102px;
+        height: 68px;
+    }
+    .ny h1 {
+        font-size: 48px;
+        letter-spacing: -1.5px;
+    }
+    .ny h1 strong {
+        font-size: 106px;
+        letter-spacing: -4px;
+        line-height: .88;
+    }
+    .ny h1 span {
+        font-size: 28px;
+        margin-top: 9px;
+    }
+    .ny-hero__copy>p {
+        font-size: 24px;
+        margin: 13px 0 18px;
+    }
+    .ny-hero .ny-button {
+        font-size: 11px;
+        min-height: 46px;
+        padding-inline: 25px;
+    }
+    .ny-content {
+        margin-top: -52px;
+    }
+    .ny-booking {
+        grid-template-columns: 1fr;
+        padding: 22px 18px;
+        gap: 18px;
+        border-radius: 15px;
+    }
+    .ny-booking__intro {
+        justify-content: center;
+        gap: 15px;
+    }
+    .ny-booking h2 {
+        font-size: 26px;
+    }
+    .ny-booking__intro p {
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    .ny .ny-gold-icon {
+        width: 44px;
+        height: 44px;
+    }
+    .ny-form input[type=date] {
+        font-size: 15px;
+    }
+    .ny-form label {
+        padding-inline: 9px;
+    }
+    .ny-form__note {
+        font-size: 10px;
+        text-align: center;
+    }
+    .ny-form .ny-button {
+        min-height: 45px;
+    }
+    .ny-offer {
+        padding-top: 28px;
+    }
+    .ny-offer__heading {
+        display: block;
+        margin: 0 4px 20px;
+    }
+    .ny-offer h2 {
+        font-size: 37px;
+        display: inline-block;
+    }
+    .ny-offer h2 span {
+        right: -50px;
+        top: 8px;
+        font-size: 38px;
+    }
+    .ny-offer__heading p {
+        font-size: 13px;
+        margin-top: 16px;
+    }
+    .ny-offer__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .ny-offer-card,
+.ny-offer-card:nth-last-child(-n+2) {
+        grid-column: auto;
+    }
+    .ny-offer-card:last-child {
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-bottom: 0;
+    }
+    .ny-offer-card:last-child .ny-offer-card__photo {
+        height: 100%;
+        min-height: 180px;
+    }
+    .ny-offer-card:last-child .ny-badge {
+        top: 12px;
+        left: calc(50% - 24px);
+    }
+    .ny-offer-card:last-child .ny-offer-card__copy {
+        padding: 20px 14px 20px 30px;
+    }
+    .ny-offer-card__photo {
+        height: 120px;
+    }
+    .ny-offer-card .ny-badge {
+        width: 43px;
+        height: 43px;
+        top: 98px;
+        left: 9px;
+    }
+    .ny-offer-card__copy {
+        padding: 25px 12px 0 14px;
+    }
+    .ny-offer-card h3 {
+        font-size: 19px;
+    }
+    .ny-offer-card p {
+        font-size: 12px;
+        margin-top: 7px;
+    }
+    .ny-location {
+        grid-template-columns: 1fr 1fr;
+        padding: 22px 15px;
+        gap: 24px 18px;
+    }
+    .ny-location__intro {
+        justify-content: start;
+    }
+    .ny-location__intro>div {
+        display: block;
+    }
+    .ny-location h2 {
+        font-size: 28px;
+    }
+    .ny-location__intro p {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+    .ny-place__photo {
+        width: 122px;
+        height: 122px;
+    }
+    .ny-place h3 {
+        font-size: 18px;
+    }
+    .ny-place p {
+        font-size: 12px;
+    }
+    .ny-gallery {
+        display: block;
+        padding-block: 25px;
+    }
+    .ny-gallery__intro {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        padding: 0 0 16px;
+    }
+    .ny-gallery h2 {
+        font-size: 31px;
+    }
+    .ny-gallery p {
+        grid-column: 1;
+        margin-top: 10px;
+    }
+    .ny-gallery__controls {
+        grid-column: 2;
+        grid-row: 1/3;
+        align-self: center;
+        margin: 0;
+    }
+    .ny-gallery__item {
+        flex-basis: 74%;
+        height: 220px;
+    }
+    .ny-cta {
+        padding: 27px 0 30px;
+    }
+    .ny-cta__inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+    }
+    .ny-cta h2 {
+        font-size: 30px;
+    }
+    .ny-cta p {
+        font-size: 13px;
+    }
+    .ny-cta__action {
+        max-width: 330px;
+        width: 100%;
+        margin: auto;
+    }
+    .ny-button--gold {
+        min-height: 50px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html:has(.ny) {
+        scroll-behavior: auto;
+    }
+    .ny * {
+        transition: none!important;
+        scroll-behavior: auto!important;
+    }
+}
+
+.ny-cta__inner {
+    position: relative;
+    grid-template-columns: 210px 1fr 300px;
+}
+
+.ny-cta__decoration {
+    position: relative;
+    align-self: stretch;
+    min-height: 90px;
+}
+
+.ny-cta__decoration img {
+    position: absolute;
+    bottom: -28px;
+    left: -50px;
+    width: 260px;
+    height: 390px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+@media(max-width:1100px) {
+    .ny-cta__inner {
+        grid-template-columns: 170px 1fr 260px;
+    }
+    .ny-cta__decoration img {
+        width: 220px;
+        height: 330px;
+    }
+}
+
+@media(max-width:800px) {
+    .ny-cta__inner {
+        grid-template-columns: 1fr 235px;
+    }
+}
+
+@media(max-width:540px) {
+    .ny-cta__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ny h1,
+.ny h2,
+.ny h3 {
+    font-weight: 600!important;
+    letter-spacing: normal;
+}
+
+.ny h1 {
+    letter-spacing: -2px;
+}
+
+.ny-cta h2 {
+    font-weight: 500!important;
+}
+
+.ny-lightbox {
+    margin: auto;
+}
+
+.ny {
+    overflow-x: clip;
+}

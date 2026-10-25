@@ -1,0 +1,185 @@
+.offers-page {
+    padding: 145px 0 100px;
+    background: var(--cream);
+}
+
+:where(.offers-page) .offers-page__intro {
+    max-width: 900px;
+    margin: 0 auto 52px;
+    text-align: center;
+}
+
+:where(.offers-page) .offers-page__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 15px;
+    color: var(--gold);
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+:where(.offers-page) .offers-page__eyebrow::before,
+:where(.offers-page) .offers-page__eyebrow::after {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: var(--gold);
+}
+
+:where(.offers-page) .offers-page__title {
+    margin: 0 0 18px;
+    color: var(--green);
+    font-family: var(--serif);
+    font-size: clamp(52px, 4.7vw, 76px);
+    font-weight: 500;
+    line-height: .94;
+    letter-spacing: -.025em;
+}
+
+:where(.offers-page) .offers-page__lead {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+:where(.offers-page) .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+:where(.offers-page) .offers-card-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+:where(.offers-page) .offers-card {
+    height: 100%;
+    overflow: hidden;
+    background: var(--green);
+    box-shadow: 0 14px 36px rgba(24, 40, 32, .10);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+:where(.offers-page) .offers-card-link:hover .offers-card {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 48px rgba(24, 40, 32, .18);
+}
+
+:where(.offers-page) .offers-card__image {
+    aspect-ratio: 1.42 / 1;
+    overflow: hidden;
+    background: var(--cream-2);
+}
+
+:where(.offers-page) .offers-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .65s ease;
+}
+
+:where(.offers-page) .offers-card-link:hover .offers-card__image img {
+    transform: scale(1.035);
+}
+
+:where(.offers-page) .offers-card__body {
+    background: var(--green);
+}
+
+:where(.offers-page) .offers-card__title {
+    min-height: 100px;
+    padding: 23px 24px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, .11);
+    color: #fff;
+    font-family: var(--serif);
+    font-size: 29px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+:where(.offers-page) .offers-card__bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 58px;
+    min-height: 108px;
+}
+
+:where(.offers-page) .offers-card__excerpt {
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 24px;
+    color: rgba(255, 255, 255, .74);
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+:where(.offers-page) .offers-card__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(255, 255, 255, .11);
+    color: var(--gold);
+    font-size: 22px;
+}
+
+@media (max-width: 1440px) {
+    .offers-page {
+        padding: 110px 0 72px;
+    }
+    :where(.offers-page) .offers-page__intro {
+        margin-bottom: 38px;
+    }
+    :where(.offers-page) .offers-page__title {
+        font-size: 56px;
+    }
+    :where(.offers-page) .offers-grid {
+        gap: 16px;
+    }
+    :where(.offers-page) .offers-card__title {
+        min-height: 82px;
+        padding: 17px 18px 15px;
+        font-size: 23px;
+    }
+    :where(.offers-page) .offers-card__bottom {
+        grid-template-columns: minmax(0, 1fr) 50px;
+        min-height: 88px;
+    }
+    :where(.offers-page) .offers-card__excerpt {
+        padding: 15px 18px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 1199px) {
+    :where(.offers-page) .offers-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .offers-page {
+        padding: 92px 0 52px;
+    }
+    :where(.offers-page) .offers-page__intro {
+        text-align: left;
+    }
+    :where(.offers-page) .offers-page__eyebrow::after {
+        display: none;
+    }
+    :where(.offers-page) .offers-page__title {
+        font-size: 43px;
+    }
+    :where(.offers-page) .offers-grid {
+        grid-template-columns: 1fr;
+    }
+}

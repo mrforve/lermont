@@ -1,0 +1,18 @@
+.auth-form__consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.auth-form__consent input {
+    flex: 0 0 auto;
+    width: auto;
+    margin-top: 3px;
+}
+
+.auth-form__consent a,
+.contact-form__privacy a {
+    text-decoration: underline;
+}

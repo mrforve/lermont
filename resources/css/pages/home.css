@@ -1,0 +1,12 @@
+.hero[style*="--hero-image"] {
+    background-image: linear-gradient(90deg, rgba(15,31,26,.72) 0%, rgba(15,31,26,.28) 55%, rgba(15,31,26,.08) 100%), var(--hero-image);
+}
+
+.location-section__image {
+    height: 560px;
+    object-fit: cover;
+}
+
+.location-section__eyebrow {
+    letter-spacing: 2px;
+}

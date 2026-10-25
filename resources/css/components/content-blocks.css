@@ -1,0 +1,5 @@
+.content-block--image img {
+    width: var(--content-image-width, auto);
+    height: var(--content-image-height, auto);
+    object-fit: var(--content-image-fit, contain);
+}

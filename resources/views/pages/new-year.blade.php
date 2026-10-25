@@ -6,7 +6,6 @@
 @push('styles')
     <meta name="theme-color" content="#650b1b">
     <link rel="canonical" href="{{ url('/novyi-god-2027-v-gelendzike') }}">
-    <link rel="stylesheet" href="{{ asset('css/new-year.css') }}?v=20261025-2">
 @endpush
 
 @push('scripts')
