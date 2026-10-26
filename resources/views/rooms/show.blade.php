@@ -62,6 +62,8 @@
                 @endif
             </header>
 
+            <a class="btn btn-gold travelline-room-booking" href="{{ $roomType->booking_url }}">Забронировать номер</a>
+
             <section
                 class="room-gallery"
                 data-room-gallery

@@ -1,3 +1,4 @@
+import './components/travelline.js';
 import './components/rooms-catalog.js';
 import './lermont.js';
 document.addEventListener('DOMContentLoaded', () => {

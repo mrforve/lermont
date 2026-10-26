@@ -76,6 +76,16 @@ class RoomTypeForm
                     ])
                     ->columns(4),
 
+                Section::make('TravelLine')
+                    ->schema([
+                        TextInput::make('travelline_room_type_id')
+                            ->label('ID категории номера в TravelLine')
+                            ->helperText('Используется для выбора категории в модуле бронирования.')
+                            ->integer()
+                            ->minValue(1)
+                            ->maxValue(4294967295),
+                    ]),
+
                 Section::make('Изображение')
                     ->schema([
                         FileUpload::make('main_image')

@@ -983,7 +983,7 @@
                     </ul>
 
                     <a
-                        href="{{ route('register') }}"
+                        href="{{ route('lk') }}"
                         class="guest-club__btn"
                     >
                         Вступить в клуб

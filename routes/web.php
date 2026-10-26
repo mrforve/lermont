@@ -59,6 +59,9 @@ Route::view('/booking', 'pages.booking')
 
 Route::view('/lk', 'pages.lk')
     ->name('lk');
+
+Route::view('/otzyvy', 'pages.reviews')
+    ->name('reviews');
 	
 Route::get('/offers', [PromotionController::class, 'index'])
     ->name('offers.index');

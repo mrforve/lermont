@@ -85,3 +85,46 @@
         padding: 12px;
     }
 }
+
+.travelline-inner-search {
+    position: sticky;
+    top: var(--travelline-header-height, 90px);
+    z-index: 850;
+    padding: 16px 0;
+    background: var(--cream);
+    box-shadow: 0 4px 16px rgba(24, 40, 32, .06);
+}
+
+.travelline-inner-search .tl-container { min-height: 100px; }
+
+.travelline-sticky-search {
+    position: fixed;
+    top: var(--travelline-header-height, 90px);
+    right: 0;
+    left: 0;
+    z-index: 900;
+    padding: 12px 0;
+    background: var(--cream);
+    box-shadow: 0 8px 20px rgba(24, 40, 32, .12);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: opacity .2s, transform .2s, visibility .2s;
+}
+
+.travelline-sticky-search.is-visible { visibility: visible; opacity: 1; transform: none; }
+.travelline-room-booking { margin: 0 0 20px; }
+.room-showcase__more.travelline-room-booking { margin: 5px 0 0 12px; background: var(--green); border-color: var(--green); color: #fff !important; }
+.travelline-error { padding: 14px; margin: 0; font-size: 14px; }
+.travelline-error a { text-decoration: underline; }
+
+@media (max-width: 991px) {
+    .travelline-sticky-search { display: none; }
+    .travelline-inner-search { position: static; }
+}
+@media (max-width: 575px) {
+    .room-showcase__more.travelline-room-booking { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .travelline-sticky-search { transition: none; }
+}

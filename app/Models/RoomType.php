@@ -19,6 +19,7 @@ class RoomType extends Model
         'extra_capacity',
         'area',
         'base_price',
+        'travelline_room_type_id',
         'sort_order',
         'is_active',
         'seo_title',
@@ -32,9 +33,17 @@ class RoomType extends Model
             'extra_capacity' => 'integer',
             'area' => 'integer',
             'base_price' => 'decimal:2',
+            'travelline_room_type_id' => 'integer',
             'sort_order' => 'integer',
             'is_active' => 'boolean',
         ];
+    }
+
+    public function getBookingUrlAttribute(): string
+    {
+        return route('booking', $this->travelline_room_type_id
+            ? ['room-type' => $this->travelline_room_type_id]
+            : []);
     }
 
     public function rooms(): HasMany

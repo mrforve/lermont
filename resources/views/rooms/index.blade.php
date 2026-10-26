@@ -271,6 +271,7 @@
                                         <path d="m13 6 6 6-6 6"/>
                                     </svg>
                                 </a>
+                                <a href="{{ $roomType->booking_url }}" class="room-showcase__more travelline-room-booking">Забронировать</a>
 
                             </div>
 

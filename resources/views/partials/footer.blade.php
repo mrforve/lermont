@@ -28,6 +28,8 @@
                 <ul class="list-unstyled mb-0">
                     <li><a href="{{ url('/services') }}">Услуги</a></li>
                     <li><a href="{{ url('/gallery') }}">Галерея</a></li>
+                    <li><a href="{{ route('reviews') }}">Отзывы</a></li>
+                    <li><a href="{{ route('lk') }}">Личный кабинет гостя</a></li>
                     <li><a href="{{ url('/about') }}">Об отеле</a></li>
                     <li><a href="{{ url('/contacts') }}">Как добраться</a></li>
                     <li><a href="{{ asset('documents/consumer/pravila-prozhivaniya-i-predostavleniya-uslug-1.pdf') }}" target="_blank" rel="noopener noreferrer">Правила проживания</a></li>
@@ -45,7 +47,7 @@
             </div>
 
             <div class="col-lg-2 col-md-6 footer-actions">
-                <button class="btn btn-outline-light w-100 mb-3" type="button">Забронировать</button>
+                <a class="btn btn-outline-light w-100 mb-3" href="{{ route('booking') }}">Забронировать</a>
 				<a href="https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA"
 				   class="footer-whatsapp"
 				   target="_blank"
