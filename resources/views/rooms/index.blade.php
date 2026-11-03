@@ -21,7 +21,9 @@
                 </h1>
 
 
-                <div class="rooms-toggle">
+                <div class="rooms-toggle-wrap" data-room-toggle-wrap>
+                    <button type="button" class="rooms-toggle__nav" data-room-toggle-prev aria-label="Предыдущие категории номеров" aria-controls="room-categories" disabled>←</button>
+                <div class="rooms-toggle" id="room-categories" aria-label="Категории номеров">
 
                     @foreach ($roomTypes as $roomType)
 
@@ -29,6 +31,7 @@
                             type="button"
                             class="rooms-toggle__button {{ $loop->first ? 'is-active' : '' }}"
                             data-room-toggle="{{ $roomType->slug }}"
+                            aria-pressed="{{ $loop->first ? 'true' : 'false' }}"
                         >
                             {{ $roomType->name }}
                         </button>
@@ -37,6 +40,10 @@
 
                 </div>
 
+
+                    <button type="button" class="rooms-toggle__nav" data-room-toggle-next aria-label="Следующие категории номеров" aria-controls="room-categories">→</button>
+                    <p class="rooms-toggle__hint">Листайте категории номеров</p>
+                </div>
 
                 @foreach ($roomTypes as $roomType)
 

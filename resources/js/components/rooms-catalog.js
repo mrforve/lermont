@@ -155,13 +155,43 @@ document.addEventListener('DOMContentLoaded', () => {
         setBusy(false);
     });
 
+    document.querySelectorAll('[data-room-toggle-wrap]').forEach((wrap) => {
+        const rail = wrap.querySelector('.rooms-toggle');
+        const previous = wrap.querySelector('[data-room-toggle-prev]');
+        const next = wrap.querySelector('[data-room-toggle-next]');
+        if (!rail || !previous || !next) return;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const update = () => {
+            const limit = rail.scrollWidth - rail.clientWidth;
+            wrap.classList.toggle('is-scrollable', limit > 2);
+            previous.disabled = rail.scrollLeft <= 2;
+            next.disabled = rail.scrollLeft >= limit - 2;
+        };
+        const scroll = (direction) => rail.scrollBy({
+            left: direction * rail.clientWidth * .75,
+            behavior: reducedMotion.matches ? 'instant' : 'smooth',
+        });
+        previous.addEventListener('click', () => scroll(-1));
+        next.addEventListener('click', () => scroll(1));
+        rail.addEventListener('scroll', update, { passive: true });
+        new ResizeObserver(update).observe(rail);
+        document.fonts.ready.then(update);
+        update();
+    });
+
     const buttons = document.querySelectorAll('[data-room-toggle]');
     const panels = document.querySelectorAll('[data-room-panel]');
     buttons.forEach(button => button.addEventListener('click', () => {
         const panel = Array.from(panels).find(item => item.dataset.roomPanel === button.dataset.roomToggle);
         if (!panel) return;
         galleries.forEach(gallery => gallery.finish());
-        buttons.forEach(item => item.classList.toggle('is-active', item === button));
+        buttons.forEach(item => {
+            item.classList.toggle('is-active', item === button);
+            item.setAttribute('aria-pressed', String(item === button));
+        });
+        if (window.matchMedia('(max-width: 767px)').matches) {
+            button.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
+        }
         panels.forEach(item => item.classList.toggle('is-active', item === panel));
         galleries.get(panel)?.activate();
     }));
