@@ -93,3 +93,10 @@
         color: var(--gold) !important;
     }
 }
+
+@media (max-width: 991px) {
+    #navbarNav:not(.is-open) .header-submenu {
+        visibility: hidden;
+        pointer-events: none;
+    }
+}

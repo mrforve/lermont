@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const menu = document.getElementById('navbarNav');
     const menuLinks = document.querySelectorAll('#navbarNav .nav-link');
 
+    function syncMenuInteractivity() {
+        if (!menu) return;
+        menu.inert = window.innerWidth <= 991 && !menu.classList.contains('is-open');
+    }
+
     function setHeaderScrolled() {
         if (!header) return;
         header.classList.toggle('scrolled', window.scrollY > 80);
@@ -15,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         header.classList.add('is-menu-open');
         burger.classList.add('is-active');
         menu.classList.add('is-open');
+        syncMenuInteractivity();
 
         burger.setAttribute('aria-expanded', 'true');
         document.body.classList.add('menu-open');
@@ -26,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         header.classList.remove('is-menu-open');
         burger.classList.remove('is-active');
         menu.classList.remove('is-open');
+        syncMenuInteractivity();
 
         burger.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('menu-open');
@@ -42,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     setHeaderScrolled();
+    syncMenuInteractivity();
 
     window.addEventListener('scroll', setHeaderScrolled);
 
@@ -63,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     window.addEventListener('resize', function () {
+        syncMenuInteractivity();
         if (window.innerWidth > 991) {
             closeMenu();
         }
