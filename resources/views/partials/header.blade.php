@@ -1,8 +1,7 @@
 @php
-    $isAboutPage = request()->is('about') || request()->is('about/*');
     $headerModifier = request()->routeIs('home')
         ? 'main-header--home'
-        : ($isAboutPage ? 'main-header--about' : 'main-header--inner');
+        : 'main-header--inner';
 
     $hotelPhone = '+7 (928) 241-43-22';
     $hotelPhoneHref = '+79282414322';
