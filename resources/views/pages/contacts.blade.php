@@ -78,17 +78,17 @@
 					<a href="https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA"
 					   target="_blank"
 					   rel="noopener">
-						MAX — написать
+						<svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#6655e8"/><path d="M8 23V13a8 8 0 1 1 4 7l-4 3Z" fill="white"/><path d="M13 17v-5l3 3 3-3v5" fill="none" stroke="#6655e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>MAX — написать</span>
 					</a>
 
 					<a href="https://max.ru/id230404441527_biz"
 					   target="_blank"
 					   rel="noopener">
-						Канал MAX
-					</a>a>
-                    <a href="https://vk.com/hotellermont" target="_blank" rel="noopener">ВКонтакте</a>
-                    <a href="https://ok.ru/group/62027103731756" target="_blank" rel="noopener">Одноклассники</a>
-                    <a href="https://www.tripadvisor.ru/Hotel_Review-g298514-d12824127-Reviews-Hotel_Lermont-Gelendzhik_Gelendzhiksky_District_Krasnodar_Krai_Southern_District.html" target="_blank" rel="noopener">Tripadvisor</a>
+						<svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#6655e8"/><path d="M8 23V13a8 8 0 1 1 4 7l-4 3Z" fill="white"/><path d="M13 17v-5l3 3 3-3v5" fill="none" stroke="#6655e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Канал MAX</span>
+					</a>
+                    <a href="https://vk.com/hotellermont" target="_blank" rel="noopener"><svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#0077ff"/><path d="M6 10h4c.3 5 2.5 7.2 4 7.7V10h3.7v4.4c1.5-.2 3-2.3 3.5-4.4H25c-.5 2.6-2.3 4.7-3.6 5.6 1.3.7 3.4 2.6 4.2 6.4h-4.2c-.6-2.1-2-3.8-3.7-4v4H16C9.6 22 6.3 17.5 6 10Z" fill="white"/></svg><span>ВКонтакте</span></a>
+                    <a href="https://ok.ru/group/62027103731756" target="_blank" rel="noopener"><svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#ee8208"/><circle cx="16" cy="10" r="4" fill="none" stroke="white" stroke-width="2.7"/><path d="M10 17q6 4 12 0M16 20v2m0-1-5 6m5-6 5 6" fill="none" stroke="white" stroke-width="2.7" stroke-linecap="round"/></svg><span>Одноклассники</span></a>
+                    <a href="https://www.tripadvisor.ru/Hotel_Review-g298514-d12824127-Reviews-Hotel_Lermont-Gelendzhik_Gelendzhiksky_District_Krasnodar_Krai_Southern_District.html" target="_blank" rel="noopener"><svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#34e0a1"/><path d="m7 12-2-3h22l-2 3M13 18l3 3 3-3" fill="none" stroke="#10251b" stroke-width="2"/><circle cx="10.5" cy="16" r="5.5" fill="none" stroke="#10251b" stroke-width="2"/><circle cx="21.5" cy="16" r="5.5" fill="none" stroke="#10251b" stroke-width="2"/><circle cx="10.5" cy="16" r="2" fill="#10251b"/><circle cx="21.5" cy="16" r="2" fill="#10251b"/></svg><span>Tripadvisor</span></a>
                 </div>
             </div>
         </div>

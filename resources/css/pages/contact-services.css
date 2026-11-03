@@ -234,6 +234,9 @@
 }
 
 .contacts-socials__grid a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 15px 17px;
     border: 1px solid rgba(41,53,46,.14);
     color: #2b3d33;
@@ -610,4 +613,10 @@
         width: 100%;
         min-width: 0;
     }
+}
+
+.contacts-socials__icon {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
 }

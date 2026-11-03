@@ -138,7 +138,7 @@
                     <div class="about-feature">
                         <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 15.5h20l2 5.5v4H4v-4l2-5.5Z"/><path d="m8.5 15.5 2-5h11l2 5M7 25v2M25 25v2"/><circle cx="9.5" cy="21.5" r="1.4"/><circle cx="22.5" cy="21.5" r="1.4"/></svg>
                         <strong>Парковка</strong>
-                        <span>на территории</span>
+                        <span>Напротив отеля. При прямом бронировании комплиментарно</span>
                     </div>
 
                     <div class="about-feature">
