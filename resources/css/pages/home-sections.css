@@ -557,11 +557,15 @@
     display: grid;
     grid-template-columns: minmax(320px, .8fr)
         minmax(0, 1.45fr);
-    gap: 76px;
+    grid-template-areas: "content media" "action media";
+    column-gap: 76px;
+    row-gap: 0;
     align-items: center;
 }
 
 .home-breakfast__content {
+    grid-area: content;
+    align-self: end;
     max-width: 470px;
 }
 
@@ -594,6 +598,9 @@
 }
 
 .home-breakfast__badge {
+    grid-area: action;
+    align-self: start;
+    justify-self: start;
     display: inline-flex;
     align-items: center;
     gap: 14px;
@@ -618,6 +625,7 @@
 }
 
 .home-breakfast__media {
+    grid-area: media;
     display: grid;
     grid-template-columns: minmax(0, 1.62fr)
         minmax(220px, .95fr);
@@ -725,7 +733,7 @@
     .home-breakfast__grid {
         grid-template-columns: minmax(280px, .78fr)
             minmax(0, 1.3fr);
-        gap: 46px;
+        column-gap: 46px;
     }
     .home-breakfast__media {
         grid-template-columns: minmax(0, 1.45fr)
@@ -743,10 +751,15 @@
     }
     .home-breakfast__grid {
         grid-template-columns: 1fr;
+        grid-template-areas: "content" "media" "action";
         gap: 32px;
     }
     .home-breakfast__content {
         max-width: none;
+    }
+    .home-breakfast__badge {
+        width: 100%;
+        justify-content: center;
     }
     .home-breakfast__title {
         font-size: 44px;

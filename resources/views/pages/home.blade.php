@@ -364,21 +364,7 @@
                     и время для себя.
                 </p>
 
-                <a href="/breakfast" class="home-breakfast__badge">
 
-                    <svg viewBox="0 0 32 32" aria-hidden="true">
-                        <path d="M8 10h13v7c0 4-3 7-7 7s-6-3-6-7v-7Z"/>
-                        <path d="M21 12h2c3 0 5 2 5 5s-2 5-5 5h-3"/>
-                        <path d="M6 27h19"/>
-                        <path d="M11 7c0-2 2-2 2-5"/>
-                        <path d="M16 7c0-2 2-2 2-5"/>
-                    </svg>
-
-                    <span>
-                        Подробнее <span aria-hidden="true">→</span>
-                    </span>
-
-                </a>
 
             </div>
 
@@ -436,6 +422,22 @@
                 </div>
 
             </div>
+
+                <a href="/breakfast" class="home-breakfast__badge">
+
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M8 10h13v7c0 4-3 7-7 7s-6-3-6-7v-7Z"/>
+                        <path d="M21 12h2c3 0 5 2 5 5s-2 5-5 5h-3"/>
+                        <path d="M6 27h19"/>
+                        <path d="M11 7c0-2 2-2 2-5"/>
+                        <path d="M16 7c0-2 2-2 2-5"/>
+                    </svg>
+
+                    <span>
+                        Подробнее <span aria-hidden="true">→</span>
+                    </span>
+
+                </a>
 
         </div>
 
