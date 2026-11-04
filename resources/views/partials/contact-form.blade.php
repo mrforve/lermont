@@ -122,7 +122,7 @@
                 <span>
                     Я принимаю
                     <a
-                        href="{{ url('/personal-data-consent') }}"
+                        href="{{ asset('documents/consumer/soglasie-na-obrabotku-personalnyh-dannyh.pdf') }}"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -130,7 +130,7 @@
                     </a>
                     и ознакомлен с
                     <a
-                        href="{{ url('/privacy-policy') }}"
+                        href="{{ asset('documents/consumer/politika-konfidencialnosti.pdf') }}"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

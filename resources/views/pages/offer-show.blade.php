@@ -9,8 +9,8 @@
         ? asset('storage/' . $promotion->image)
         : $promotion->legacy_image_url;
 
-    $buttonText = $promotion->button_text ?: 'Забронировать номер';
-    $buttonUrl = $promotion->button_url ?: route('booking');
+    $buttonText = $promotion->button_text ?: 'Написать в MAX';
+    $buttonUrl = $promotion->button_url ?: 'https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA';
 @endphp
 
 <article class="offer-detail">
@@ -128,13 +128,14 @@
                     </h2>
 
                     <div class="offer-detail__box-text">
-                        Для бронирования выберите даты проживания
-                        и подходящий номер.
+                        Уточните наличие номеров на ваши даты и напишите/позвоните нам для брони
                     </div>
 
                     <a
                         href="{{ $buttonUrl }}"
                         class="offer-detail__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <span>{{ $buttonText }}</span>
 

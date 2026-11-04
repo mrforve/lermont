@@ -212,7 +212,7 @@
                     своим друзьям и близким.
                 </p>
 
-                <a href="{{ url('/klub-gostey') }}" class="about-outline-btn">
+                <a href="{{ url('/lk') }}" class="about-outline-btn">
                     Стать гостем клуба
                 </a>
             </div>
