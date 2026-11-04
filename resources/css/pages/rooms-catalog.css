@@ -628,3 +628,16 @@
         display: none;
     }
 }
+
+.rooms-toggle__name--short {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .rooms-toggle__name--full {
+        display: none;
+    }
+    .rooms-toggle__name--short {
+        display: inline;
+    }
+}

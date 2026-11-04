@@ -21,6 +21,17 @@
                 </h1>
 
 
+                @php
+                    $mobileRoomNames = [
+                        'bolsoi-standart-s-balkonom-na-1-m-etaze' => 'Большой стандарт',
+                        'standart-pervoi-kategorii-s-balkonom' => 'Стандарт 1 кат',
+                        'ulucsennyi-standart-s-balkonom' => 'Улучшенный стандарт',
+                        'dzunior-siuit-s-balkonom' => 'Джуниор сюит',
+                        'femili-studiia-bez-balkona' => 'Фемили без балкона',
+                        'femili-studiia-s-balkonom-na-1m-etaze' => 'Фемили с балконом',
+                    ];
+                @endphp
+
                 <div class="rooms-toggle-wrap" data-room-toggle-wrap>
                     <button type="button" class="rooms-toggle__nav" data-room-toggle-prev aria-label="Предыдущие категории номеров" aria-controls="room-categories" disabled>←</button>
                 <div class="rooms-toggle" id="room-categories" aria-label="Категории номеров">
@@ -33,7 +44,8 @@
                             data-room-toggle="{{ $roomType->slug }}"
                             aria-pressed="{{ $loop->first ? 'true' : 'false' }}"
                         >
-                            {{ $roomType->name }}
+                            <span class="rooms-toggle__name--full">{{ $roomType->name }}</span>
+                            <span class="rooms-toggle__name--short">{{ $mobileRoomNames[$roomType->slug] ?? $roomType->name }}</span>
                         </button>
 
                     @endforeach
