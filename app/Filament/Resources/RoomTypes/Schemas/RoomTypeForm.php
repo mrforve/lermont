@@ -30,6 +30,11 @@ class RoomTypeForm
                                 $set('slug', Str::slug($state ?? ''));
                             }),
 
+                        TextInput::make('short_name')
+                            ->label('Короткое название')
+                            ->helperText('Для переключателя категорий на мобильной версии. Если не заполнено, используется полное название.')
+                            ->maxLength(255),
+
                         TextInput::make('slug')
                             ->label('URL')
                             ->required()
