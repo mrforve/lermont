@@ -6,7 +6,7 @@
 )
 
 @section(
-    'meta_description',
+    'description',
     $roomType->seo_description ?: $roomType->short_description
 )
 
@@ -77,7 +77,8 @@
                         aria-label="Открыть изображение: {{ $roomType->name }}"
                     >
                         <img
-                            src="{{ \App\Support\ImageVariants::url($roomType->main_image, 'room-main') }}"
+                            src="{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($roomType->main_image, 'room-main'), 1200) }}"
+                            width="1200" height="900" fetchpriority="high" decoding="async"
                             alt="{{ $roomType->name }}"
                         >
                     </button>
@@ -92,7 +93,8 @@
                         aria-label="Открыть изображение: {{ $image->alt ?: $roomType->name }}"
                     >
                         <img
-                            src="{{ \App\Support\ImageVariants::url($image->image, 'room-thumb') }}"
+                            src="{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($image->image, 'room-thumb'), 480) }}"
+                            width="640" height="480" decoding="async"
                             alt="{{ $image->alt ?: $roomType->name }}"
                             loading="lazy"
                         >
@@ -135,7 +137,7 @@
                     </button>
 
                     <img
-                        src=""
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                         alt=""
                         class="room-lightbox__image"
                         data-lightbox-preview
@@ -156,6 +158,8 @@
                     ></div>
                 </div>
             </div>
+
+            @include('rooms.partials.views')
 
             @if ($roomType->description)
                 <section class="room-page__description">
@@ -183,7 +187,8 @@
                 </section>
             @endif
 
-            @if ($roomType->rooms->isNotEmpty())
+            {{-- Temporarily hide individual room numbers; records remain available in admin. --}}
+            @if (false && $roomType->rooms->isNotEmpty())
                 <section class="room-page__section">
                     <h2>Номера этой категории</h2>
 

@@ -5,6 +5,8 @@
     $news->seo_title ?: $news->title
 )
 
+@section('description', $news->seo_description ?: $news->short_description)
+
 @section('content')
 
 <article class="news-detail">
@@ -53,7 +55,7 @@
                 <div class="news-detail__image">
 
                     <img
-                        src="{{ asset('storage/' . $news->image) }}"
+                        src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $news->image), 1000) }}"
                         alt="{{ $news->title }}"
                     >
 

@@ -6,6 +6,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -65,6 +66,12 @@ class PromotionForm
                         ->maxLength(500),
                 ])
                 ->columns(2),
+
+            Section::make('SEO')
+                ->schema([
+                    TextInput::make('seo_title')->label('SEO-заголовок')->maxLength(255),
+                    Textarea::make('seo_description')->label('SEO-описание')->rows(3)->columnSpanFull(),
+                ]),
 
             Section::make('Публикация')
                 ->schema([

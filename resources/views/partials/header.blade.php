@@ -21,14 +21,14 @@
                     @if ($settings?->logo_dark)
                         <source
                             media="(max-width: 991px)"
-                            srcset="{{ asset('storage/' . $settings->logo_dark) }}"
+                            srcset="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $settings->logo_dark), 480) }}"
                         >
                     @endif
 
                     <img
-                        src="{{ asset('storage/' . ($settings->logo ?: $settings->logo_dark)) }}"
+                        src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . ($settings->logo ?: $settings->logo_dark)), 480) }}"
                         alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
-                        class="site-logo__image"
+                        class="site-logo__image" width="480" height="131" decoding="async"
                     >
                 </picture>
             @else

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', ($page->seo_title ?: $page->title) . ' — отель «Лермонт»')
+@section('title', $page->seo_title ?: ($page->title . ' — отель «Лермонт»'))
 @section('description', $page->seo_description ?: 'Встречайте Новый год 2027 в отеле «Лермонт» у моря в Геленджике. Праздничные завтраки, особое меню и новогодняя атмосфера.')
 
 @push('styles')
     <meta name="theme-color" content="#650b1b">
-    <link rel="canonical" href="{{ url('/novyi-god-2027-v-gelendzike') }}">
+
 @endpush
 
 @push('scripts')
@@ -48,7 +48,7 @@
     <section class="ny-hero" aria-labelledby="ny-title">
         <div class="ny-hero__inner ny-wrap">
             <div class="ny-hero__copy">
-                <a class="ny-logo" href="{{ route('home') }}" aria-label="Отель Лермонт — главная"><img src="{{ asset('img/logo_dark.png') }}" alt="Lermont Hotel" width="160" height="100"></a>
+                <a class="ny-logo" href="{{ route('home') }}" aria-label="Отель Лермонт — главная"><img src="{{ \App\Support\ResponsiveImage::url(asset('img/logo_dark.png'), 1000) }}" alt="Lermont Hotel" width="160" height="100"></a>
                 <h1 id="ny-title">Новый год <strong>2027</strong><span>в Лермонте</span></h1>
                 <p>У моря. В атмосфере уюта<br>и праздничного Геленджика.</p>
                 <a class="ny-button" href="#ny-booking">Забронировать номер <svg><use href="#ny-arrow"/></svg></a>
@@ -85,13 +85,13 @@
             <div class="ny-gallery__intro"><h2 id="ny-gallery-title">Атмосфера<br>праздника</h2><p>Фотографии нашего отеля<br>и новогоднего Геленджика</p><div class="ny-gallery__controls"><button type="button" data-gallery-step="-1" aria-label="Предыдущие фотографии">←</button><button type="button" data-gallery-step="1" aria-label="Следующие фотографии">→</button></div></div>
             <div class="ny-gallery__track" data-gallery-track tabindex="0" role="region" aria-label="Фотографии отеля. Листайте стрелками или проведите пальцем">
                 @foreach ($photos as $photo)
-                    <a class="ny-gallery__item" href="{{ asset('storage/' . $photo) }}" data-gallery-image><img src="{{ asset('storage/' . $photo) }}" alt="Новогодняя атмосфера отеля «Лермонт» — фото {{ $loop->iteration }}" loading="lazy" width="400" height="300"></a>
+                    <a class="ny-gallery__item" href="{{ asset('storage/' . $photo) }}" data-gallery-image><img src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $photo), 1000) }}" alt="Новогодняя атмосфера отеля «Лермонт» — фото {{ $loop->iteration }}" loading="lazy" width="400" height="300"></a>
                 @endforeach
             </div>
         </section>
     </div>
-    <section class="ny-cta"><div class="ny-wrap ny-cta__inner"><div class="ny-cta__decoration" aria-hidden="true"><img src="{{ asset('img/new-year/gifts.webp') }}" alt="" width="240" height="360" loading="lazy"></div><div><h2>Забронируйте<br>новогодний отдых в Лермонте</h2><p>Подарите себе и близким особенные каникулы у моря</p></div><div class="ny-cta__action"><a class="ny-button ny-button--gold" href="#ny-booking">Выбрать номер <svg><use href="#ny-arrow"/></svg></a><p>Количество номеров ограничено</p></div></div></section>
+    <section class="ny-cta"><div class="ny-wrap ny-cta__inner"><div class="ny-cta__decoration" aria-hidden="true"><img src="{{ \App\Support\ResponsiveImage::url(asset('img/new-year/gifts.webp'), 1000) }}" alt="" width="240" height="360" loading="lazy"></div><div><h2>Забронируйте<br>новогодний отдых в Лермонте</h2><p>Подарите себе и близким особенные каникулы у моря</p></div><div class="ny-cta__action"><a class="ny-button ny-button--gold" href="#ny-booking">Выбрать номер <svg><use href="#ny-arrow"/></svg></a><p>Количество номеров ограничено</p></div></div></section>
 
-<dialog class="ny-lightbox" data-lightbox aria-label="Просмотр фотографии"><button type="button" data-lightbox-close aria-label="Закрыть фотографию">×</button><img src="" alt=""></dialog>
+<dialog class="ny-lightbox" data-lightbox aria-label="Просмотр фотографии"><button type="button" data-lightbox-close aria-label="Закрыть фотографию">×</button><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""></dialog>
 </div>
 @endsection

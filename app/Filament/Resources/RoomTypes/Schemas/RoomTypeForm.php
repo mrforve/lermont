@@ -81,6 +81,16 @@ class RoomTypeForm
                     ])
                     ->columns(4),
 
+                Section::make('Вид и особенности номера')
+                    ->schema([
+                        \Filament\Forms\Components\CheckboxList::make('room_views')
+                            ->label('Вид из номера и особенности')
+                            ->options(fn () => \App\Models\RoomView::options())
+                            ->helperText('Можно выбрать несколько вариантов. Список редактируется в разделе «Настройки → Виды и особенности номеров».')
+                            ->columns(2)
+                            ->columnSpanFull(),
+                    ]),
+
                 Section::make('TravelLine')
                     ->schema([
                         TextInput::make('travelline_room_type_id')

@@ -40,6 +40,7 @@ class ContactRequest extends Model
     protected function casts(): array
     {
         return [
+            'max_notified_at' => 'datetime',
             'processed_at' => 'datetime',
             'consent_at' => 'datetime',
         ];

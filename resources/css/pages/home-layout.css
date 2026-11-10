@@ -170,7 +170,7 @@
     margin-bottom: 16px;
 }
 
-.advantages-section h5 {
+.advantages-section .advantage-title {
     font-size: 14px;
     color: #2a2720;
     font-weight: 800;
@@ -234,7 +234,7 @@
     bottom: 25px;
     width: 470px;
     height: 360px;
-    background: url('/img/location-building-line-transparent-1920w.png') center / contain no-repeat;
+    background: url('/optimized-images/1600/img/location-building-line-transparent-1920w.webp') center / contain no-repeat;
     opacity: .22;
     pointer-events: none;
 }
@@ -248,7 +248,7 @@
     transform: translateY(-50%);
     width: 320px;
     height: 500px;
-    background: url('/img/location-branch-transparent-1920w.png') center / contain no-repeat;
+    background: url('/optimized-images/1600/img/location-branch-transparent-1920w.webp') center / contain no-repeat;
     opacity: .75;
     pointer-events: none;
 }
@@ -334,7 +334,7 @@
     transform: translateY(-50%);
     width: clamp(420px, 35vw, 680px);
     height: clamp(260px, 23vw, 420px);
-    background: url('/img/lermont-hotel-line-transparent-2x.png') center / contain no-repeat;
+    background: url('/optimized-images/1600/img/lermont-hotel-line-transparent-2x.webp') center / contain no-repeat;
     opacity: .36;
     pointer-events: none;
 }

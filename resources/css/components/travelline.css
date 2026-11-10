@@ -128,3 +128,32 @@
 @media (prefers-reduced-motion: reduce) {
     .travelline-sticky-search { transition: none; }
 }
+
+/* Reserve asynchronous search form space and keep the booking module automatic. */
+.travelline-inner-search .tl-container { min-height: 153px; }
+@media (max-width: 991px) { .travelline-inner-search .tl-container { min-height: 220px; } }
+@media (max-width: 575px) { .travelline-inner-search .tl-container { min-height: 310px; } }
+#tl-booking-form { min-height: 620px; }
+
+/* Match the measured vendor iframe instead of leaving a fixed empty reserve. */
+.travelline-inner-search { padding: 8px 0; --inner-content-gap: 40px; }
+.travelline-inner-search .tl-container { min-height: var(--tl-inner-height, 153px); }
+@media (min-width: 1440px) { .travelline-inner-search .tl-container { min-height: var(--tl-inner-height, 93px); } }
+@media (max-width: 991px) { .travelline-inner-search .tl-container { min-height: var(--tl-inner-height, 220px); } }
+@media (max-width: 575px) { .travelline-inner-search { --inner-content-gap: 24px; } .travelline-inner-search .tl-container { min-height: var(--tl-inner-height, 310px); } }
+/* Only content following the inner search; the home hero is outside this rule. */
+.travelline-inner-search + :is(section, article) { margin-top: 0 !important; padding-top: 40px !important; }
+.travelline-inner-search + :is(.about-hero, .hotel-gallery-hero, .contacts-hero, .services-hero) > .container { padding-top: 0 !important; }
+.travelline-inner-search + .breakfast-page .breakfast-hero__content { padding-top: 40px !important; }
+.travelline-inner-search + .ny .ny-hero { padding-top: 40px !important; }
+@media (max-width: 575px) {
+    .travelline-inner-search + :is(section, article) { padding-top: 24px !important; }
+    .travelline-inner-search + .breakfast-page .breakfast-hero__content,
+    .travelline-inner-search + .ny .ny-hero { padding-top: 24px !important; }
+}
+
+/* Remove the former header-clearance alignment inside the first hero too. */
+.travelline-inner-search + :is(.about-hero, .hotel-gallery-hero, .contacts-hero, .services-hero) { align-items: flex-start; }
+.travelline-inner-search + .breakfast-page .breakfast-hero__content { justify-content: flex-start; }
+.travelline-inner-search + .ny .ny-hero__inner,
+.travelline-inner-search + .ny .ny-hero__copy { padding-top: 0 !important; }

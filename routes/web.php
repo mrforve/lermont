@@ -8,6 +8,8 @@ use App\Http\Controllers\RoomCatalogController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\NewsController;
 
+Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)->name('sitemap');
+
 Route::get('/', [PageController::class, 'home'])
     ->name('home');
 
@@ -75,6 +77,11 @@ Route::get('/news', [NewsController::class, 'index'])
 
 Route::get('/news/{news}', [NewsController::class, 'show'])
     ->name('news.show');
+
+Route::middleware([\App\Http\Middleware\EnsureTravelLineAdmin::class, 'throttle:20,1'])->prefix('_integrations/travelline')->group(function () {
+    Route::get('/', [\App\Http\Controllers\TravelLinePreviewController::class, 'index'])->name('travelline.preview');
+    Route::post('/check', [\App\Http\Controllers\TravelLinePreviewController::class, 'check'])->name('travelline.check');
+});
 
 Route::get('/{slug}', [PageController::class, 'show'])
     ->where('slug', '[a-zA-Z0-9\-]+')

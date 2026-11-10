@@ -23,7 +23,7 @@ class AmenityResource extends Resource
         Heroicon::OutlinedSparkles;
 
     protected static string|UnitEnum|null $navigationGroup =
-        'Номерной фонд';
+        'Настройки';
 
     protected static ?int $navigationSort = 30;
 

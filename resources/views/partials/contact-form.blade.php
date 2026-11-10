@@ -30,6 +30,9 @@
             class="contact-form"
         >
             @csrf
+            @php $spamChallenge = \App\Support\ContactSpamGuard::challenge(); @endphp
+            <input type="hidden" name="spam_token" value="{{ $spamChallenge['token'] }}">
+
 
             <input
                 type="hidden"
@@ -137,6 +140,12 @@
                         политикой конфиденциальности
                     </a>.
                 </span>
+            </label>
+
+            <label class="contact-form__full">
+                Защита от спама: сколько будет {{ $spamChallenge['question'] }}?
+                <input type="text" name="spam_answer" inputmode="numeric" pattern="[0-9]{1,2}" maxlength="2" autocomplete="off" required aria-describedby="spam-answer-help-{{ $formType }}">
+                <small id="spam-answer-help-{{ $formType }}">Введите ответ цифрами. Это помогает защитить форму от автоматических сообщений.</small>
             </label>
 
             <div class="contact-form__full">

@@ -89,6 +89,20 @@ class PageForm
                                     ])
                                     ->columns(2),
 
+                                Block::make('faq')
+                                    ->label('Вопросы и ответы')
+                                    ->icon('heroicon-o-question-mark-circle')
+                                    ->schema([
+                                        TextInput::make('title')->label('Заголовок')->maxLength(255),
+                                        Repeater::make('items')->label('Вопросы')
+                                            ->schema([
+                                                TextInput::make('question')->label('Вопрос')->required()->maxLength(255),
+                                                RichEditor::make('answer')->label('Ответ')->required(),
+                                            ])
+                                            ->defaultItems(1)->addActionLabel('Добавить вопрос')
+                                            ->reorderable()->collapsible()->columnSpanFull(),
+                                    ]),
+
                                 Block::make('image')
                                     ->label('Изображение')
                                     ->icon('heroicon-o-photo')

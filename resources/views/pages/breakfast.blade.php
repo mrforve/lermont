@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Завтраки')
+@section('title', $page->seo_title ?: $page->title)
 
 @section('content')
 
@@ -11,7 +11,7 @@
 
         <div class="breakfast-hero__image">
             <img
-                src="{{ asset('img/KIR_4324.jpg') }}"
+                src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4324.jpg'), 1000) }}"
                 alt="Завтрак в отеле Лермонт"
             >
         </div>
@@ -67,10 +67,10 @@
             <div class="breakfast-video__frame">
 
                 <video
-                    src="{{ asset('img/breakfast.mp4') }}"
-                    poster="{{ asset('img/KIR_4350.jpg') }}"
+                    data-media-src="{{ asset('img/breakfast.mp4') }}"
+                    poster="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4350.jpg'), 1000) }}"
                     playsinline
-                    preload="metadata"
+                    preload="none"
                     data-breakfast-page-video
                 ></video>
 
@@ -109,7 +109,7 @@
 
                     <div class="breakfast-detail-card__image">
                         <img
-                            src="{{ asset('img/KIR_4350.jpg') }}"
+                            src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4350.jpg'), 1000) }}"
                             alt="Уютная атмосфера"
                             loading="lazy"
                         >
@@ -124,7 +124,7 @@
 
                     <div class="breakfast-detail-card__image">
                         <img
-                            src="{{ asset('img/KIR_4324.jpg') }}"
+                            src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4324.jpg'), 1000) }}"
                             alt="Горячие блюда и блинчики"
                             loading="lazy"
                         >
@@ -139,7 +139,7 @@
 
                     <div class="breakfast-detail-card__image">
                         <img
-                            src="{{ asset('img/KIR_4350.jpg') }}"
+                            src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4350.jpg'), 1000) }}"
                             alt="Кофе, чай и выпечка"
                             loading="lazy"
                         >
@@ -178,7 +178,7 @@
 
                 <div class="breakfast-buffet__image">
                     <img
-                        src="{{ asset('img/KIR_4324.jpg') }}"
+                        src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4324.jpg'), 1000) }}"
                         alt="Шведский стол в отеле Лермонт"
                         loading="lazy"
                     >
@@ -213,7 +213,7 @@
                 <div class="breakfast-special__card">
 
                     <img
-                        src="{{ asset('img/KIR_4350.jpg') }}"
+                        src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4350.jpg'), 1000) }}"
                         alt=""
                     >
 
@@ -237,7 +237,7 @@
                 <div class="breakfast-special__card">
 
                     <img
-                        src="{{ asset('img/KIR_4324.jpg') }}"
+                        src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4324.jpg'), 1000) }}"
                         alt=""
                     >
 
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         video.controls = true;
 
-        video.play();
+        video.play().catch(() => { play.style.display = ''; });
 
         play.style.display = 'none';
 

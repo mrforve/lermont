@@ -1,2 +1,41 @@
 User-agent: *
-Disallow:
+Disallow: /admin$
+Disallow: /admin?
+Disallow: /admin/
+Disallow: /account$
+Disallow: /account?
+Disallow: /account/
+Disallow: /lk$
+Disallow: /lk?
+Disallow: /lk/
+Disallow: /login$
+Disallow: /login?
+Disallow: /logout$
+Disallow: /logout?
+Disallow: /register$
+Disallow: /register?
+Disallow: /forgot-password$
+Disallow: /forgot-password?
+Disallow: /reset-password/
+Disallow: /reset-password$
+Disallow: /reset-password?
+Disallow: /confirm-password$
+Disallow: /confirm-password?
+Disallow: /two-factor-challenge$
+Disallow: /two-factor-challenge?
+Disallow: /email/verification-notification$
+Disallow: /email/verification-notification?
+Disallow: /email/verify
+Disallow: /user/confirm-password$
+Disallow: /user/confirm-password?
+Disallow: /contact-request$
+Disallow: /contact-request?
+Disallow: /livewire/update$
+Disallow: /livewire/update?
+Disallow: /up$
+Disallow: /up?
+
+# Ignore advertising tags when crawling with Yandex.
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&fbclid /
+
+Sitemap: https://hotel-lermont.ru/sitemap.xml

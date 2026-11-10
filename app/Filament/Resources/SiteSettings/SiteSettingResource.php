@@ -23,7 +23,7 @@ class SiteSettingResource extends Resource
         Heroicon::OutlinedCog6Tooth;
 
     protected static string|UnitEnum|null $navigationGroup =
-        'Контент сайта';
+        'Настройки';
 
     protected static ?int $navigationSort = 30;
 

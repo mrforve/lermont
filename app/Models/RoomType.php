@@ -23,6 +23,7 @@ class RoomType extends Model
         'travelline_room_type_id',
         'sort_order',
         'is_active',
+        'room_views',
         'seo_title',
         'seo_description',
     ];
@@ -30,6 +31,7 @@ class RoomType extends Model
     protected function casts(): array
     {
         return [
+            'room_views' => 'array',
             'capacity' => 'integer',
             'extra_capacity' => 'integer',
             'area' => 'integer',
@@ -39,6 +41,14 @@ class RoomType extends Model
             'is_active' => 'boolean',
         ];
     }
+
+    public const VIEW_OPTIONS = [
+        'courtyard' => 'Вид во внутренний двор',
+        'pines_or_mountains' => 'Вид на кроны сосен или горы',
+        'city' => 'Вид на городские пейзажи',
+        'no_balcony' => 'Без балкона',
+        'skylights' => 'Мансардные окна',
+    ];
 
     public function getBookingUrlAttribute(): string
     {

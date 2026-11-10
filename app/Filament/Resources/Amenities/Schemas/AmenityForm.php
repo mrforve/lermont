@@ -22,8 +22,8 @@ class AmenityForm
 
                         TextInput::make('icon')
                             ->label('Иконка')
-                            ->placeholder('Например: wifi, snowflake, tv')
-                            ->helperText('Пока можно оставить пустым')
+                            ->placeholder('Например: 📶, ❄️, 📺')
+                            ->helperText('Введите символ или эмодзи — он отображается рядом с названием удобства.')
                             ->maxLength(255),
 
                         TextInput::make('sort_order')

@@ -15,6 +15,20 @@
             </section>
             @break
 
+        @case('faq')
+            <section class="content-block content-block--faq">
+                @if (!empty($data['title']))<h2>{{ $data['title'] }}</h2>@endif
+                <div class="hotel-faq">
+                    @foreach ($data['items'] ?? [] as $item)
+                        <details class="hotel-faq__item">
+                            <summary><h3>{{ $item['question'] ?? '' }}</h3></summary>
+                            <div class="hotel-faq__answer">{!! $item['answer'] ?? '' !!}</div>
+                        </details>
+                    @endforeach
+                </div>
+            </section>
+            @break
+
         @case('image')
             @php
                 $width = $data['width'] ?? null;
@@ -41,7 +55,7 @@
                 @if (!empty($data['image']))
                     <figure>
                         <img
-                            src="{{ asset('storage/' . $data['image']) }}"
+                            src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $data['image']), 1000) }}"
                             alt="{{ $data['alt'] ?? '' }}"
                             @if ($style)
                                 style="{{ implode(';', $style) }}"
@@ -79,7 +93,7 @@
                                 data-content-gallery-image
                             >
                                 <img
-                                    src="{{ asset('storage/' . $image) }}"
+                                    src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $image), 1000) }}"
                                     alt="{{ $data['title'] ?? 'Галерея' }}"
                                     loading="lazy"
                                 >
@@ -158,7 +172,7 @@
     </button>
 
     <img
-        src=""
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         alt=""
         class="content-lightbox__image"
         data-content-lightbox-image
@@ -204,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.remove('content-lightbox-open');
 
         setTimeout(() => {
-            image.src = '';
+            image.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
         }, 250);
     }
 

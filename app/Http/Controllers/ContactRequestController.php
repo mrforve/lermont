@@ -73,6 +73,8 @@ class ContactRequestController extends Controller
             'website.max' => 'Ошибка отправки формы.',
         ]);
 
+        \App\Support\ContactSpamGuard::check($request, $validated);
+
         $contactRequest = ContactRequest::create([
             'user_id' => $request->user()?->id,
             'type' => $validated['type'],
@@ -103,6 +105,11 @@ class ContactRequestController extends Controller
             $admins,
             new NewContactRequestNotification($contactRequest)
         );
+
+        \App\Jobs\SendContactRequestEmail::dispatch($contactRequest->id);
+        if (\App\Models\SiteSetting::query()->orderBy('id')->first()?->max_notifications_enabled) {
+            \App\Jobs\SendContactRequestMax::dispatch($contactRequest->id);
+        }
 
         return back()->with(
             'contact_request_status',

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Акции и специальные предложения')
+@section('title', 'Акции отеля «Лермонт» в Геленджике — скидки на отдых')
+@section('description', 'Специальные предложения отеля «Лермонт» в Геленджике: акции на проживание, скидки именинникам, молодожёнам и группам. Посмотрите сроки и условия бронирования.')
 
 @section('content')
 
@@ -46,7 +47,7 @@
                         @if ($imageUrl)
                             <div class="offers-card__image">
                                 <img
-                                    src="{{ $imageUrl }}"
+                                    src="{{ \App\Support\ResponsiveImage::url($imageUrl, 1000) }}"
                                     alt="{{ $promotion->title }}"
                                 >
                             </div>

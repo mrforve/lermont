@@ -41,11 +41,11 @@
                         class="hotel-gallery-item"
                         data-gallery-item
                         data-gallery-category="{{ $image->category }}"
-                        data-gallery-src="{{ asset('storage/' . $image->image) }}"
+                        data-gallery-src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $image->image), 1000) }}"
                         data-gallery-alt="{{ $image->alt ?: $image->title ?: 'Фотография отеля Лермонт' }}"
                         data-gallery-title="{{ $image->title }}"
                     >
-                        <img src="{{ \App\Support\ImageVariants::url($image->image, 'gallery-card') }}" alt="{{ $image->alt ?: $image->title ?: 'Фотография отеля Лермонт' }}" loading="lazy">
+                        <img src="{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($image->image, 'gallery-card'), 1200) }}" alt="{{ $image->alt ?: $image->title ?: 'Фотография отеля Лермонт' }}" loading="lazy">
                         @if($image->title)
                             <span class="hotel-gallery-item__caption">{{ $image->title }}</span>
                         @endif
@@ -68,7 +68,7 @@
         <button type="button" class="hotel-gallery-lightbox__close" data-gallery-close aria-label="Закрыть">×</button>
         <button type="button" class="hotel-gallery-lightbox__nav hotel-gallery-lightbox__nav--prev" data-gallery-prev aria-label="Предыдущее фото">‹</button>
         <figure>
-            <img src="" alt="" data-gallery-preview>
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" data-gallery-preview>
             <figcaption data-gallery-caption></figcaption>
         </figure>
         <button type="button" class="hotel-gallery-lightbox__nav hotel-gallery-lightbox__nav--next" data-gallery-next aria-label="Следующее фото">›</button>

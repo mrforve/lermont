@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $promotion->title)
+@section('title', $promotion->seo_title ?: $promotion->title)
+@section('description', $promotion->seo_description ?: \Illuminate\Support\Str::limit(trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($promotion->content ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8'))), 160))
 
 @section('content')
 
@@ -50,7 +51,7 @@
                 <div class="offer-detail__hero-image">
 
                     <img
-                        src="{{ $imageUrl }}"
+                        src="{{ \App\Support\ResponsiveImage::url($imageUrl, 1000) }}"
                         alt="{{ $promotion->title }}"
                     >
 

@@ -5,15 +5,15 @@
                 <a class="site-logo footer-logo" href="{{ route('home') }}" aria-label="{{ $settings?->site_name ?? 'Лермонт отель' }}">
                     @if ($settings?->logo_dark)
                         <img
-                            src="{{ asset('storage/' . $settings->logo_dark) }}"
+                            src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $settings->logo_dark), 480) }}"
                             alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
-                            class="site-logo__image"
+                            class="site-logo__image" width="480" height="131" decoding="async"
                         >
                     @elseif ($settings?->logo)
                         <img
-                            src="{{ asset('storage/' . $settings->logo) }}"
+                            src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $settings->logo), 480) }}"
                             alt="{{ $settings?->site_name ?? 'Лермонт отель' }}"
-                            class="site-logo__image"
+                            class="site-logo__image" width="480" height="131" decoding="async"
                         >
                     @else
                         <span class="site-logo__mark">Л</span><span class="site-logo__text">ЛЕРМОНТ</span><span class="site-logo__sub">отель</span>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <h6>Информация</h6>
+                <div class="h6 footer-title">Информация</div>
                 <ul class="list-unstyled mb-0">
                     <li><a href="{{ url('/services') }}">Услуги</a></li>
                     <li><a href="{{ url('/gallery') }}">Галерея</a></li>
@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <h6>Контакты</h6>
+                <div class="h6 footer-title">Контакты</div>
                 <ul class="list-unstyled mb-0 footer-contacts">
                     <li>353460, г. Геленджик,<br>ул. Первомайская, 7</li>
                     <li><a href="tel:+79282414322">+7 (928) 241-43-22</a></li>
@@ -49,10 +49,10 @@
             <div class="col-lg-2 col-md-6 footer-actions">
                 <a class="btn btn-outline-light w-100 mb-3" href="{{ route('booking') }}">Забронировать</a>
 				<div class="mt-3">
-                    <iframe title="Рейтинг отеля Лермонт на Яндекс Картах" src="https://yandex.ru/sprav/widget/rating-badge/1197698407?type=award" width="150" height="50" frameborder="0"></iframe>
+                    <iframe title="Рейтинг отеля Лермонт на Яндекс Картах" data-lazy-src="https://yandex.ru/sprav/widget/rating-badge/1197698407?type=award" width="150" height="50" frameborder="0"></iframe>
                 </div>
                 <div class="mt-3">
-                    <iframe title="Рейтинг отеля Лермонт в 2ГИС" id="medium_light_70000001006398601" frameborder="0" width="150px" height="50px" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe><script type="text/javascript">((r,p)=>{const l=document.getElementById(r);l.contentWindow.document.open(),l.contentWindow.document.write(decodeURIComponent(escape(atob(p)))),l.contentWindow.document.close()})("medium_light_70000001006398601", "PGhlYWQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPgogICAgd2luZG93Ll9fc2l6ZV9fPSdtZWRpdW0nOwogICAgd2luZG93Ll9fdGhlbWVfXz0nbGlnaHQnOwogICAgd2luZG93Ll9fYnJhbmNoSWRfXz0nNzAwMDAwMDEwMDYzOTg2MDEnCiAgICB3aW5kb3cuX19vcmdJZF9fPScnCiAgIDwvc2NyaXB0PjxzY3JpcHQgY3Jvc3NvcmlnaW49ImFub255bW91cyIgdHlwZT0ibW9kdWxlIiBzcmM9Imh0dHBzOi8vZGlzay4yZ2lzLmNvbS93aWRnZXQtY29uc3RydWN0b3IvYXNzZXRzL2lmcmFtZS5qcyI+PC9zY3JpcHQ+PGxpbmsgcmVsPSJtb2R1bGVwcmVsb2FkIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIiBocmVmPSJodHRwczovL2Rpc2suMmdpcy5jb20vd2lkZ2V0LWNvbnN0cnVjdG9yL2Fzc2V0cy9kZWZhdWx0cy5qcyI+PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIiBocmVmPSJodHRwczovL2Rpc2suMmdpcy5jb20vd2lkZ2V0LWNvbnN0cnVjdG9yL2Fzc2V0cy9kZWZhdWx0cy5jc3MiPjwvaGVhZD48Ym9keT48ZGl2IGlkPSJpZnJhbWUiPjwvZGl2PjwvYm9keT4=")</script>
+                    <iframe title="Рейтинг отеля Лермонт в 2ГИС" id="medium_light_70000001006398601" frameborder="0" width="150px" height="50px" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation" data-widget-content="PGhlYWQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPgogICAgd2luZG93Ll9fc2l6ZV9fPSdtZWRpdW0nOwogICAgd2luZG93Ll9fdGhlbWVfXz0nbGlnaHQnOwogICAgd2luZG93Ll9fYnJhbmNoSWRfXz0nNzAwMDAwMDEwMDYzOTg2MDEnCiAgICB3aW5kb3cuX19vcmdJZF9fPScnCiAgIDwvc2NyaXB0PjxzY3JpcHQgY3Jvc3NvcmlnaW49ImFub255bW91cyIgdHlwZT0ibW9kdWxlIiBzcmM9Imh0dHBzOi8vZGlzay4yZ2lzLmNvbS93aWRnZXQtY29uc3RydWN0b3IvYXNzZXRzL2lmcmFtZS5qcyI+PC9zY3JpcHQ+PGxpbmsgcmVsPSJtb2R1bGVwcmVsb2FkIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIiBocmVmPSJodHRwczovL2Rpc2suMmdpcy5jb20vd2lkZ2V0LWNvbnN0cnVjdG9yL2Fzc2V0cy9kZWZhdWx0cy5qcyI+PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIiBocmVmPSJodHRwczovL2Rpc2suMmdpcy5jb20vd2lkZ2V0LWNvbnN0cnVjdG9yL2Fzc2V0cy9kZWZhdWx0cy5jc3MiPjwvaGVhZD48Ym9keT48ZGl2IGlkPSJpZnJhbWUiPjwvZGl2PjwvYm9keT4="></iframe>
                 </div>
             </div>
         </div>

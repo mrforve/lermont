@@ -1,3 +1,5 @@
+import './components/travelline-layout.js';
+import './components/deferred-media.js';
 import './components/travelline.js';
 import './components/rooms-catalog.js';
 import './lermont.js';
@@ -55,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('room-lightbox-open');
 
-        preview.src = '';
+        preview.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
     };
 
     const showPrevious = () => {
@@ -136,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.remove('is-open');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('hotel-gallery-lightbox-open');
-        preview.src = '';
+        preview.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
     };
     const move = (step) => {
         if (!visibleItems.length) return;

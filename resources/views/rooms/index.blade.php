@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Номера')
+@section('title', 'Номера отеля «Лермонт» в Геленджике — фото и бронирование')
+@section('description', 'Выберите номер в отеле «Лермонт» в центре Геленджика: стандарты, джуниор сюит и семейные студии. Фото, площадь, удобства и онлайн-бронирование на сайте.')
 
 @section('content')
 
@@ -237,6 +238,8 @@
                                 @endif
 
 
+                                @include('rooms.partials.views', ['factLayout' => true])
+
                                 @if ($roomType->base_price)
 
                                     <div class="room-showcase__price">
@@ -258,6 +261,7 @@
 
 
                             <div class="room-showcase__description">
+
 
                                 @if ($roomType->short_description)
 

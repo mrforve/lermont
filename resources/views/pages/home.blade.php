@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@push('styles')
+    @if ($slides->first()?->image)
+        <link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)" href="{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($slides->first()->image, 'hero'), 900) }}">
+        <link rel="preload" as="image" fetchpriority="high" media="(min-width: 768px)" href="{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($slides->first()->image, 'hero'), 1920) }}">
+    @endif
+@endpush
+
 @section('content')
 
 @php
@@ -7,7 +14,7 @@
 @endphp
     <section class="hero d-block d-lg-flex align-items-center" id="hero" 
         @if ($mainSlide?->image)
-            style="--hero-image: url('{{ \App\Support\ImageVariants::url($mainSlide->image, 'hero') }}')"
+            style="--hero-image: url('{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($mainSlide->image, 'hero'), 1920) }}'); --hero-image-mobile: url('{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($mainSlide->image, 'hero'), 900) }}')"
         @endif
     >
         <div class="container hero-content">
@@ -83,8 +90,6 @@
                 </div>
             </div>
         </div>
-            </div>
-        </div>
     </section>
 
     <section class="py-5 bg-light advantages-section">
@@ -115,7 +120,7 @@
                         </svg>
 
                         <div>
-                            <h5>ЦЕНТР ГОРОДА</h5>
+                            <div class="h5 advantage-title">ЦЕНТР ГОРОДА</div>
                             <div>
                                 Набережная, рестораны и парки в шаговой доступности.
                             </div>
@@ -165,7 +170,7 @@
                         </svg>
 
                         <div>
-                            <h5>23 НОМЕРА</h5>
+                            <div class="h5 advantage-title">23 НОМЕРА</div>
                             <div>
                                 Просторные номера разных категорий.
                             </div>
@@ -210,7 +215,7 @@
                         </svg>
 
                         <div>
-                            <h5>ЗАВТРАКИ</h5>
+                            <div class="h5 advantage-title">ЗАВТРАКИ</div>
                             <div>
                                 Включены в проживание.
                             </div>
@@ -259,7 +264,7 @@
                         </svg>
 
                         <div>
-                            <h5>ПАРКОВКА</h5>
+                            <div class="h5 advantage-title">ПАРКОВКА</div>
                             <div>
                                 Напротив отеля. При прямом бронировании комплиментарно
                             </div>
@@ -307,7 +312,7 @@
                         </svg>
 
                         <div>
-                            <h5>КЛУБ ГОСТЕЙ</h5>
+                            <div class="h5 advantage-title">КЛУБ ГОСТЕЙ</div>
                             <div>
                                 Привилегии для постоянных гостей.
                             </div>
@@ -332,7 +337,7 @@
                         </svg>
 
                         <div>
-                            <h5>СИСТЕМА ЛОЯЛЬНОСТИ</h5>
+                            <div class="h5 advantage-title">СИСТЕМА ЛОЯЛЬНОСТИ</div>
                             <div>
                                 Привилегии и специальные предложения.
                             </div>
@@ -374,9 +379,9 @@
                 <div class="home-breakfast__video">
 
                     <video
-                        src="{{ asset('img/breakfast.mp4') }}"
-                        poster="{{ asset('img/KIR_4324.jpg') }}"
-                        preload="metadata"
+                        data-media-src="{{ asset('img/breakfast.mp4') }}"
+                        poster="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4324.jpg'), 1000) }}"
+                        preload="none"
                         playsinline
                         data-breakfast-video
                     ></video>
@@ -405,7 +410,7 @@
 
                     <div class="home-breakfast__photo">
                         <img
-                            src="{{ asset('img/KIR_4350.jpg') }}"
+                            src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4350.jpg'), 1000) }}"
                             alt="Завтрак в отеле Лермонт"
                             loading="lazy"
                         >
@@ -413,7 +418,7 @@
 
                     <div class="home-breakfast__photo">
                         <img
-                            src="{{ asset('img/KIR_4324.jpg') }}"
+                            src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4324.jpg'), 1000) }}"
                             alt="Зона завтрака в отеле Лермонт"
                             loading="lazy"
                         >
@@ -466,7 +471,7 @@
                     <div class="rooms-home__image">
                         @if ($roomType->main_image)
                             <img
-                                src="{{ asset('storage/' . $roomType->main_image) }}"
+                                src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $roomType->main_image), 1000) }}"
                                 alt="{{ $roomType->name }}"
                                 loading="lazy"
                             >
@@ -495,7 +500,7 @@
             <div class="row g-0 align-items-center">
                 <div class="col-lg-6">
                     <img
-                        src="{{ asset('img/07c7bba161a1.jpg') }}"
+                        src="{{ \App\Support\ResponsiveImage::url(asset('img/07c7bba161a1.jpg'), 1000) }}"
                         class="img-fluid w-100 location-section__image"
                         alt="Набережная Геленджика"
                     >
@@ -836,7 +841,7 @@
 
                                         @if ($imageUrl)
                                             <img
-                                                src="{{ $imageUrl }}"
+                                                src="{{ \App\Support\ResponsiveImage::url($imageUrl, 1000) }}"
                                                 alt="{{ $promotion->title }}"
                                                 loading="lazy"
                                             >
@@ -926,7 +931,7 @@
             <div class="guest-club">
                 <div class="guest-club__image">
                     <img
-                        src="{{ asset('img/82db-8558b51a0d11.jpg') }}"
+                        src="{{ \App\Support\ResponsiveImage::url(asset('img/82db-8558b51a0d11.jpg'), 1000) }}"
                         alt="Клуб гостей Лермонт"
                         loading="lazy"
                     >
@@ -986,10 +991,13 @@
     </section>
 
     @if ($page)
-        @include('pages.partials.blocks', [
-            'blocks' => $page->blocks ?? [],
-        ])
+        <div class="home-information">
+            <div class="container">
+                @include('pages.partials.blocks', ['blocks' => $page->blocks ?? []])
+            </div>
+        </div>
     @endif
+    @include('partials.home-reviews')
 
 
     <div class="video-lightbox" data-video-lightbox>
@@ -1006,11 +1014,11 @@
         <video
             controls
             playsinline
-            preload="metadata"
+            preload="none"
             data-video-player
         >
             <source
-                src="{{ asset('img/sdf.mp4') }}"
+                data-media-src="{{ asset('img/sdf.mp4') }}"
                 type="video/mp4"
             >
         </video>
@@ -1022,6 +1030,7 @@
 
 
 
+@push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('[data-offers-slider]');
@@ -1058,7 +1067,7 @@ document
 
             videoPlayer.currentTime = 0;
 
-            videoPlayer.play();
+            videoPlayer.play().catch(() => { videoPlayer.controls = true; });
 
         });
 
@@ -1158,7 +1167,7 @@ if (breakfastVideo && breakfastPlay) {
 
         if (breakfastVideo.paused) {
 
-            breakfastVideo.play();
+            breakfastVideo.play().catch(() => { breakfastVideo.controls = true; breakfastPlay.style.opacity = '1'; breakfastPlay.style.pointerEvents = ''; });
 
             breakfastPlay.style.opacity = '0';
             breakfastPlay.style.pointerEvents = 'none';
@@ -1197,3 +1206,4 @@ if (breakfastVideo && breakfastPlay) {
 
 });
 </script>
+@endpush

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Новости')
+@section('title', 'Новости отеля «Лермонт» в Геленджике — события и услуги')
+@section('description', 'Новости отеля «Лермонт» в Геленджике: новые услуги, события и предложения для гостей. Узнайте, что меняется в отеле, и спланируйте отдых в центре города.')
 
 @section('content')
 
@@ -41,7 +42,7 @@
                             @if ($news->image)
 
                                 <img
-                                    src="{{ asset('storage/' . $news->image) }}"
+                                    src="{{ \App\Support\ResponsiveImage::url(asset('storage/' . $news->image), 1000) }}"
                                     alt="{{ $news->title }}"
                                     loading="lazy"
                                 >
