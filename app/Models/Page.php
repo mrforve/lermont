@@ -13,6 +13,7 @@ class Page extends Model
         'menu_title',
         'content',
         'blocks',
+        'visual_content',
         'template',
         'seo_title',
         'seo_description',
@@ -25,6 +26,7 @@ class Page extends Model
     {
         return [
             'blocks' => 'array',
+            'visual_content' => 'array',
             'show_in_menu' => 'boolean',
             'is_active' => 'boolean',
             'sort_order' => 'integer',

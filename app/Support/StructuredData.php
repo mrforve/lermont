@@ -42,12 +42,12 @@ class StructuredData
         $hotel = [
             '@type' => 'Hotel', '@id' => $hotelId, 'name' => $settings?->site_name ?: $config['name'],
             'url' => self::BASE . '/', 'telephone' => $settings?->phone ?: $config['telephone'],
-            'email' => $settings?->email ?: $config['email'], 'address' => $config['address'],
+            'email' => $settings?->email ?: $config['email'], 'address' => $settings?->address ?: $config['address'],
             'numberOfRooms' => $config['number_of_rooms'],
             'legalName' => $settings?->company_name ?: $config['legal_name'],
             'taxID' => $settings?->company_inn ?: $config['tax_id'],
             'identifier' => ['@type' => 'PropertyValue', 'propertyID' => 'ОГРНИП', 'value' => $settings?->company_ogrn ?: $config['registration_id']],
-            'sameAs' => array_values(array_unique(array_filter(array_merge($config['same_as'], [$settings?->vk_url, $settings?->youtube_url])))),
+            'sameAs' => array_values(array_map(fn ($link) => $link['url'], array_filter(PublicContacts::links($settings), fn ($link) => !in_array($link['key'], ['max_chat','google','yandex','2gis'])))),
         ];
         if ($settings?->logo) $hotel['logo'] = ['@type' => 'ImageObject', 'url' => self::image($settings->logo)];
         $slide = Slide::query()->where('is_active', true)

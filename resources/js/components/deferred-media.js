@@ -10,8 +10,6 @@ document.addEventListener('click', event => {
     if (!(event.target instanceof Element)) return;
     const target = event.target;
     if (target.closest('.watchVideo')) activateVideo(document.querySelector('[data-video-player]'));
-    if (target.closest('[data-breakfast-play]')) activateVideo(document.querySelector('[data-breakfast-video]'));
-    if (target.closest('[data-breakfast-page-play]')) activateVideo(document.querySelector('[data-breakfast-page-video]'));
     if (target.closest('video')) activateVideo(target.closest('video'));
 }, true);
 

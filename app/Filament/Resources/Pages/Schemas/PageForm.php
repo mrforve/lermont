@@ -58,6 +58,8 @@ class PageForm
                     ])
                     ->columns(2),
 
+                ...PageVisualContentForm::components(),
+
                 Section::make('Содержимое страницы')
                     ->columnSpanFull()
                     ->schema([

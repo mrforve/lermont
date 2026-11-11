@@ -1,0 +1,203 @@
+{
+  "home": {
+    "texts": {
+      "hero_text_1": "ПРОВЕРИТЬ ДАТЫ",
+      "hero_text_2": "СМОТРЕТЬ ВИДЕО",
+      "hero_text_3": "Для поиска номеров включите JavaScript в браузере.",
+      "advantages_section_text_1": "ЦЕНТР ГОРОДА",
+      "advantages_section_text_2": "Набережная, рестораны и парки в шаговой доступности.",
+      "advantages_section_text_3": "23 НОМЕРА",
+      "advantages_section_text_4": "Просторные номера разных категорий.",
+      "advantages_section_text_5": "ЗАВТРАКИ",
+      "advantages_section_text_6": "Включены в проживание.",
+      "advantages_section_text_7": "ПАРКОВКА",
+      "advantages_section_text_8": "Напротив отеля. При прямом бронировании комплиментарно",
+      "advantages_section_text_9": "КЛУБ ГОСТЕЙ",
+      "advantages_section_text_10": "Клуб гостей: привилегии и специальные предложения",
+      "advantages_section_text_11": "ЗАРЯДКА АВТО",
+      "advantages_section_text_12": "Зарядка для электромобилей.",
+      "home_breakfast_text_1": "ДОБРОЕ УТРО В «ЛЕРМОНТЕ»",
+      "home_breakfast_text_2": "Утро начинается",
+      "home_breakfast_text_3": "в «Лермонте»",
+      "home_breakfast_text_4": "Шведский стол, любимые блюда и время для себя.",
+      "home_breakfast_text_5": "Смотреть видео",
+      "home_breakfast_text_6": "Подробнее",
+      "rooms_home_text_1": "Выберите свой номер",
+      "rooms_home_text_2": "Все номера",
+      "rooms_home_text_3": "area, 0, ',', ' ') }} м²",
+      "location_section_text_1": "ЛОКАЦИЯ —",
+      "location_section_text_2": "В самом сердце Геленджика",
+      "location_section_text_3": "2 минуты до набережной",
+      "location_section_text_4": "Рестораны и кафе рядом",
+      "location_section_text_5": "Парки и скверы в шаговой доступности",
+      "location_section_text_6": "Удобная транспортная доступность",
+      "location_section_text_7": "Посмотреть на карте",
+      "offers_home_text_1": "Для наших гостей",
+      "offers_home_text_2": "Спецпредложения и акции",
+      "offers_home_text_3": "Все предложения",
+      "offers_home_text_4": "СПЕЦПРЕДЛОЖЕНИЕ",
+      "offers_home_text_5": "Подробнее",
+      "guest_club_section_text_1": "Клуб гостей",
+      "guest_club_section_text_2": "Привилегии для тех,",
+      "guest_club_section_text_3": "кто выбирает Лермонт",
+      "guest_club_section_text_4": "Специальные тарифы только на сайте",
+      "guest_club_section_text_5": "Персональные предложения",
+      "guest_club_section_text_6": "Подарки и комплименты от отеля",
+      "guest_club_section_text_7": "Вступить в клуб",
+      "home_breakfast_alt_1": "Завтрак в отеле Лермонт",
+      "home_breakfast_alt_2": "Зона завтрака в отеле Лермонт",
+      "location_section_alt_3": "Набережная Геленджика",
+      "guest_club_section_alt_4": "Клуб гостей Лермонт",
+      "reviews_text_4": "Отзывы гостей об отеле «Лермонт»",
+      "reviews_text_6": "Впечатления о номерах, завтраках и сервисе помогут вам спланировать отдых.",
+      "reviews_text_9": "Все отзывы →",
+      "reviews_text_13": "Читать отзывы на Яндекс Картах",
+      "reviews_text_16": "Открыть отзывы на Яндекс Картах"
+    },
+    "media": {
+      "hero_video_1": {
+        "source": "/img/sdf.mp4",
+        "upload": null
+      },
+      "home_breakfast_video_2": {
+        "source": "/img/breakfast.mp4",
+        "upload": null
+      },
+      "home_breakfast_image_3": {
+        "source": "/img/KIR_4324.jpg",
+        "upload": null
+      },
+      "home_breakfast_image_4": {
+        "source": "/img/KIR_4350.jpg",
+        "upload": null
+      },
+      "home_breakfast_image_5": {
+        "source": "/img/KIR_4324.jpg",
+        "upload": null
+      },
+      "location_section_image_6": {
+        "source": "/img/07c7bba161a1.jpg",
+        "upload": null
+      },
+      "guest_club_section_image_7": {
+        "source": "/img/82db-8558b51a0d11.jpg",
+        "upload": null
+      }
+    },
+    "links": {
+      "hero_link_1": "/booking",
+      "home_breakfast_link_2": "/breakfast",
+      "rooms_home_link_3": "/rooms",
+      "location_section_link_4": "#contacts",
+      "offers_home_link_5": "/offers",
+      "guest_club_section_link_6": "/lk"
+    },
+    "sections": {
+      "hero": true,
+      "advantages-section": true,
+      "home-breakfast": true,
+      "rooms-home": true,
+      "location-section": true,
+      "offers-home": true,
+      "guest-club-section": true,
+      "reviews": true
+    }
+  },
+  "breakfast": {
+    "texts": {
+      "breakfast_hero_text_1": "Доброе утро в «Лермонте»",
+      "breakfast_hero_text_2": "Утро",
+      "breakfast_hero_text_3": "в «Лермонте»",
+      "breakfast_hero_text_4": "Шведский стол и время для себя",
+      "breakfast_hero_text_5": "Завтрак включён в проживание",
+      "breakfast_intro_text_1": "Выбирайте любимое и пробуйте новое: блюда меняются по дням недели.",
+      "breakfast_video_text_1": "Посмотреть завтрак",
+      "breakfast_details_text_1": "Завтрак в деталях",
+      "breakfast_details_text_2": "Уютная атмосфера",
+      "breakfast_details_text_3": "Горячие блюда и блинчики",
+      "breakfast_details_text_4": "Кофе, чай и выпечка",
+      "breakfast_buffet_text_1": "Место для",
+      "breakfast_buffet_text_2": "неспешного утра",
+      "breakfast_buffet_text_3": "Светлый зал, уютные столики и приятное начало дня.",
+      "breakfast_special_text_1": "Особенные утра",
+      "breakfast_special_text_2": "Праздники тоже вкуснее в «Лермонте»",
+      "breakfast_special_text_3": "Новогодний завтрак",
+      "breakfast_special_text_4": "Смотреть видео",
+      "breakfast_special_text_5": "Праздничные фуршеты",
+      "breakfast_special_text_6": "Смотреть видео",
+      "breakfast_early_text_1": "Уезжаете рано?",
+      "breakfast_early_text_2": "Подготовим для вас ланч-бокс с лёгким перекусом: круассаном или печеньем, яблоком и напитком. А для бодрого начала дня предложим кофе с собой.",
+      "breakfast_early_text_3": "Пожалуйста, сообщите администратору о раннем выезде накануне.",
+      "breakfast_cta_text_1": "Начните отдых с приятного утра",
+      "breakfast_cta_text_2": "Выбрать номер →",
+      "breakfast_cta_text_3": "Задать вопрос",
+      "breakfast_hero_alt_1": "Завтрак в отеле Лермонт",
+      "breakfast_details_alt_2": "Уютная атмосфера",
+      "breakfast_details_alt_3": "Горячие блюда и блинчики",
+      "breakfast_details_alt_4": "Кофе, чай и выпечка",
+      "breakfast_buffet_alt_5": "Шведский стол в отеле Лермонт",
+      "breakfast_special_alt_6": "",
+      "breakfast_special_alt_7": ""
+    },
+    "media": {
+      "breakfast_hero_image_1": {
+        "source": "/img/KIR_4324.jpg",
+        "upload": null
+      },
+      "breakfast_video_video_2": {
+        "source": "/img/breakfast.mp4",
+        "upload": null
+      },
+      "breakfast_video_image_3": {
+        "source": "/img/KIR_4350.jpg",
+        "upload": null
+      },
+      "breakfast_details_image_4": {
+        "source": "/img/KIR_4350.jpg",
+        "upload": null
+      },
+      "breakfast_details_image_5": {
+        "source": "/img/KIR_4324.jpg",
+        "upload": null
+      },
+      "breakfast_details_image_6": {
+        "source": "/img/KIR_4350.jpg",
+        "upload": null
+      },
+      "breakfast_buffet_image_7": {
+        "source": "/img/KIR_4324.jpg",
+        "upload": null
+      },
+      "breakfast_special_image_8": {
+        "source": "/img/KIR_4350.jpg",
+        "upload": null
+      },
+      "breakfast_special_image_9": {
+        "source": "/img/KIR_4324.jpg",
+        "upload": null
+      },
+      "breakfast_special_video_1": {
+        "source": "/img/ngcisdf.mp4",
+        "upload": null
+      },
+      "breakfast_special_video_2": {
+        "source": "",
+        "upload": null
+      }
+    },
+    "links": {
+      "breakfast_cta_link_1": "/rooms",
+      "breakfast_cta_contact_link": "/contacts"
+    },
+    "sections": {
+      "breakfast-hero": true,
+      "breakfast-intro": true,
+      "breakfast-video": true,
+      "breakfast-details": true,
+      "breakfast-buffet": true,
+      "breakfast-special": true,
+      "breakfast-early": true,
+      "breakfast-cta": true
+    }
+  }
+}

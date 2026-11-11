@@ -2,7 +2,7 @@
 
 @push('styles')
     @if ($slides->first()?->image)
-        <link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)" href="{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($slides->first()->image, 'hero'), 900) }}">
+        <link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)" href="{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url(($slides->first()->mobile_image ?: $slides->first()->image), 'hero'), 900) }}">
         <link rel="preload" as="image" fetchpriority="high" media="(min-width: 768px)" href="{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($slides->first()->image, 'hero'), 1920) }}">
     @endif
 @endpush
@@ -12,9 +12,10 @@
 @php
     $mainSlide = $slides->first();
 @endphp
-    <section class="hero d-block d-lg-flex align-items-center" id="hero" 
+    @if(\App\Support\PageContent::visible($page, 'hero'))
+<section class="hero d-block d-lg-flex align-items-center" id="hero"
         @if ($mainSlide?->image)
-            style="--hero-image: url('{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($mainSlide->image, 'hero'), 1920) }}'); --hero-image-mobile: url('{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($mainSlide->image, 'hero'), 900) }}')"
+            style="--hero-image: url('{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url($mainSlide->image, 'hero'), 1920) }}'); --hero-image-mobile: url('{{ \App\Support\ResponsiveImage::url(\App\Support\ImageVariants::url(($mainSlide->mobile_image ?: $mainSlide->image), 'hero'), 900) }}')"
         @endif
     >
         <div class="container hero-content">
@@ -44,13 +45,13 @@
                     @endif
 
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="{{ route('booking') }}" class="btn btn-gold btn-lg px-5 py-3">
-                            ПРОВЕРИТЬ ДАТЫ
+                        <a href="{{ \App\Support\PageContent::link($page, 'hero_link_1') }}" class="btn btn-gold btn-lg px-5 py-3">
+                            {!! nl2br(e(\App\Support\PageContent::text($page, 'hero_text_1'))) !!}
                         </a>
 
                         <a
                             class="watchVideo"
-                            href="{{ asset('img/sdf.mp4') }}"
+                            href="{{ \App\Support\PageContent::media($page, 'hero_video_1') }}"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +75,7 @@
                                 />
                             </svg>
 
-                            СМОТРЕТЬ ВИДЕО
+                            {!! nl2br(e(\App\Support\PageContent::text($page, 'hero_text_2'))) !!}
                         </a>
                     </div>
                 </div>
@@ -85,14 +86,16 @@
             <div class="booking-widget travelline-home-widget">
                 <div id="tl-search-form" class="tl-container">
                     <noscript>
-                        Для поиска номеров включите JavaScript в браузере.
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'hero_text_3'))) !!}
                     </noscript>
                 </div>
             </div>
         </div>
     </section>
+@endif
 
-    <section class="py-5 bg-light advantages-section">
+    @if(\App\Support\PageContent::visible($page, 'advantages-section'))
+<section class="py-5 bg-light advantages-section">
         <div class="container pt-5">
             <div class="row g-4 text-center">
                 <div class="col-lg-2 col-md-6">
@@ -120,9 +123,9 @@
                         </svg>
 
                         <div>
-                            <div class="h5 advantage-title">ЦЕНТР ГОРОДА</div>
+                            <div class="h5 advantage-title">{!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_1'))) !!}</div>
                             <div>
-                                Набережная, рестораны и парки в шаговой доступности.
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_2'))) !!}
                             </div>
                         </div>
                     </div>
@@ -170,9 +173,9 @@
                         </svg>
 
                         <div>
-                            <div class="h5 advantage-title">23 НОМЕРА</div>
+                            <div class="h5 advantage-title">{!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_3'))) !!}</div>
                             <div>
-                                Просторные номера разных категорий.
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_4'))) !!}
                             </div>
                         </div>
                     </div>
@@ -215,9 +218,9 @@
                         </svg>
 
                         <div>
-                            <div class="h5 advantage-title">ЗАВТРАКИ</div>
+                            <div class="h5 advantage-title">{!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_5'))) !!}</div>
                             <div>
-                                Включены в проживание.
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_6'))) !!}
                             </div>
                         </div>
                     </div>
@@ -264,9 +267,9 @@
                         </svg>
 
                         <div>
-                            <div class="h5 advantage-title">ПАРКОВКА</div>
+                            <div class="h5 advantage-title">{!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_7'))) !!}</div>
                             <div>
-                                Напротив отеля. При прямом бронировании комплиментарно
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_8'))) !!}
                             </div>
                         </div>
                     </div>
@@ -312,9 +315,9 @@
                         </svg>
 
                         <div>
-                            <div class="h5 advantage-title">КЛУБ ГОСТЕЙ</div>
+                            <div class="h5 advantage-title">{!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_9'))) !!}</div>
                             <div>
-                                Привилегии для постоянных гостей.
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_10'))) !!}
                             </div>
                         </div>
                     </div>
@@ -322,24 +325,15 @@
 
                 <div class="col-lg-2 col-md-6">
                     <div class="first-icon">
-                        <svg
-                            class="advantage-icon"
-                            viewBox="0 0 32 32"
-                            fill="none"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M16 3L19.8 10.7L28.3 12L22.1 18L23.6 26.5L16 22.5L8.4 26.5L9.9 18L3.7 12L12.2 10.7L16 3Z"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linejoin="round"
-                            />
+                        <svg class="advantage-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                            <rect x="5" y="3" width="15" height="25" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M3 29H22M14 7L10 13H15L11 19M20 11H23C24.7 11 26 12.3 26 14V23C26 24.1 26.9 25 28 25C29.1 25 30 24.1 30 23V10L27 7M26 7V11H30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
 
                         <div>
-                            <div class="h5 advantage-title">СИСТЕМА ЛОЯЛЬНОСТИ</div>
+                            <div class="h5 advantage-title">{!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_11'))) !!}</div>
                             <div>
-                                Привилегии и специальные предложения.
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'advantages_section_text_12'))) !!}
                             </div>
                         </div>
                     </div>
@@ -347,7 +341,9 @@
             </div>
         </div>
     </section>
-	
+@endif
+
+@if(\App\Support\PageContent::visible($page, 'home-breakfast'))
 <section class="home-breakfast">
     <div class="container">
 
@@ -356,17 +352,16 @@
             <div class="home-breakfast__content">
 
                 <span class="home-breakfast__eyebrow">
-                    ДОБРОЕ УТРО В «ЛЕРМОНТЕ»
+                    {!! nl2br(e(\App\Support\PageContent::text($page, 'home_breakfast_text_1'))) !!}
                 </span>
 
                 <h2 class="home-breakfast__title">
-                    Утро начинается<br>
-                    в «Лермонте»
+                    {!! nl2br(e(\App\Support\PageContent::text($page, 'home_breakfast_text_2'))) !!}<br>
+                    {!! nl2br(e(\App\Support\PageContent::text($page, 'home_breakfast_text_3'))) !!}
                 </h2>
 
                 <p class="home-breakfast__text">
-                    Шведский стол, любимые блюда
-                    и время для себя.
+                    {!! nl2br(e(\App\Support\PageContent::text($page, 'home_breakfast_text_4'))) !!}
                 </p>
 
 
@@ -379,8 +374,8 @@
                 <div class="home-breakfast__video">
 
                     <video
-                        data-media-src="{{ asset('img/breakfast.mp4') }}"
-                        poster="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4324.jpg'), 1000) }}"
+                        data-preview-video-src="{{ \App\Support\PageContent::media($page, 'home_breakfast_video_2') }}"
+                        poster="{{ \App\Support\PageContent::media($page, 'home_breakfast_image_3', 1000) }}"
                         preload="none"
                         playsinline
                         data-breakfast-video
@@ -390,6 +385,9 @@
                         type="button"
                         class="home-breakfast__play"
                         data-breakfast-play
+                        data-video-src="{{ \App\Support\PageContent::media($page, 'home_breakfast_video_2') }}"
+                        aria-haspopup="dialog"
+                        aria-controls="home-video-dialog"
                         aria-label="Смотреть видео"
                     >
                         <span class="home-breakfast__play-icon">
@@ -399,7 +397,7 @@
                         </span>
 
                         <span>
-                            Смотреть видео
+                            {!! nl2br(e(\App\Support\PageContent::text($page, 'home_breakfast_text_5'))) !!}
                         </span>
                     </button>
 
@@ -410,16 +408,16 @@
 
                     <div class="home-breakfast__photo">
                         <img
-                            src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4350.jpg'), 1000) }}"
-                            alt="Завтрак в отеле Лермонт"
+                            src="{{ \App\Support\PageContent::media($page, 'home_breakfast_image_4', 1000) }}"
+                            alt="{{ \App\Support\PageContent::text($page, 'home_breakfast_alt_1') }}"
                             loading="lazy"
                         >
                     </div>
 
                     <div class="home-breakfast__photo">
                         <img
-                            src="{{ \App\Support\ResponsiveImage::url(asset('img/KIR_4324.jpg'), 1000) }}"
-                            alt="Зона завтрака в отеле Лермонт"
+                            src="{{ \App\Support\PageContent::media($page, 'home_breakfast_image_5', 1000) }}"
+                            alt="{{ \App\Support\PageContent::text($page, 'home_breakfast_alt_2') }}"
                             loading="lazy"
                         >
                     </div>
@@ -428,7 +426,7 @@
 
             </div>
 
-                <a href="/breakfast" class="home-breakfast__badge">
+                <a href="{{ \App\Support\PageContent::link($page, 'home_breakfast_link_2') }}" class="home-breakfast__badge">
 
                     <svg viewBox="0 0 32 32" aria-hidden="true">
                         <path d="M8 10h13v7c0 4-3 7-7 7s-6-3-6-7v-7Z"/>
@@ -439,7 +437,7 @@
                     </svg>
 
                     <span>
-                        Подробнее <span aria-hidden="true">→</span>
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'home_breakfast_text_6'))) !!} <span aria-hidden="true">→</span>
                     </span>
 
                 </a>
@@ -448,16 +446,18 @@
 
     </div>
 </section>
+@endif
 
     @if ($roomTypes->isNotEmpty())
-        <section class="rooms-home">
+        @if(\App\Support\PageContent::visible($page, 'rooms-home'))
+<section class="rooms-home">
     <div class="container">
 
         <div class="rooms-home__head">
-            <h2>Выберите свой номер</h2>
+            <h2>{!! nl2br(e(\App\Support\PageContent::text($page, 'rooms_home_text_1'))) !!}</h2>
 
-            <a href="{{ route('rooms.index') }}" class="rooms-home__all">
-                Все номера
+            <a href="{{ \App\Support\PageContent::link($page, 'rooms_home_link_3') }}" class="rooms-home__all">
+                {!! nl2br(e(\App\Support\PageContent::text($page, 'rooms_home_text_2'))) !!}
                 <span>→</span>
             </a>
         </div>
@@ -483,7 +483,7 @@
 
                         @if ($roomType->area)
                             <div class="rooms-home__meta">
-                                {{ number_format($roomType->area, 0, ',', ' ') }} м²
+                                {{ number_format($roomType->{!! nl2br(e(\App\Support\PageContent::text($page, 'rooms_home_text_3'))) !!}
                             </div>
                         @endif
                     </div>
@@ -493,16 +493,18 @@
 
     </div>
 </section>
+@endif
         @endif
 
-    <section class="location-section" id="location">
+    @if(\App\Support\PageContent::visible($page, 'location-section'))
+<section class="location-section" id="location">
         <div class="container-fluid px-0">
             <div class="row g-0 align-items-center">
                 <div class="col-lg-6">
                     <img
-                        src="{{ \App\Support\ResponsiveImage::url(asset('img/07c7bba161a1.jpg'), 1000) }}"
+                        src="{{ \App\Support\PageContent::media($page, 'location_section_image_6', 1000) }}"
                         class="img-fluid w-100 location-section__image"
-                        alt="Набережная Геленджика"
+                        alt="{{ \App\Support\PageContent::text($page, 'location_section_alt_3') }}"
                     >
                 </div>
 
@@ -510,11 +512,11 @@
                     <span
                         class="text-uppercase text-gold location-section__eyebrow"
                     >
-                        ЛОКАЦИЯ —
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'location_section_text_1'))) !!}
                     </span>
 
                     <h2 class="display-5 mt-3 mb-4">
-                        В самом сердце Геленджика
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'location_section_text_2'))) !!}
                     </h2>
 
                     <div class="location-list">
@@ -557,7 +559,7 @@
                                 />
                             </svg>
 
-                            <span>2 минуты до набережной</span>
+                            <span>{!! nl2br(e(\App\Support\PageContent::text($page, 'location_section_text_3'))) !!}</span>
                         </div>
 
                         <div class="location-list__item">
@@ -605,7 +607,7 @@
                                 />
                             </svg>
 
-                            <span>Рестораны и кафе рядом</span>
+                            <span>{!! nl2br(e(\App\Support\PageContent::text($page, 'location_section_text_4'))) !!}</span>
                         </div>
 
                         <div class="location-list__item">
@@ -647,7 +649,7 @@
                                 />
                             </svg>
 
-                            <span>Парки и скверы в шаговой доступности</span>
+                            <span>{!! nl2br(e(\App\Support\PageContent::text($page, 'location_section_text_5'))) !!}</span>
                         </div>
 
                         <div class="location-list__item">
@@ -700,15 +702,15 @@
                                 />
                             </svg>
 
-                            <span>Удобная транспортная доступность</span>
+                            <span>{!! nl2br(e(\App\Support\PageContent::text($page, 'location_section_text_6'))) !!}</span>
                         </div>
                     </div>
 
                     <a
-                        href="#contacts"
+                        href="{{ \App\Support\PageContent::link($page, 'location_section_link_4') }}"
                         class="location-map-btn"
                     >
-                        Посмотреть на карте
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'location_section_text_7'))) !!}
 
                         <svg
                             class="location-map-btn__icon"
@@ -738,21 +740,23 @@
             </div>
         </div>
     </section>
+@endif
 
-    <section class="offers-home">
+    @if(\App\Support\PageContent::visible($page, 'offers-home'))
+<section class="offers-home">
     <div class="container">
 
         <div class="offers-home__head">
             <div>
                 <span class="offers-home__eyebrow">
-                    Для наших гостей
+                    {!! nl2br(e(\App\Support\PageContent::text($page, 'offers_home_text_1'))) !!}
                 </span>
 
-                <h2>Спецпредложения и акции</h2>
+                <h2>{!! nl2br(e(\App\Support\PageContent::text($page, 'offers_home_text_2'))) !!}</h2>
             </div>
 
-            <a href="{{ route('offers.index') }}" class="offers-home__all">
-                Все предложения
+            <a href="{{ \App\Support\PageContent::link($page, 'offers_home_link_5') }}" class="offers-home__all">
+                {!! nl2br(e(\App\Support\PageContent::text($page, 'offers_home_text_3'))) !!}
                 <span>→</span>
             </a>
         </div>
@@ -830,7 +834,7 @@
                                         @else
 
                                             <div class="offers-home__date">
-                                                <span>СПЕЦПРЕДЛОЖЕНИЕ</span>
+                                                <span>{!! nl2br(e(\App\Support\PageContent::text($page, 'offers_home_text_4'))) !!}</span>
                                             </div>
 
                                         @endif
@@ -875,7 +879,7 @@
 
 
                                     <span class="offers-home__more">
-                                        Подробнее
+                                        {!! nl2br(e(\App\Support\PageContent::text($page, 'offers_home_text_5'))) !!}
                                         <span>→</span>
                                     </span>
 
@@ -922,8 +926,10 @@
 
     </div>
 </section>
+@endif
 
-    <section
+    @if(\App\Support\PageContent::visible($page, 'guest-club-section'))
+<section
         class="guest-club-section bg-green"
         id="club"
     >
@@ -931,20 +937,20 @@
             <div class="guest-club">
                 <div class="guest-club__image">
                     <img
-                        src="{{ \App\Support\ResponsiveImage::url(asset('img/82db-8558b51a0d11.jpg'), 1000) }}"
-                        alt="Клуб гостей Лермонт"
+                        src="{{ \App\Support\PageContent::media($page, 'guest_club_section_image_7', 1000) }}"
+                        alt="{{ \App\Support\PageContent::text($page, 'guest_club_section_alt_4') }}"
                         loading="lazy"
                     >
                 </div>
 
                 <div class="guest-club__content">
                     <span class="guest-club__label">
-                        Клуб гостей
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'guest_club_section_text_1'))) !!}
                     </span>
 
                     <h2 class="guest-club__title">
-                        Привилегии для тех,<br>
-                        кто выбирает Лермонт
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'guest_club_section_text_2'))) !!}<br>
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'guest_club_section_text_3'))) !!}
                     </h2>
 
                     <ul class="guest-club__list">
@@ -954,7 +960,7 @@
                             </svg>
 
                             <span>
-                                Специальные тарифы только на сайте
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'guest_club_section_text_4'))) !!}
                             </span>
                         </li>
 
@@ -964,7 +970,7 @@
                             </svg>
 
                             <span>
-                                Персональные предложения
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'guest_club_section_text_5'))) !!}
                             </span>
                         </li>
 
@@ -974,21 +980,22 @@
                             </svg>
 
                             <span>
-                                Подарки и комплименты от отеля
+                                {!! nl2br(e(\App\Support\PageContent::text($page, 'guest_club_section_text_6'))) !!}
                             </span>
                         </li>
                     </ul>
 
                     <a
-                        href="{{ route('lk') }}"
+                        href="{{ \App\Support\PageContent::link($page, 'guest_club_section_link_6') }}"
                         class="guest-club__btn"
                     >
-                        Вступить в клуб
+                        {!! nl2br(e(\App\Support\PageContent::text($page, 'guest_club_section_text_7'))) !!}
                     </a>
                 </div>
             </div>
         </div>
     </section>
+@endif
 
     @if ($page)
         <div class="home-information">
@@ -1000,30 +1007,12 @@
     @include('partials.home-reviews')
 
 
-    <div class="video-lightbox" data-video-lightbox>
-    <button
-        type="button"
-        class="video-lightbox__close"
-        data-video-close
-        aria-label="Закрыть видео"
-    >
-        ×
-    </button>
-
-    <div class="video-lightbox__content">
-        <video
-            controls
-            playsinline
-            preload="none"
-            data-video-player
-        >
-            <source
-                data-media-src="{{ asset('img/sdf.mp4') }}"
-                type="video/mp4"
-            >
-        </video>
-    </div>
-</div>
+    <dialog class="video-lightbox" id="home-video-dialog" data-video-lightbox aria-label="Видео об отеле">
+        <button type="button" class="video-lightbox__close" data-video-close aria-label="Закрыть видео" autofocus>×</button>
+        <div class="video-lightbox__content">
+            <video controls playsinline preload="none" data-video-player></video>
+        </div>
+    </dialog>
 
 @endsection
 
@@ -1038,90 +1027,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const next = document.querySelector('[data-offers-next]');
 
 
-    const videoLightbox =
-    document.querySelector('[data-video-lightbox]');
+    const videoLightbox = document.querySelector('[data-video-lightbox]');
+    const videoPlayer = document.querySelector('[data-video-player]');
+    const videoClose = document.querySelector('[data-video-close]');
+    let videoOpener = null;
 
-const videoPlayer =
-    document.querySelector('[data-video-player]');
+    const closeVideoLightbox = () => {
+        if (videoLightbox?.open) videoLightbox.close();
+    };
 
-const videoClose =
-    document.querySelector('[data-video-close]');
-
-document
-    .querySelectorAll('.watchVideo')
-    .forEach((button) => {
-
-        button.addEventListener('click', (event) => {
-
+    document.querySelectorAll('.watchVideo, [data-breakfast-play]').forEach(button => {
+        button.addEventListener('click', event => {
             event.preventDefault();
-
-            if (!videoLightbox || !videoPlayer) {
-                return;
-            }
-
+            if (!videoLightbox || !videoPlayer) return;
+            const source = button.dataset.videoSrc || button.getAttribute('href');
+            if (!source) return;
+            videoOpener = button;
+            document.querySelectorAll('video').forEach(video => video.pause());
+            if (videoPlayer.getAttribute('src') !== source) {
+                videoPlayer.src = source;
+                videoPlayer.load();
+            } else videoPlayer.currentTime = 0;
+            videoLightbox.setAttribute('aria-label', button.matches('[data-breakfast-play]') ? 'Видео завтраков в отеле Лермонт' : 'Видео об отеле Лермонт');
+            videoLightbox.showModal();
             videoLightbox.classList.add('is-open');
-
-            document.body.classList.add(
-                'video-lightbox-open'
-            );
-
-            videoPlayer.currentTime = 0;
-
+            document.body.classList.add('video-lightbox-open');
             videoPlayer.play().catch(() => { videoPlayer.controls = true; });
-
         });
-
     });
-
-
-const closeVideoLightbox = () => {
-
-    if (!videoLightbox || !videoPlayer) {
-        return;
-    }
-
-    videoPlayer.pause();
-
-    videoLightbox.classList.remove('is-open');
-
-    document.body.classList.remove(
-        'video-lightbox-open'
-    );
-
-};
-
-
-videoClose?.addEventListener(
-    'click',
-    closeVideoLightbox
-);
-
-
-videoLightbox?.addEventListener(
-    'click',
-    (event) => {
-
-        if (event.target === videoLightbox) {
-            closeVideoLightbox();
-        }
-
-    }
-);
-
-
-document.addEventListener(
-    'keydown',
-    (event) => {
-
-        if (
-            event.key === 'Escape' &&
-            videoLightbox?.classList.contains('is-open')
-        ) {
-            closeVideoLightbox();
-        }
-
-    }
-);
+    videoClose?.addEventListener('click', closeVideoLightbox);
+    videoLightbox?.addEventListener('click', event => {
+        if (event.target === videoLightbox) closeVideoLightbox();
+    });
+    videoLightbox?.addEventListener('cancel', event => {
+        event.preventDefault();
+        closeVideoLightbox();
+    });
+    videoLightbox?.addEventListener('close', () => {
+        videoPlayer?.pause();
+        videoLightbox.classList.remove('is-open');
+        document.body.classList.remove('video-lightbox-open');
+        videoOpener?.focus({ preventScroll: true });
+    });
 
     if (!slider) {
         return;
@@ -1155,54 +1102,6 @@ document.addEventListener(
         });
     });
 
-    const breakfastVideo =
-    document.querySelector('[data-breakfast-video]');
-
-const breakfastPlay =
-    document.querySelector('[data-breakfast-play]');
-
-if (breakfastVideo && breakfastPlay) {
-
-    breakfastPlay.addEventListener('click', () => {
-
-        if (breakfastVideo.paused) {
-
-            breakfastVideo.play().catch(() => { breakfastVideo.controls = true; breakfastPlay.style.opacity = '1'; breakfastPlay.style.pointerEvents = ''; });
-
-            breakfastPlay.style.opacity = '0';
-            breakfastPlay.style.pointerEvents = 'none';
-
-        } else {
-
-            breakfastVideo.pause();
-
-        }
-
-    });
-
-
-    breakfastVideo.addEventListener('click', () => {
-
-        if (!breakfastVideo.paused) {
-
-            breakfastVideo.pause();
-
-            breakfastPlay.style.opacity = '1';
-            breakfastPlay.style.pointerEvents = '';
-
-        }
-
-    });
-
-
-    breakfastVideo.addEventListener('ended', () => {
-
-        breakfastPlay.style.opacity = '1';
-        breakfastPlay.style.pointerEvents = '';
-
-    });
-
-}
 
 });
 </script>

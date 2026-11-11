@@ -301,7 +301,7 @@
 
 :where(.breakfast-page) .breakfast-special__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 18px;
 }
 
@@ -524,3 +524,6 @@
         flex-direction: column;
     }
 }
+
+a.breakfast-special__card {display:block;text-decoration:none;border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer;text-transform:none;letter-spacing:normal;}
+a.breakfast-special__card:focus-visible {outline:2px solid var(--gold);outline-offset:4px;}

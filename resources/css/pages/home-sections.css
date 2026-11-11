@@ -891,3 +891,8 @@ body.video-lightbox-open {
         height: 42px;
     }
 }
+
+/* Native dialog keeps focus inside the player and makes the page inert. */
+dialog.video-lightbox { margin: 0; border: 0; width: 100vw; max-width: none; height: 100dvh; max-height: none; box-sizing: border-box; }
+dialog.video-lightbox:not([open]) { display: none; }
+dialog.video-lightbox::backdrop { background: transparent; }

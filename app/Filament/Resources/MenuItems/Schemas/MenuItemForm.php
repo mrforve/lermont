@@ -26,7 +26,8 @@ class MenuItemForm
                             ->label('Расположение')
                             ->options([
                                 'header' => 'Главное меню',
-                                'footer' => 'Меню в подвале',
+                                'footer' => 'Подвал — Информация',
+                                'footer_legal' => 'Подвал — юридические ссылки',
                                 'mobile' => 'Мобильное меню',
                             ])
                             ->default('header')

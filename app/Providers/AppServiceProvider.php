@@ -47,10 +47,18 @@ class AppServiceProvider extends ServiceProvider
                 ->orderBy('sort_order')
                 ->get();
 
+            $footerLegalMenu = MenuItem::query()
+                ->with('page')
+                ->where('location', 'footer_legal')
+                ->whereNull('parent_id')
+                ->where('is_active', true)
+                ->orderBy('sort_order')->orderBy('id')->get();
+
             $view->with([
                 'settings' => $settings,
                 'headerMenu' => $headerMenu,
                 'footerMenu' => $footerMenu,
+                'footerLegalMenu' => $footerLegalMenu,
             ]);
         });
     }

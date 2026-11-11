@@ -17,36 +17,36 @@
                 <div class="page-eyebrow page-eyebrow--dark"><span></span> КОНТАКТЫ</div>
                 <h2>Свяжитесь с нами</h2>
                 <div class="contacts-list">
+                    @if($settings?->address)
                     <div class="contacts-list__item">
                         <span class="contacts-list__icon">⌖</span>
-                        <div><small>Адрес</small><strong>353460, г. Геленджик,<br>ул. Первомайская, 7</strong></div>
+                        <div><small>Адрес</small><strong>{!! nl2br(e($settings?->address)) !!}</strong></div>
                     </div>
-                    <a class="contacts-list__item" href="tel:+79282414322">
-                        <span class="contacts-list__icon">☎</span>
-                        <div><small>Телефон</small><strong>+7 (928) 241-43-22</strong></div>
-                    </a>
-                    <a class="contacts-list__item" href="mailto:info@hotel-lermont.ru">
-                        <span class="contacts-list__icon">✉</span>
-                        <div><small>Электронная почта</small><strong>info@hotel-lermont.ru</strong></div>
-                    </a>
+                    @endif
+                    @foreach (['phone'=>'Телефон','phone_secondary'=>'Дополнительный телефон'] as $field=>$label)
+                        @if($phoneHref = \App\Support\PublicContacts::phone($settings?->{$field}))
+                        <a class="contacts-list__item" href="tel:{{ $phoneHref }}"><span class="contacts-list__icon">☎</span><div><small>{{ $label }}</small><strong>{{ $settings->{$field} }}</strong></div></a>
+                        @endif
+                    @endforeach
+                    @if($email = \App\Support\PublicContacts::email($settings?->email))
+                    <a class="contacts-list__item" href="mailto:{{ $email }}"><span class="contacts-list__icon">✉</span><div><small>Электронная почта</small><strong>{{ $email }}</strong></div></a>
+                    @endif
+                    @if($settings?->working_hours)<div class="contacts-list__item"><span class="contacts-list__icon">◷</span><div><small>Время работы</small><strong>{{ $settings->working_hours }}</strong></div></div>@endif
                 </div>
                 <div class="contacts-actions">
-                    <a class="btn btn-gold" href="tel:+79282414322">Позвонить</a>
-                    <a class="about-outline-btn"
-					   href="https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA"
-					   target="_blank"
-					   rel="noopener">
-						Написать в MAX
-					</a>
+                    @if($phoneHref = \App\Support\PublicContacts::phone($settings?->phone))<a class="btn btn-gold" href="tel:{{ $phoneHref }}">Позвонить</a>@endif
+                    @if($maxUrl = \App\Support\PublicContacts::url($settings?->max_chat_url))<a class="about-outline-btn" href="{{ $maxUrl }}" target="_blank" rel="noopener noreferrer">Написать в MAX</a>@endif
                 </div>
             </div>
             <div class="contacts-map">
+                @if(\App\Support\PublicContacts::url($settings?->map_embed_url))
                 <iframe
-                    src="https://yandex.ru/map-widget/v1/?ll=38.07958%2C44.55988&z=17&pt=38.07958,44.55988,pm2rdm"
+                    src="{{ \App\Support\PublicContacts::url($settings?->map_embed_url) }}"
                     title="Отель Лермонт на карте"
                     loading="lazy"
                     allowfullscreen
                 ></iframe>
+                @endif
             </div>
         </div>
         <div class="contacts-route">
@@ -56,9 +56,9 @@
                 <p>Откройте удобный навигатор — адрес отеля уже указан.</p>
             </div>
             <div class="contacts-route__links">
-                <a href="https://www.google.ru/maps?newwindow=1&q=%D0%BE%D1%82%D0%B5%D0%BB%D1%8C+%D0%BB%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D1%82+%D0%B3%D0%B5%D0%BB%D0%B5%D0%BD%D0%B4%D0%B6%D0%B8%D0%BA" target="_blank" rel="noopener">Google Maps</a>
-                <a href="https://yandex.ru/maps/-/CCVPFBOU" target="_blank" rel="noopener">Яндекс Карты</a>
-                <a href="https://m.2gis.ru/gelendzhik/firm/70000001006398601?m=38.07958%2C44.55988%2F18" target="_blank" rel="noopener">2ГИС</a>
+                @foreach (['google','yandex','2gis'] as $key)
+                    @if($link = \App\Support\PublicContacts::links($settings)[$key] ?? null)<a href="{{ $link['url'] }}" target="_blank" rel="noopener noreferrer">{{ $link['label'] }}</a>@endif
+                @endforeach
             </div>
         </div>
         <div class="contacts-bottom-grid">
@@ -66,29 +66,20 @@
                 <div class="page-eyebrow page-eyebrow--dark"><span></span> РЕКВИЗИТЫ</div>
                 <h2>Юридическая информация</h2>
                 <dl>
-                    <div><dt>Наименование</dt><dd>ИП Стефанова И.Г.</dd></div>
-                    <div><dt>ОГРН</dt><dd>316230400053708</dd></div>
-                    <div><dt>ИНН</dt><dd>230404441527</dd></div>
+                    @if($settings?->company_name)<div><dt>Наименование</dt><dd>{{ $settings?->company_name }}</dd></div>@endif
+                    @if($settings?->company_ogrn)<div><dt>ОГРН</dt><dd>{{ $settings?->company_ogrn }}</dd></div>@endif
+                    @if($settings?->company_inn)<div><dt>ИНН</dt><dd>{{ $settings?->company_inn }}</dd></div>@endif
                 </dl>
             </div>
             <div class="contacts-socials">
                 <div class="page-eyebrow page-eyebrow--dark"><span></span> МЫ НА СВЯЗИ</div>
                 <h2>Социальные сети</h2>
                 <div class="contacts-socials__grid">
-					<a href="https://max.ru/u/f9LHodD0cOK4G43DwSuPA5VIJa5VpTvBReELJPM9XQC3q5I1UzjmGjBXVVA"
-					   target="_blank"
-					   rel="noopener">
-						<svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#6655e8"/><path d="M8 23V13a8 8 0 1 1 4 7l-4 3Z" fill="white"/><path d="M13 17v-5l3 3 3-3v5" fill="none" stroke="#6655e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>MAX — написать</span>
-					</a>
-
-					<a href="https://max.ru/id230404441527_biz"
-					   target="_blank"
-					   rel="noopener">
-						<svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#6655e8"/><path d="M8 23V13a8 8 0 1 1 4 7l-4 3Z" fill="white"/><path d="M13 17v-5l3 3 3-3v5" fill="none" stroke="#6655e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Канал MAX</span>
-					</a>
-                    <a href="https://vk.com/hotellermont" target="_blank" rel="noopener"><svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#0077ff"/><path d="M6 10h4c.3 5 2.5 7.2 4 7.7V10h3.7v4.4c1.5-.2 3-2.3 3.5-4.4H25c-.5 2.6-2.3 4.7-3.6 5.6 1.3.7 3.4 2.6 4.2 6.4h-4.2c-.6-2.1-2-3.8-3.7-4v4H16C9.6 22 6.3 17.5 6 10Z" fill="white"/></svg><span>ВКонтакте</span></a>
-                    <a href="https://ok.ru/group/62027103731756" target="_blank" rel="noopener"><svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#ee8208"/><circle cx="16" cy="10" r="4" fill="none" stroke="white" stroke-width="2.7"/><path d="M10 17q6 4 12 0M16 20v2m0-1-5 6m5-6 5 6" fill="none" stroke="white" stroke-width="2.7" stroke-linecap="round"/></svg><span>Одноклассники</span></a>
-                    <a href="https://www.tripadvisor.ru/Hotel_Review-g298514-d12824127-Reviews-Hotel_Lermont-Gelendzhik_Gelendzhiksky_District_Krasnodar_Krai_Southern_District.html" target="_blank" rel="noopener"><svg class="contacts-socials__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#34e0a1"/><path d="m7 12-2-3h22l-2 3M13 18l3 3 3-3" fill="none" stroke="#10251b" stroke-width="2"/><circle cx="10.5" cy="16" r="5.5" fill="none" stroke="#10251b" stroke-width="2"/><circle cx="21.5" cy="16" r="5.5" fill="none" stroke="#10251b" stroke-width="2"/><circle cx="10.5" cy="16" r="2" fill="#10251b"/><circle cx="21.5" cy="16" r="2" fill="#10251b"/></svg><span>Tripadvisor</span></a>
+                    @foreach (['max_chat','max','vk','ok','rutube','dzen','tripadvisor','telegram','whatsapp','youtube'] as $key)
+                        @php($link = \App\Support\PublicContacts::links($settings)[$key] ?? null)
+                        @continue(!$link)
+                        <a href="{{ $link['url'] }}" target="_blank" rel="noopener noreferrer">@include('partials.contact-social-icon')<span>{{ $link['label'] }}</span></a>
+                    @endforeach
                 </div>
             </div>
         </div>

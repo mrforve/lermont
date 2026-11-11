@@ -3,8 +3,8 @@
         ? 'main-header--home'
         : 'main-header--inner';
 
-    $hotelPhone = '+7 (928) 241-43-22';
-    $hotelPhoneHref = '+79282414322';
+    $hotelPhone = $settings?->phone;
+    $hotelPhoneHref = \App\Support\PublicContacts::phone($hotelPhone);
 @endphp
 <nav
     class="navbar main-header {{ $headerModifier }}"
@@ -39,7 +39,8 @@
         </a>
 
         <div class="header-mobile-actions">
-            <a
+            @if($hotelPhoneHref)
+<a
                 href="tel:{{ $hotelPhoneHref }}"
                 class="header-mobile-phone"
                 aria-label="Позвонить в отель: {{ $hotelPhone }}"
@@ -54,11 +55,7 @@
                     />
                 </svg>
             </a>
-
-            <select class="header-mobile-lang" aria-label="Выбор языка">
-                <option value="ru">RU</option>
-                <option value="en">EN</option>
-            </select>
+@endif
 
             <button
                 class="header-burger"
@@ -104,7 +101,8 @@
             </ul>
 
             <div class="header-menu__actions">
-                <a
+                @if($hotelPhoneHref)
+<a
                     href="tel:{{ $hotelPhoneHref }}"
                     class="phone-btn"
                     aria-label="Позвонить в отель: {{ $hotelPhone }}"
@@ -125,6 +123,7 @@
                     </svg>
                     {{ $hotelPhone }}
                 </a>
+@endif
 
                 <a class="btn btn-gold header-book-btn" href="{{ route('booking') }}">
                     Забронировать

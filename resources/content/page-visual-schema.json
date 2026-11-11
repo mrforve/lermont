@@ -1,0 +1,616 @@
+{
+  "home": {
+    "hero": {
+      "label": "Первый экран",
+      "fields": [
+        {
+          "type": "text",
+          "key": "hero_text_1",
+          "label": "ПРОВЕРИТЬ ДАТЫ"
+        },
+        {
+          "type": "text",
+          "key": "hero_text_2",
+          "label": "СМОТРЕТЬ ВИДЕО"
+        },
+        {
+          "type": "text",
+          "key": "hero_text_3",
+          "label": "Для поиска номеров включите JavaScript в браузере."
+        },
+        {
+          "type": "video",
+          "key": "hero_video_1",
+          "label": "Видео — sdf.mp4"
+        },
+        {
+          "type": "link",
+          "key": "hero_link_1",
+          "label": "Ссылка кнопки — /booking"
+        }
+      ]
+    },
+    "advantages-section": {
+      "label": "Преимущества",
+      "fields": [
+        {
+          "type": "text",
+          "key": "advantages_section_text_1",
+          "label": "ЦЕНТР ГОРОДА"
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_2",
+          "label": "Набережная, рестораны и парки в шаговой доступности."
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_3",
+          "label": "23 НОМЕРА"
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_4",
+          "label": "Просторные номера разных категорий."
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_5",
+          "label": "ЗАВТРАКИ"
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_6",
+          "label": "Включены в проживание."
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_7",
+          "label": "ПАРКОВКА"
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_8",
+          "label": "Напротив отеля. При прямом бронировании комплиментарно"
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_9",
+          "label": "КЛУБ ГОСТЕЙ"
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_10",
+          "label": "Клуб гостей: привилегии и специальные предложения"
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_11",
+          "label": "ЗАРЯДКА АВТО"
+        },
+        {
+          "type": "text",
+          "key": "advantages_section_text_12",
+          "label": "Зарядка для электромобилей."
+        }
+      ]
+    },
+    "home-breakfast": {
+      "label": "Завтраки на главной",
+      "fields": [
+        {
+          "type": "text",
+          "key": "home_breakfast_text_1",
+          "label": "ДОБРОЕ УТРО В «ЛЕРМОНТЕ»"
+        },
+        {
+          "type": "text",
+          "key": "home_breakfast_text_2",
+          "label": "Утро начинается"
+        },
+        {
+          "type": "text",
+          "key": "home_breakfast_text_3",
+          "label": "в «Лермонте»"
+        },
+        {
+          "type": "text",
+          "key": "home_breakfast_text_4",
+          "label": "Шведский стол, любимые блюда и время для себя."
+        },
+        {
+          "type": "text",
+          "key": "home_breakfast_text_5",
+          "label": "Смотреть видео"
+        },
+        {
+          "type": "text",
+          "key": "home_breakfast_text_6",
+          "label": "Подробнее"
+        },
+        {
+          "type": "video",
+          "key": "home_breakfast_video_2",
+          "label": "Видео — breakfast.mp4"
+        },
+        {
+          "type": "media",
+          "key": "home_breakfast_image_3",
+          "label": "Изображение — KIR_4324.jpg"
+        },
+        {
+          "type": "media",
+          "key": "home_breakfast_image_4",
+          "label": "Изображение — KIR_4350.jpg"
+        },
+        {
+          "type": "media",
+          "key": "home_breakfast_image_5",
+          "label": "Изображение — KIR_4324.jpg"
+        },
+        {
+          "type": "text",
+          "key": "home_breakfast_alt_1",
+          "label": "Описание изображения (alt) 1"
+        },
+        {
+          "type": "text",
+          "key": "home_breakfast_alt_2",
+          "label": "Описание изображения (alt) 2"
+        },
+        {
+          "type": "link",
+          "key": "home_breakfast_link_2",
+          "label": "Ссылка кнопки — /breakfast"
+        }
+      ]
+    },
+    "rooms-home": {
+      "label": "Номера",
+      "fields": [
+        {
+          "type": "text",
+          "key": "rooms_home_text_1",
+          "label": "Выберите свой номер"
+        },
+        {
+          "type": "text",
+          "key": "rooms_home_text_2",
+          "label": "Все номера"
+        },
+        {
+          "type": "text",
+          "key": "rooms_home_text_3",
+          "label": "area, 0, ',', ' ') }} м²"
+        },
+        {
+          "type": "link",
+          "key": "rooms_home_link_3",
+          "label": "Ссылка кнопки — /rooms"
+        }
+      ]
+    },
+    "location-section": {
+      "label": "Расположение",
+      "fields": [
+        {
+          "type": "text",
+          "key": "location_section_text_1",
+          "label": "ЛОКАЦИЯ —"
+        },
+        {
+          "type": "text",
+          "key": "location_section_text_2",
+          "label": "В самом сердце Геленджика"
+        },
+        {
+          "type": "text",
+          "key": "location_section_text_3",
+          "label": "2 минуты до набережной"
+        },
+        {
+          "type": "text",
+          "key": "location_section_text_4",
+          "label": "Рестораны и кафе рядом"
+        },
+        {
+          "type": "text",
+          "key": "location_section_text_5",
+          "label": "Парки и скверы в шаговой доступности"
+        },
+        {
+          "type": "text",
+          "key": "location_section_text_6",
+          "label": "Удобная транспортная доступность"
+        },
+        {
+          "type": "text",
+          "key": "location_section_text_7",
+          "label": "Посмотреть на карте"
+        },
+        {
+          "type": "media",
+          "key": "location_section_image_6",
+          "label": "Изображение — 07c7bba161a1.jpg"
+        },
+        {
+          "type": "text",
+          "key": "location_section_alt_3",
+          "label": "Описание изображения (alt) 3"
+        },
+        {
+          "type": "link",
+          "key": "location_section_link_4",
+          "label": "Ссылка кнопки — #contacts"
+        }
+      ]
+    },
+    "offers-home": {
+      "label": "Акции",
+      "fields": [
+        {
+          "type": "text",
+          "key": "offers_home_text_1",
+          "label": "Для наших гостей"
+        },
+        {
+          "type": "text",
+          "key": "offers_home_text_2",
+          "label": "Спецпредложения и акции"
+        },
+        {
+          "type": "text",
+          "key": "offers_home_text_3",
+          "label": "Все предложения"
+        },
+        {
+          "type": "text",
+          "key": "offers_home_text_4",
+          "label": "СПЕЦПРЕДЛОЖЕНИЕ"
+        },
+        {
+          "type": "text",
+          "key": "offers_home_text_5",
+          "label": "Подробнее"
+        },
+        {
+          "type": "link",
+          "key": "offers_home_link_5",
+          "label": "Ссылка кнопки — /offers"
+        }
+      ]
+    },
+    "guest-club-section": {
+      "label": "Клуб гостей",
+      "fields": [
+        {
+          "type": "text",
+          "key": "guest_club_section_text_1",
+          "label": "Клуб гостей"
+        },
+        {
+          "type": "text",
+          "key": "guest_club_section_text_2",
+          "label": "Привилегии для тех,"
+        },
+        {
+          "type": "text",
+          "key": "guest_club_section_text_3",
+          "label": "кто выбирает Лермонт"
+        },
+        {
+          "type": "text",
+          "key": "guest_club_section_text_4",
+          "label": "Специальные тарифы только на сайте"
+        },
+        {
+          "type": "text",
+          "key": "guest_club_section_text_5",
+          "label": "Персональные предложения"
+        },
+        {
+          "type": "text",
+          "key": "guest_club_section_text_6",
+          "label": "Подарки и комплименты от отеля"
+        },
+        {
+          "type": "text",
+          "key": "guest_club_section_text_7",
+          "label": "Вступить в клуб"
+        },
+        {
+          "type": "media",
+          "key": "guest_club_section_image_7",
+          "label": "Изображение — 82db-8558b51a0d11.jpg"
+        },
+        {
+          "type": "text",
+          "key": "guest_club_section_alt_4",
+          "label": "Описание изображения (alt) 4"
+        },
+        {
+          "type": "link",
+          "key": "guest_club_section_link_6",
+          "label": "Ссылка кнопки — /lk"
+        }
+      ]
+    },
+    "reviews": {
+      "label": "Отзывы",
+      "fields": [
+        {
+          "type": "text",
+          "key": "reviews_text_4",
+          "label": "Отзывы гостей об отеле «Лермонт»"
+        },
+        {
+          "type": "text",
+          "key": "reviews_text_6",
+          "label": "Впечатления о номерах, завтраках и сервисе помогут вам спланировать отдых."
+        },
+        {
+          "type": "text",
+          "key": "reviews_text_9",
+          "label": "Все отзывы →"
+        },
+        {
+          "type": "text",
+          "key": "reviews_text_13",
+          "label": "Читать отзывы на Яндекс Картах"
+        },
+        {
+          "type": "text",
+          "key": "reviews_text_16",
+          "label": "Открыть отзывы на Яндекс Картах"
+        }
+      ]
+    }
+  },
+  "breakfast": {
+    "breakfast-hero": {
+      "label": "Первый экран",
+      "fields": [
+        {
+          "type": "text",
+          "key": "breakfast_hero_text_1",
+          "label": "Доброе утро в «Лермонте»"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_hero_text_2",
+          "label": "Утро"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_hero_text_3",
+          "label": "в «Лермонте»"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_hero_text_4",
+          "label": "Шведский стол и время для себя"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_hero_text_5",
+          "label": "Завтрак включён в проживание"
+        },
+        {
+          "type": "media",
+          "key": "breakfast_hero_image_1",
+          "label": "Изображение — KIR_4324.jpg"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_hero_alt_1",
+          "label": "Описание изображения (alt) 1"
+        }
+      ]
+    },
+    "breakfast-intro": {
+      "label": "Вводный текст",
+      "fields": [
+        {
+          "type": "text",
+          "key": "breakfast_intro_text_1",
+          "label": "Выбирайте любимое и пробуйте новое: блюда меняются по дням недели."
+        }
+      ]
+    },
+    "breakfast-video": {
+      "label": "Видео завтраков",
+      "fields": [
+        {
+          "type": "text",
+          "key": "breakfast_video_text_1",
+          "label": "Посмотреть завтрак"
+        },
+        {
+          "type": "video",
+          "key": "breakfast_video_video_2",
+          "label": "Видео — breakfast.mp4"
+        },
+        {
+          "type": "media",
+          "key": "breakfast_video_image_3",
+          "label": "Изображение — KIR_4350.jpg"
+        }
+      ]
+    },
+    "breakfast-details": {
+      "label": "Завтрак в деталях",
+      "fields": [
+        {
+          "type": "text",
+          "key": "breakfast_details_text_1",
+          "label": "Завтрак в деталях"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_details_text_2",
+          "label": "Уютная атмосфера"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_details_text_3",
+          "label": "Горячие блюда и блинчики"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_details_text_4",
+          "label": "Кофе, чай и выпечка"
+        },
+        {
+          "type": "media",
+          "key": "breakfast_details_image_4",
+          "label": "Изображение — KIR_4350.jpg"
+        },
+        {
+          "type": "media",
+          "key": "breakfast_details_image_5",
+          "label": "Изображение — KIR_4324.jpg"
+        },
+        {
+          "type": "media",
+          "key": "breakfast_details_image_6",
+          "label": "Изображение — KIR_4350.jpg"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_details_alt_2",
+          "label": "Описание изображения (alt) 2"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_details_alt_3",
+          "label": "Описание изображения (alt) 3"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_details_alt_4",
+          "label": "Описание изображения (alt) 4"
+        }
+      ]
+    },
+    "breakfast-buffet": {
+      "label": "Зал для завтраков",
+      "fields": [
+        {
+          "type": "text",
+          "key": "breakfast_buffet_text_1",
+          "label": "Место для"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_buffet_text_2",
+          "label": "неспешного утра"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_buffet_text_3",
+          "label": "Светлый зал, уютные столики и приятное начало дня."
+        },
+        {
+          "type": "media",
+          "key": "breakfast_buffet_image_7",
+          "label": "Изображение — KIR_4324.jpg"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_buffet_alt_5",
+          "label": "Описание изображения (alt) 5"
+        }
+      ]
+    },
+    "breakfast-special": {
+      "label": "Особенные утра",
+      "fields": [
+        {
+          "type": "text",
+          "key": "breakfast_special_text_1",
+          "label": "Особенные утра"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_special_text_2",
+          "label": "Праздники тоже вкуснее в «Лермонте»"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_special_text_3",
+          "label": "Новогодний завтрак"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_special_text_4",
+          "label": "Здесь будет ваше видео"
+        },
+        {
+          "type": "media",
+          "key": "breakfast_special_image_8",
+          "label": "Изображение — KIR_4350.jpg"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_special_alt_6",
+          "label": "Описание изображения (alt) 6"
+        },
+        {
+          "type": "video",
+          "key": "breakfast_special_video_1",
+          "label": "Видео карточки «Особенные утра» 1"
+        }
+      ]
+    },
+    "breakfast-early": {
+      "label": "Ранний выезд",
+      "fields": [
+        {
+          "type": "text",
+          "key": "breakfast_early_text_1",
+          "label": "Уезжаете рано?"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_early_text_2",
+          "label": "Подготовим для вас ланч-бокс с лёгким перекусом: круассаном или печеньем, я"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_early_text_3",
+          "label": "Пожалуйста, сообщите администратору о раннем выезде накануне."
+        }
+      ]
+    },
+    "breakfast-cta": {
+      "label": "Кнопки внизу страницы",
+      "fields": [
+        {
+          "type": "text",
+          "key": "breakfast_cta_text_1",
+          "label": "Начните отдых с приятного утра"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_cta_text_2",
+          "label": "Выбрать номер →"
+        },
+        {
+          "type": "text",
+          "key": "breakfast_cta_text_3",
+          "label": "Задать вопрос"
+        },
+        {
+          "type": "link",
+          "key": "breakfast_cta_link_1",
+          "label": "Ссылка кнопки — /rooms"
+        },
+        {
+          "type": "link",
+          "key": "breakfast_cta_contact_link",
+          "label": "Кнопка «Задать вопрос» — ссылка"
+        }
+      ]
+    }
+  }
+}

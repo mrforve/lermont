@@ -45,6 +45,11 @@ class SiteSettingResource extends Resource
         return SiteSettingsTable::configure($table);
     }
 
+    public static function getNavigationUrl(): string
+    {
+        return static::getUrl('edit', ['record' => 1]);
+    }
+
     public static function getRelations(): array
     {
         return [];

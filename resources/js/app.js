@@ -1,3 +1,4 @@
+import './components/page-video-dialog.js';
 import './components/travelline-layout.js';
 import './components/deferred-media.js';
 import './components/travelline.js';

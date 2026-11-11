@@ -74,6 +74,7 @@ class SiteSettingForm
 
                         Textarea::make('address')
                             ->label('Адрес')
+                            ->helperText('Переносы строк сохраняются на сайте.')
                             ->rows(3)
                             ->columnSpanFull(),
                     ])
@@ -100,8 +101,22 @@ class SiteSettingForm
                             ->label('YouTube')
                             ->url()
                             ->maxLength(255),
+                        TextInput::make('max_chat_url')->label('MAX — написать')->url()->maxLength(2048),
+                        TextInput::make('max_channel_url')->label('Канал в MAX')->url()->maxLength(2048),
+                        TextInput::make('ok_url')->label('Одноклассники')->url()->maxLength(2048),
+                        TextInput::make('rutube_url')->label('Rutube')->url()->maxLength(2048),
+                        TextInput::make('dzen_url')->label('Дзен')->url()->maxLength(2048),
+                        TextInput::make('tripadvisor_url')->label('Tripadvisor')->url()->maxLength(2048),
                     ])
                     ->columns(2),
+
+                Section::make('Карты и маршруты')
+                    ->schema([
+                        TextInput::make('google_maps_url')->label('Google Maps')->url()->maxLength(2048),
+                        TextInput::make('yandex_maps_url')->label('Яндекс Карты')->url()->maxLength(2048),
+                        TextInput::make('gis_maps_url')->label('2ГИС')->url()->maxLength(2048),
+                        TextInput::make('map_embed_url')->label('URL встроенной карты (iframe)')->url()->maxLength(2048),
+                    ])->columns(2)->columnSpanFull(),
 
                 Section::make('Уведомления MAX')
                     ->description('Дублирование новых заявок в закрытый канал или чат. Email продолжает работать независимо.')

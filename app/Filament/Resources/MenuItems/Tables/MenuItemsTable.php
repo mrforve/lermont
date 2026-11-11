@@ -24,7 +24,8 @@ class MenuItemsTable
                 TextColumn::make('location')
                     ->label('Расположение')
                     ->formatStateUsing(fn (string $state): string => match ($state) {
-                        'footer' => 'Подвал',
+                        'footer' => 'Подвал — Информация',
+                        'footer_legal' => 'Подвал — юридические ссылки',
                         'mobile' => 'Мобильное',
                         default => 'Главное',
                     })
@@ -59,7 +60,8 @@ class MenuItemsTable
                     ->label('Расположение')
                     ->options([
                         'header' => 'Главное меню',
-                        'footer' => 'Меню в подвале',
+                        'footer' => 'Подвал — Информация',
+                                'footer_legal' => 'Подвал — юридические ссылки',
                         'mobile' => 'Мобильное меню',
                     ]),
 

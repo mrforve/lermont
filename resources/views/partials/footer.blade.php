@@ -19,30 +19,30 @@
                         <span class="site-logo__mark">Л</span><span class="site-logo__text">ЛЕРМОНТ</span><span class="site-logo__sub">отель</span>
                     @endif
                 </a>
-                <p class="mt-3 mb-3">Камерный отель в центре Геленджика.<br>Тишина, комфорт и забота в каждой детали.</p>
+                @if ($settings?->footer_text)<p class="mt-3 mb-3">{!! nl2br(e($settings->footer_text)) !!}</p>@endif
                 @include('partials.external-links', ['includeMaps' => true])
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <div class="h6 footer-title">Информация</div>
                 <ul class="list-unstyled mb-0">
-                    <li><a href="{{ url('/services') }}">Услуги</a></li>
-                    <li><a href="{{ url('/gallery') }}">Галерея</a></li>
-                    <li><a href="{{ route('reviews') }}">Отзывы</a></li>
-                    <li><a href="{{ route('lk') }}">Личный кабинет гостя</a></li>
-                    <li><a href="{{ url('/about') }}">Об отеле</a></li>
-                    <li><a href="{{ url('/contacts') }}">Как добраться</a></li>
-                    <li><a href="{{ asset('documents/consumer/pravila-prozhivaniya.pdf') }}" target="_blank" rel="noopener noreferrer">Правила проживания</a></li>
-                    <li><a href="{{ url('/ugolok-potrebitelya') }}">Уголок потребителя</a></li>
+                    @foreach ($footerMenu as $item)
+                        @php($href = \App\Support\PublicContacts::url($item->resolved_url, true))
+                        @continue(!$href)
+                        <li><a href="{{ $href }}" @if($item->target === '_blank') target="_blank" rel="noopener noreferrer" @endif>{{ $item->title }}</a></li>
+                    @endforeach
                 </ul>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <div class="h6 footer-title">Контакты</div>
                 <ul class="list-unstyled mb-0 footer-contacts">
-                    <li>353460, г. Геленджик,<br>ул. Первомайская, 7</li>
-                    <li><a href="tel:+79282414322">+7 (928) 241-43-22</a></li>
-                    <li><a href="mailto:info@hotel-lermont.ru">info@hotel-lermont.ru</a></li>
+                    @if($settings?->address)<li>{!! nl2br(e($settings->address)) !!}</li>@endif
+                    @foreach (['phone','phone_secondary'] as $field)
+                        @if($phoneHref = \App\Support\PublicContacts::phone($settings?->{$field}))<li><a href="tel:{{ $phoneHref }}">{{ $settings->{$field} }}</a></li>@endif
+                    @endforeach
+                    @if($email = \App\Support\PublicContacts::email($settings?->email))<li><a href="mailto:{{ $email }}">{{ $email }}</a></li>@endif
+                    @if($settings?->working_hours)<li>{{ $settings->working_hours }}</li>@endif
                 </ul>
             </div>
 
@@ -61,9 +61,11 @@
         <div class="footer-bottom d-flex flex-wrap justify-content-between gap-3 small">
             <span>© {{ now()->year }} {{ $settings?->site_name ?? 'Отель Лермонт' }}. Все права защищены.</span>
             <span class="d-flex flex-wrap gap-4">
-                <a href="{{ asset('documents/consumer/politika-konfidencialnosti.pdf') }}" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
-                <a href="{{ asset('documents/consumer/politika-obrabotki-personalnyh-dannyh.pdf') }}" target="_blank" rel="noopener noreferrer">Политика обработки персональных данных</a>
-                <a href="{{ asset('documents/consumer/soglasie-na-obrabotku-personalnyh-dannyh.pdf') }}" target="_blank" rel="noopener noreferrer">Согласие на обработку персональных данных</a>
+                @foreach ($footerLegalMenu as $item)
+                    @php($href = \App\Support\PublicContacts::url($item->resolved_url, true))
+                    @continue(!$href)
+                    <a href="{{ $href }}" @if($item->target === '_blank') target="_blank" rel="noopener noreferrer" @endif>{{ $item->title }}</a>
+                @endforeach
             </span>
         </div>
     </div>

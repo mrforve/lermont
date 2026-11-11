@@ -10,7 +10,7 @@ class SiteSetting extends Model
     protected $hidden = ['max_bot_token', 'travelline_client_secret', 'travelline_api_key'];
     protected function casts(): array
     {
-        return ['travelline_client_secret' => 'encrypted', 'travelline_api_key' => 'encrypted', 'travelline_api_enabled' => 'boolean', 'max_bot_token' => 'encrypted', 'max_notifications_enabled' => 'boolean'];
+        return ['footer_links' => 'array', 'footer_legal_links' => 'array', 'travelline_client_secret' => 'encrypted', 'travelline_api_key' => 'encrypted', 'travelline_api_enabled' => 'boolean', 'max_bot_token' => 'encrypted', 'max_notifications_enabled' => 'boolean'];
     }
 
     protected $fillable = [
@@ -37,6 +37,18 @@ class SiteSetting extends Model
         'travelline_api_key',
         'travelline_hotel_id',
         'travelline_booking_url',
+        'max_chat_url',
+        'max_channel_url',
+        'ok_url',
+        'rutube_url',
+        'dzen_url',
+        'tripadvisor_url',
+        'google_maps_url',
+        'yandex_maps_url',
+        'gis_maps_url',
+        'map_embed_url',
+        'footer_links',
+        'footer_legal_links',
         'footer_text',
         'company_name',
         'company_inn',
